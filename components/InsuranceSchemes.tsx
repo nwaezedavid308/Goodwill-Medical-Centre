@@ -21,7 +21,7 @@ const SCHEMES = [
     )
   },
   {
-    name: 'ÇEMOC for Pregnancy Emergencies',
+    name: 'CEMOC for Pregnancy Emergencies',
     description: 'Comprehensive Emergency Obstetric and Newborn Care, specifically designed to protect mothers and babies during crises.',
     icon: (
       <svg className="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">

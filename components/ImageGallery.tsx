@@ -2,21 +2,21 @@
 import React from 'react';
 
 const GALLERY_IMAGES = [
-  { src: './Goodwill-medical-centre-front-view.jpg', title: 'Main Hospital Front', category: 'Facility' },
-  { src: './signage.jpg', title: 'Quality Care Signage', category: 'Infrastructure' },
-  { src: './baby.jpg', title: 'Pediatrics & Newborn Care', category: 'Clinical' },
-  { src: './bridge-gate.jpg', title: 'Avah River Bridge Gate', category: 'Impact' },
-  { src: './community-outreach.jpg', title: 'Community Outreach Group', category: 'Outreach' },
-  { src: './staff-training.jpg', title: 'Medical Staff Training', category: 'Education' },
-  { src: './women-training.jpg', title: 'Community Awareness Session', category: 'Education' },
-  { src: './clinic-side-view.jpg', title: 'Hospital Side Gardens', category: 'Facility' },
-  { src: './handover-docs.jpg', title: 'Partnership Handover', category: 'Milestone' },
-  { src: './handover-docs-2.jpg', title: 'Strategic Collaboration', category: 'Milestone' },
-  { src: './handover-docs-3.jpg', title: 'Handover Ceremony', category: 'Milestone' },
-  { src: './waiting-room.jpg', title: 'Modern Waiting Areas', category: 'Facility' },
-  { src: './patients-waiting.jpg', title: 'Patient Registration', category: 'Facility' },
-  { src: './staff-training-2.jpg', title: 'Integrated Management Training', category: 'Education' },
-  { src: './group-photo-staff.jpg', title: 'The GMC Medical Team', category: 'Staff' }
+  { src: 'Goodwill-medical-centre-front-view.jpg', title: 'Main Hospital Front', category: 'Facility' },
+  { src: 'signage.jpg', title: 'Quality Care Signage', category: 'Infrastructure' },
+  { src: 'baby.jpg', title: 'Pediatrics & Newborn Care', category: 'Clinical' },
+  { src: 'bridge-gate.jpg', title: 'Avah River Bridge Gate', category: 'Impact' },
+  { src: 'community-outreach.jpg', title: 'Community Outreach Group', category: 'Outreach' },
+  { src: 'staff-training.jpg', title: 'Medical Staff Training', category: 'Education' },
+  { src: 'women-training.jpg', title: 'Community Awareness Session', category: 'Education' },
+  { src: 'clinic-side-view.jpg', title: 'Hospital Side Gardens', category: 'Facility' },
+  { src: 'handover-docs.jpg', title: 'Partnership Handover', category: 'Milestone' },
+  { src: 'handover-docs-2.jpg', title: 'Strategic Collaboration', category: 'Milestone' },
+  { src: 'handover-docs-3.jpg', title: 'Handover Ceremony', category: 'Milestone' },
+  { src: 'waiting-room.jpg', title: 'Modern Waiting Areas', category: 'Facility' },
+  { src: 'patients-waiting.jpg', title: 'Patient Registration', category: 'Facility' },
+  { src: 'staff-training-2.jpg', title: 'Integrated Management Training', category: 'Education' },
+  { src: 'group-photo-staff.jpg', title: 'The GMC Medical Team', category: 'Staff' }
 ];
 
 const ImageGallery: React.FC = () => {

@@ -19,9 +19,9 @@ const GetInvolved: React.FC = () => {
               cta: 'Donate Now'
             },
             { 
-              title: 'Donate Equipment', 
-              desc: 'Help us procure incubators, CTG machines, and eye care tools.',
-              cta: 'View Needs'
+              title: 'Support Patient Bills', 
+              desc: 'Help us cover medical costs for less privileged patients in our community.',
+              cta: 'Give Support'
             },
             { 
               title: 'Volunteer Your Time', 

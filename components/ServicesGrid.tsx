@@ -5,11 +5,11 @@ const SERVICES = [
   { title: 'Ophthalmology', desc: 'Expert eye care, glaucoma management, and vision restoration.' },
   { title: 'Maternal Health', desc: 'Comprehensive obstetric care ensuring safe deliveries.' },
   { title: 'Pediatrics', desc: 'Specialized newborn care and child development screening.' },
-  { title: 'Dental & Outreach', desc: 'Dental services and school-based health programs.' }
+  { title: 'ENT Services', desc: 'Diagnosis and treatment of ear, nose, and throat conditions.' }
 ];
 
 const ServicesGrid: React.FC = () => {
-  const BABY_IMAGE = './baby.jpg';
+  const BABY_IMAGE = 'baby.jpg';
 
   return (
     <section className="py-24 bg-[#FFF9F2]" id="services">

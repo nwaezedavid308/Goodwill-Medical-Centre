@@ -2,7 +2,7 @@
 import React from 'react';
 
 const Hero: React.FC = () => {
-  const HERO_IMAGE = './Goodwill-medical-centre-front-view.jpg';
+  const HERO_IMAGE = 'Goodwill-medical-centre-front-view.jpg';
 
   return (
     <section className="relative h-[90vh] min-h-[700px] overflow-hidden bg-[#FFF9F2] flex items-center justify-center">
@@ -30,7 +30,7 @@ const Hero: React.FC = () => {
           </p>
 
           <div className="flex flex-wrap gap-4 pt-4">
-            <button className="px-8 py-4 bg-purple-600 text-white rounded-2xl font-bold shadow-lg shadow-purple-600/30 hover:bg-purple-700 transition-all active:scale-95 transform hover:-translate-y-1">
+            <button className="px-8 py-4 bg-purple-600 text-white rounded-2xl font-bold shadow-lg shadow-purple-600/30 hover:bg-purple-700 transition-all transform hover:-translate-y-1">
               Book Appointment
             </button>
             <button className="px-8 py-4 bg-[#FFF9F2] text-slate-950 border border-purple-200 rounded-2xl font-bold hover:bg-purple-50 transition-all transform hover:-translate-y-1">

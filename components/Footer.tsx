@@ -7,16 +7,11 @@ const Footer: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-16 mb-24">
           <div className="md:col-span-5 space-y-10">
-            <div className="flex items-center gap-3">
-              <div className="w-12 h-12 bg-purple-600 rounded-2xl flex items-center justify-center shadow-lg shadow-purple-600/20">
-                <span className="text-white font-bold text-2xl">G</span>
-              </div>
-              <div>
-                <span className="block text-2xl font-bold tracking-tight text-white uppercase">
-                  Goodwill Medical
-                </span>
-                <span className="text-[10px] font-bold text-purple-400 uppercase tracking-[0.2em]">Health Centre</span>
-              </div>
+            <div className="flex flex-col">
+              <span className="block text-2xl font-bold tracking-tighter text-white uppercase leading-none">
+                Goodwill Medical
+              </span>
+              <span className="text-[10px] font-bold text-purple-400 uppercase tracking-[0.2em] mt-2 block">Health Centre</span>
             </div>
             
             <p className="text-lg leading-relaxed font-light text-slate-300 max-w-sm">
