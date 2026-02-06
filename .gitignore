@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Exclude design plugin
+ox designer skill/design-plugin
+
+# Exclude large video files
+*.mp4

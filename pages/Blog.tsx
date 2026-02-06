@@ -3,16 +3,16 @@ import React from 'react';
 
 const Blog: React.FC = () => {
     return (
-        <div className="pt-32 px-6 max-w-7xl mx-auto min-h-screen">
-            <div className="text-center mb-16 max-w-3xl mx-auto">
+        <main className="pt-32 px-6 max-w-7xl mx-auto min-h-screen">
+            <header className="text-center mb-16 max-w-3xl mx-auto">
                 <span className="text-purple-600 font-bold tracking-widest uppercase text-xs">News & Media</span>
                 <h1 className="text-4xl md:text-6xl font-serif text-slate-900 mb-6 mt-2">Latest Updates</h1>
                 <p className="text-lg text-slate-600 leading-relaxed">
                     Stay informed about our latest community outreach programs, health tips, and success stories from Goodwill Medical Centre.
                 </p>
-            </div>
+            </header>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-24">
+            <section className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-24" aria-label="Latest news articles">
                 <article className="group cursor-pointer">
                     <div className="rounded-[2.5rem] overflow-hidden mb-6 h-[300px] md:h-[400px]">
                         <img
@@ -54,16 +54,16 @@ const Blog: React.FC = () => {
                         <button className="text-slate-900 font-bold text-sm underline decoration-purple-400 decoration-2 underline-offset-4 hover:text-purple-600">Read Full Story</button>
                     </div>
                 </article>
-            </div>
+            </section>
 
             {/* Competition Articles Section */}
-            <div className="mb-24">
+            <section className="mb-24" aria-labelledby="competition-heading">
                 <div className="bg-slate-900 rounded-[3rem] p-12 md:p-20 text-white relative overflow-hidden">
                     <div className="relative z-10">
                         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12">
                             <div className="space-y-4">
                                 <span className="text-purple-400 font-bold tracking-[0.2em] uppercase text-xs">Excellence in Writing</span>
-                                <h2 className="text-3xl md:text-5xl font-serif">GMC Competition Articles</h2>
+                                <h2 id="competition-heading" className="text-3xl md:text-5xl font-serif">GMC Competition Articles</h2>
                                 <p className="text-slate-400 max-w-xl">
                                     Read winning essays from our staff and community partners. Download the PDF versions below.
                                 </p>
@@ -97,7 +97,8 @@ const Blog: React.FC = () => {
                                     <a
                                         href={doc.file}
                                         download
-                                        className="inline-flex items-center gap-2 text-white font-bold text-sm bg-purple-600 px-6 py-3 rounded-xl hover:bg-purple-50 transition-colors"
+                                        className="inline-flex items-center gap-2 text-white font-bold text-sm bg-purple-600 px-6 py-3 rounded-xl hover:bg-purple-500 transition-all hover:shadow-lg focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
+                                        aria-label={`Download ${doc.title} PDF document`}
                                     >
                                         <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1M7 10l5 5m0 0l5-5m-5 5V3" />
@@ -109,8 +110,8 @@ const Blog: React.FC = () => {
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
+            </section>
+        </main>
     );
 };
 

@@ -3,11 +3,11 @@ import React from 'react';
 
 const About: React.FC = () => {
     return (
-        <div className="pt-32 px-6 max-w-7xl mx-auto min-h-screen">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-24">
+        <main className="pt-32 px-6 max-w-7xl mx-auto min-h-screen">
+            <section className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-24" aria-labelledby="our-story">
                 <div className="space-y-6">
                     <span className="text-purple-600 font-bold tracking-widest uppercase text-xs">Our Story</span>
-                    <h1 className="text-4xl md:text-6xl font-serif text-slate-900 leading-tight">A Hospital with a Heart</h1>
+                    <h1 id="our-story" className="text-4xl md:text-6xl font-serif text-slate-900 leading-tight">A Hospital with a Heart</h1>
                     <p className="text-lg text-slate-600 leading-relaxed">
                         Too many families in Nigeria go without basic medical attention due to cost, distance, or fear of being turned away. That’s why we built <strong>GMC—not just as a hospital, but as a sanctuary of care.</strong>
                     </p>
@@ -26,7 +26,7 @@ const About: React.FC = () => {
                         }}
                     />
                 </div>
-            </div>
+            </section>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24">
                 <div className="bg-slate-900 text-white p-12 rounded-[3rem] space-y-8">
@@ -51,17 +51,23 @@ const About: React.FC = () => {
                         <p className="text-purple-100 text-lg leading-relaxed">
                             Commissioned on <strong>8th April 2025</strong>, the bridge stands as a symbol of hope, progress, and unity. It eliminated dangerous river crossings and reduced travel time for families in need of urgent care.
                         </p>
-                        <a href="https://youtube/zgICvsWCNWU?i=8yRnQ4MJLCkHODIR" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 font-bold text-sm bg-white text-purple-600 px-6 py-3 rounded-xl hover:bg-purple-50 transition-colors">
+                        <a
+                            href="https://youtube/zgICvsWCNWU?i=8yRnQ4MJLCkHODIR"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 font-bold text-sm bg-white text-purple-600 px-6 py-3 rounded-xl hover:bg-purple-50 transition-all hover:shadow-lg focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-purple-600"
+                            aria-label="Watch the Avah River Bridge impact video on YouTube"
+                        >
                             Watch Impact Video
                         </a>
                     </div>
                 </div>
             </div>
 
-            <div className="mb-24 space-y-16">
+            <section className="mb-24 space-y-16" aria-labelledby="community-impact">
                 <div>
                     <span className="text-purple-600 font-bold tracking-widest uppercase text-xs">Community Impact</span>
-                    <h2 className="text-4xl font-serif text-slate-900 mt-2">Specialized Interventions</h2>
+                    <h2 id="community-impact" className="text-4xl font-serif text-slate-900 mt-2">Specialized Interventions</h2>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
@@ -85,12 +91,12 @@ const About: React.FC = () => {
                         </p>
                     </div>
                 </div>
-            </div>
+            </section>
 
-            <div className="mb-24">
+            <section className="mb-24" aria-labelledby="team-heading">
                 <div className="text-center mb-16">
                     <span className="text-purple-600 font-bold tracking-widest uppercase text-xs">Excellence</span>
-                    <h2 className="text-4xl font-serif text-slate-900 mt-2">Dignity in Every Interaction</h2>
+                    <h2 id="team-heading" className="text-4xl font-serif text-slate-900 mt-2">Dignity in Every Interaction</h2>
                     <p className="text-slate-500 mt-4 max-w-xl mx-auto">Our medical staff and leadership team are committed to providing the highest quality care to every patient who walks through our doors.</p>
                 </div>
 
@@ -116,8 +122,8 @@ const About: React.FC = () => {
                         </div>
                     ))}
                 </div>
-            </div>
-        </div>
+            </section>
+        </main>
     );
 };
 
