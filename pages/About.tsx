@@ -60,6 +60,15 @@ const About: React.FC = () => {
                         >
                             Watch Impact Video
                         </a>
+                        <a
+                            href="https://www.pacieh.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 font-bold text-sm bg-purple-500 text-white px-6 py-3 rounded-xl hover:bg-purple-400 transition-all hover:shadow-lg focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-purple-600 ml-4"
+                            aria-label="Visit PACIEH website"
+                        >
+                            About PACIEH
+                        </a>
                     </div>
                 </div>
             </div>

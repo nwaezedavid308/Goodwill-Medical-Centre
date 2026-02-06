@@ -26,7 +26,7 @@ const Blog: React.FC = () => {
                     </div>
                     <div className="space-y-3">
                         <span className="text-purple-600 font-bold text-xs uppercase tracking-widest">Community Outreach</span>
-                        <h2 className="text-3xl font-serif font-bold text-slate-900 group-hover:text-purple-700 transition-colors">Massive Turnout for Free Health Walk</h2>
+                        <h2 className="text-3xl font-serif font-bold text-slate-900 group-hover:text-purple-700 transition-colors">Massive turnout for free Medical health outreach</h2>
                         <p className="text-slate-500 leading-relaxed line-clamp-3">
                             Over 500 community members joined our recent health walk to raise awareness about hypertension and diabetes. The event featured free screenings...
                         </p>

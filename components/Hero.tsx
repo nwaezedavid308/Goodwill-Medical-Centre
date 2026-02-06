@@ -30,8 +30,8 @@ const Hero: React.FC = () => {
       <div className="relative z-20 max-w-7xl mx-auto px-6 w-full flex justify-start items-center">
         <div className="max-w-xl p-10 md:p-14 rounded-[3rem] bg-white/90 backdrop-blur-xl border border-white shadow-2xl shadow-purple-900/10 space-y-8 animate-fade-in">
           <h1 className="text-4xl md:text-6xl font-serif text-slate-900 leading-[1.1]">
-            Compassionate Care <br />
-            <span className="text-purple-600 italic">for Every Life.</span>
+            Quality healthcare <br />
+            <span className="text-purple-600 italic">for every one.</span>
           </h1>
 
           <p className="text-lg text-slate-700 leading-relaxed font-light">
@@ -40,16 +40,18 @@ const Hero: React.FC = () => {
 
           <div className="flex flex-wrap gap-4 pt-4" role="group" aria-label="Primary actions">
             <a
-              href="#services"
+              href="https://wa.me/234702585626"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-block px-8 py-4 bg-purple-600 text-white rounded-2xl font-bold shadow-lg shadow-purple-600/30 hover:bg-purple-700 transition-all transform hover:-translate-y-1 hover:shadow-xl focus-visible:ring-2 focus-visible:ring-purple-600 focus-visible:ring-offset-2"
-              aria-label="Book an appointment at Goodwill Medical Centre"
+              aria-label="Book an appointment via WhatsApp"
             >
               Book Appointment
             </a>
             <a
-              href="#about"
+              href="#account-details"
               className="inline-block px-8 py-4 bg-[#FFF9F2] text-slate-950 border border-purple-200 rounded-2xl font-bold hover:bg-purple-50 transition-all transform hover:-translate-y-1 focus-visible:ring-2 focus-visible:ring-purple-600 focus-visible:ring-offset-2"
-              aria-label="Learn how to support our mission"
+              aria-label="View donation account details"
             >
               Support Our Mission
             </a>

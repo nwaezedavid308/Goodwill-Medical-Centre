@@ -35,9 +35,9 @@ const GetInvolved: React.FC = () => {
               </div>
               <h4 className="text-2xl font-serif text-slate-900 mb-4">{item.title}</h4>
               <p className="text-slate-500 mb-8 text-sm leading-relaxed">{item.desc}</p>
-              <button className="mt-auto px-8 py-3 bg-slate-900 text-white rounded-xl text-sm font-bold hover:bg-purple-600 transition-colors">
+              <a href="#account-details" className="mt-auto px-8 py-3 bg-slate-900 text-white rounded-xl text-sm font-bold hover:bg-purple-600 transition-colors inline-block">
                 {item.cta}
-              </button>
+              </a>
             </div>
           ))}
         </div>

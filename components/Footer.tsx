@@ -18,7 +18,7 @@ const Footer: React.FC = () => {
               Bridging the healthcare divide by enabling the well-off to support the vulnerable through quality care.
             </p>
 
-            <div className="p-6 bg-white/5 border border-white/10 rounded-2xl space-y-4">
+            <div className="p-6 bg-white/5 border border-white/10 rounded-2xl space-y-4" id="account-details">
               <h5 className="text-white font-serif font-bold text-lg">Help Us Continue the Mission</h5>
               <div className="space-y-2 text-sm text-slate-400">
                 <p><span className="text-purple-400 font-bold uppercase text-[10px] tracking-widest block mb-1">Account Name</span> Goodwill Medicals Enugu</p>
@@ -31,7 +31,7 @@ const Footer: React.FC = () => {
           <div className="md:col-span-3 md:col-start-6 space-y-8">
             <h4 className="text-white font-bold text-xs uppercase tracking-[0.2em] pt-2">Our Mission</h4>
             <ul className="space-y-4 text-sm font-medium">
-              <li><a href="#about" className="hover:text-purple-400 transition-colors">About PACIEH</a></li>
+              <li><a href="https://www.pacieh.com" target="_blank" rel="noopener noreferrer" className="hover:text-purple-400 transition-colors">About PACIEH</a></li>
               <li><a href="#impact" className="hover:text-purple-400 transition-colors">Impact & Milestones</a></li>
               <li><a href="#services" className="hover:text-purple-400 transition-colors">Medical Services</a></li>
               <li><a href="#get-involved" className="hover:text-purple-400 transition-colors">How You Can Help</a></li>
@@ -72,6 +72,9 @@ const Footer: React.FC = () => {
           </div>
           <p className="text-[10px] uppercase font-bold tracking-widest text-purple-600">
             Powered by PACIEH
+          </p>
+          <p className="text-[10px] uppercase font-bold tracking-widest text-slate-500">
+            Website by <a href="https://wa.me/2348110607341" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-400 transition-colors">Niuxverse Web Agency</a> (+2348110607341)
           </p>
         </div>
       </div>
