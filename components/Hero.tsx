@@ -40,7 +40,7 @@ const Hero: React.FC = () => {
 
           <div className="flex flex-wrap gap-4 pt-4" role="group" aria-label="Primary actions">
             <a
-              href="https://wa.me/234702585626"
+              href="https://wa.me/2347032585626"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block px-8 py-4 bg-purple-600 text-white rounded-2xl font-bold shadow-lg shadow-purple-600/30 hover:bg-purple-700 transition-all transform hover:-translate-y-1 hover:shadow-xl focus-visible:ring-2 focus-visible:ring-purple-600 focus-visible:ring-offset-2"
