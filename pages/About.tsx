@@ -1,5 +1,5 @@
 
-import React from 'react';
+import BrochureGenerator from '../components/BrochureGenerator';
 
 const About: React.FC = () => {
     return (
@@ -14,6 +14,9 @@ const About: React.FC = () => {
                     <p className="text-lg text-slate-600 leading-relaxed">
                         Situated in the heart of Umuchigbo, Enugu East, we exist to bring hope, healing, and quality medical care to those who need it most—especially low-income families and underserved communities.
                     </p>
+                    <div className="pt-4">
+                        <BrochureGenerator />
+                    </div>
                 </div>
                 <div className="relative">
                     <div className="absolute inset-0 bg-purple-100 rounded-[3rem] rotate-3 transform scale-95 opacity-50" />
