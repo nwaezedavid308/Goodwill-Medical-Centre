@@ -2,27 +2,27 @@
 import React from 'react';
 
 const SERVICES_DATA = [
-    { title: 'General Outpatient Care', desc: 'Comprehensive medical consultations for all ages.', img: '/images/gallery/Patient_Waiting_Area_Talk.jpg' },
-    { title: 'Eye Health & Cataract Surgeries', desc: 'Expert eye care, screenings, and life-changing surgeries.', img: '/images/gallery/World_Sight_Day_Pharmacy_Staff.jpg' },
-    { title: 'Maternal & Child Health', desc: 'Antenatal, delivery, and postnatal care ensuring safe births.', img: '/images/gallery/Maternal_Health_Training_Session_1.jpg' },
-    { title: 'Diagnostic Laboratory & Scan', desc: 'Accurate and timely diagnostic services.', img: '/images/gallery/GMC_Laboratory_Equipment.jpg' },
-    { title: 'Accident & Emergency', desc: '24/7 emergency care handling critical situations.', img: '/images/gallery/Gate_Entrance_Gathering.jpg' },
-    { title: 'Paediatric Care', desc: 'Specialized care for newborns and children.', img: '/images/gallery/Newborn_Baby_Care.jpg' },
-    { title: 'ENT Services', desc: 'Ear, Nose, and Throat diagnosis and treatment.', img: '/images/gallery/Medical_Staff_Late_Night_Smile.jpg' },
-    { title: 'Inpatient Admissions', desc: 'Comfortable wards and professional surgical procedures.', img: '/images/gallery/Clinic_Hallway_Waiting_Area.jpg' },
-    { title: 'Health Education', desc: 'Community outreach and preventive health education.', img: '/images/gallery/Health_Education_Session.jpg' },
-    { title: 'School-Based Eye Screening', desc: 'Protecting the vision of the next generation.', img: '/images/gallery/Community_Health_Walk.jpg' }
+    { title: 'General Outpatient Care', desc: 'Consultant-led consultations for medical and surgical conditions. GMC recorded 12,506 outpatient visits in its first two years.', img: '/images/report/report-02.jpeg' },
+    { title: 'Eye Health & Cataract Surgery', desc: 'Diagnostic, surgical and preventive eye care, including 2,523 reviews and 91 cataract surgeries by December 2025.', img: '/images/report/report-11.jpeg' },
+    { title: 'Maternal, Newborn & Child Health', desc: 'Antenatal education, delivery, postnatal support and comprehensive emergency obstetric and newborn care.', img: '/images/report/report-03.jpeg' },
+    { title: 'Diagnostic Laboratory & Scan', desc: 'Laboratory testing and imaging to support accurate and timely diagnosis.', img: '/images/report/report-16.png' },
+    { title: 'Accident & Emergency', desc: 'Round-the-clock assessment and treatment for urgent medical and surgical conditions.', img: '/images/report/report-07.jpeg' },
+    { title: 'Paediatric Care', desc: 'Specialist care for newborns, infants and children in a family-centred setting.', img: '/images/report/report-13.jpeg' },
+    { title: 'ENT Services', desc: 'Specialist assessment and treatment for ear, nose and throat conditions.', img: '/images/gallery/Medical_Staff_Late_Night_Smile.jpg' },
+    { title: 'Inpatient & Surgical Care', desc: 'Hospital admission, general surgery and postoperative care supported by specialist consultants.', img: '/images/report/report-09.jpeg' },
+    { title: 'Pharmacy Services', desc: 'Stronger inventory controls, weekly checks and a dedicated procurement account improve medicine availability.', img: '/images/gallery/GMC_Pharmacy_Stock_Shelves.jpg' },
+    { title: 'Community & School Outreach', desc: 'Screenings, preventive health education, medicines and referrals delivered directly to underserved communities.', img: '/images/report/report-19.jpeg' }
 ];
 
 const Services: React.FC = () => {
     return (
-        <main className="pt-32 px-6 max-w-7xl mx-auto min-h-screen">
+        <main className="pt-16 px-6 max-w-7xl mx-auto min-h-screen">
             {/* Header */}
             <header className="text-center mb-16 max-w-3xl mx-auto">
                 <span className="text-purple-600 font-bold tracking-widest uppercase text-xs">Excellence in Care</span>
                 <h1 className="text-4xl md:text-6xl font-serif text-slate-900 mb-6 mt-2">Medical Services</h1>
                 <p className="text-lg text-slate-600 leading-relaxed">
-                    We offer a wide range of specialized medical services designed to provide top-tier care to our community, ensuring that quality healthcare is accessible to everyone.
+                    Specialist-led secondary healthcare for adults, mothers, newborns and children, supported by diagnostics, pharmacy, emergency services and community referral pathways.
                 </p>
             </header>
 

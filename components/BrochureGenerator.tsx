@@ -23,16 +23,16 @@ const BrochureGenerator: React.FC = () => {
     ];
 
     const IMPACT_STATS = [
-        ["7,534", "Total patients attended"],
-        ["154+", "Enrolled in Health Insurance"],
-        ["60", "Indigent members reaching UHC goal"],
-        ["100%", "Increase in antenatal bookings"]
+        ["12,509+", "Patients served since opening"],
+        ["2,306", "Antenatal visits"],
+        ["217", "Total deliveries"],
+        ["91", "Free C-sections"]
     ];
 
     const ADDITIONAL_IMPACT = [
-        "Avah River Bridge: Commissioned April 2025, reducing travel time.",
-        "TBA Intervention: Trained 21 Traditional Birth Attendants.",
-        "Eye Screening: Screened 600 students, provided 150 spectacles."
+        "Avah River Bridge: Opened 8 April 2025, linking isolated communities to GMC.",
+        "TBA Partnership: Mapped and trained more than 30 Traditional Birth Attendants.",
+        "Eye Health: Screened 600 students and provided 200 free pairs of glasses."
     ];
 
     const generatePDF = async () => {

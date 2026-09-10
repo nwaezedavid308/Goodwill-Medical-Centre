@@ -34,6 +34,7 @@ const Footer: React.FC = () => {
               <li><a href="https://www.pacieh.com" target="_blank" rel="noopener noreferrer" className="hover:text-purple-400 transition-colors">About PACIEH</a></li>
               <li><a href="#impact" className="hover:text-purple-400 transition-colors">Impact & Milestones</a></li>
               <li><a href="#services" className="hover:text-purple-400 transition-colors">Medical Services</a></li>
+              <li><a href="/inception-report" className="hover:text-purple-400 transition-colors">Inception Report 2024–2025</a></li>
               <li><a href="#get-involved" className="hover:text-purple-400 transition-colors">How You Can Help</a></li>
             </ul>
           </div>
@@ -50,6 +51,13 @@ const Footer: React.FC = () => {
                   Umuchigbo, Enugu East LGA, <br />
                   Enugu State, Nigeria
                 </p>
+              </div>
+
+              <div className="flex gap-4">
+                <div className="flex-shrink-0 w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center text-purple-500">
+                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.95.68l1.5 4.49a1 1 0 01-.5 1.21l-2.26 1.13a11 11 0 005.52 5.52l1.13-2.26a1 1 0 011.21-.5l4.49 1.5a1 1 0 01.68.95V19a2 2 0 01-2 2h-1C9.72 21 3 14.28 3 6V5z" /></svg>
+                </div>
+                <p className="text-sm leading-relaxed">0802 409 4488 · 0703 258 5626<br />Toll-free referrals: 0800 005 7777</p>
               </div>
 
               <div className="flex gap-4">

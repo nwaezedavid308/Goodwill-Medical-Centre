@@ -8,6 +8,7 @@ import Services from './pages/Services';
 import About from './pages/About';
 import Gallery from './pages/Gallery';
 import Blog from './pages/Blog';
+import InceptionReport from './pages/InceptionReport';
 
 const App: React.FC = () => {
   return (
@@ -21,6 +22,7 @@ const App: React.FC = () => {
             <Route path="/about" element={<About />} />
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/blog" element={<Blog />} />
+            <Route path="/inception-report" element={<InceptionReport />} />
             {/* Fallback route or separate page for 'Partner With Us' if needed */}
           </Routes>
         </main>

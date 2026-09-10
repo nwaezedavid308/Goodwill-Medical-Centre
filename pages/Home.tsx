@@ -18,10 +18,10 @@ const Home: React.FC = () => {
         <div className="space-y-6 max-w-3xl mx-auto">
           <h2 className="text-sm font-bold tracking-[0.2em] text-purple-600 uppercase">Our Commitment</h2>
           <h3 className="text-4xl md:text-5xl font-serif text-slate-900 leading-tight">
-            A Centre Built on Integrity & Excellence
+            A Model Secondary Hospital Built for Access
           </h3>
           <p className="text-lg text-slate-600 leading-relaxed font-light">
-            Goodwill Medical Centre (GMC) is a premier healthcare facility committed to providing excellence in medicine. We bridge the healthcare divide by ensuring accessible, top-tier clinical care through community-centered innovation.
+            Goodwill Medical Centre opened in February 2024 to provide affordable, accessible and high-quality secondary care in Umuchigbo, Enugu East. Founded with support from the TY Danjuma Foundation, GMC combines patient revenue, public health insurance and partner support to sustain subsidised and free care for vulnerable families.
           </p>
         </div>
       </section>

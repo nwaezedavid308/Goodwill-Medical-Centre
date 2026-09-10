@@ -8,34 +8,34 @@ const Gallery: React.FC = () => {
 
     // OPTIMIZED: Using smaller images (< 2MB) to avoid GitHub sync issues
     const GALLERY_IMAGES = [
-        // Outreach - Using smaller images
-        { src: '/images/gallery/Community_Gathering_Stand.jpg', category: 'Outreach', caption: 'Town Hall Meeting' },
-        { src: '/images/gallery/Community_Health_Walk.jpg', category: 'Outreach', caption: 'Health Walk' },
-        { src: '/images/gallery/Community_Women_Walking_Together.jpg', category: 'Outreach', caption: 'Women in Solidarity' },
-        { src: '/images/gallery/Gate_Entrance_Gathering.jpg', category: 'Outreach', caption: 'Community Gathering' },
+        // Outreach
+        { src: '/images/report/report-19.jpeg', category: 'Outreach', caption: 'Community Outreach Group' },
+        { src: '/images/report/report-02.jpeg', category: 'Outreach', caption: 'Blood Pressure Screening' },
+        { src: '/images/report/report-14.jpeg', category: 'Outreach', caption: 'Visit of the NHIA Director-General to GMC' },
+        { src: '/images/report/report-31.jpeg', category: 'Outreach', caption: 'Avah River Bridge Opening' },
 
         // Clinical
-        { src: '/images/gallery/Newborn_Baby_Care.jpg', category: 'Clinical', caption: 'Newborn Care' },
-        { src: '/images/gallery/Pediatric_Checkup_Waiting_Area.jpg', category: 'Clinical', caption: 'Pediatric Checkup' },
-        { src: '/images/gallery/GMC_Laboratory_Equipment.jpg', category: 'Clinical', caption: 'Modern Lab Equipment' },
+        { src: '/images/report/report-03.jpeg', category: 'Clinical', caption: 'Maternal and Newborn Care' },
+        { src: '/images/report/report-06.jpeg', category: 'Clinical', caption: 'Newborn Care' },
+        { src: '/images/report/report-16.png', category: 'Clinical', caption: 'Laboratory Services' },
         { src: '/images/gallery/GMC_Pharmacy_Stock_Shelves.jpg', category: 'Clinical', caption: 'Well-Stocked Pharmacy' },
         { src: '/images/gallery/Medical_Staff_Late_Night_Smile.jpg', category: 'Clinical', caption: 'Dedicated Staff' },
-        { src: '/images/gallery/Patient_Waiting_Area_Talk.jpg', category: 'Clinical', caption: 'Patient Care' },
+        { src: '/images/report/report-11.jpeg', category: 'Clinical', caption: 'Eye Examination' },
 
         // Training
-        { src: '/images/gallery/Maternal_Health_Training_Session_1.jpg', category: 'Training', caption: 'Maternal Health Training' },
-        { src: '/images/gallery/Maternal_Health_Training_Session_2.jpg', category: 'Training', caption: 'Healthcare Workshop' },
-        { src: '/images/gallery/Workshop_Training_Lecture_Room.jpg', category: 'Training', caption: 'Workshop Session' },
+        { src: '/images/report/report-05.jpeg', category: 'Training', caption: 'Antenatal Health Education' },
+        { src: '/images/report/report-10.png', category: 'Training', caption: 'Traditional Birth Attendant Training' },
+        { src: '/images/report/report-35.jpeg', category: 'Training', caption: 'Clinical Training Session' },
         { src: '/images/gallery/Presentation_Of_Certificate.jpg', category: 'Training', caption: 'Certificate Presentation' },
         { src: '/images/gallery/Health_Education_Session.jpg', category: 'Training', caption: 'Health Education' },
         { src: '/images/gallery/Training_Session_Audience.jpg', category: 'Training', caption: 'Training Audience' },
 
         // Team
-        { src: '/images/gallery/GMC_Leadership_Team_Group_Photo_1.jpg', category: 'Team', caption: 'Leadership Team' },
+        { src: '/images/report/report-38.png', category: 'Team', caption: 'GMC Pharmacy Team' },
         { src: '/images/gallery/Medical_Staff_Team_Photo_1.jpg', category: 'Team', caption: 'Medical Staff' },
         { src: '/images/gallery/Team_Selfie_Outdoor.jpg', category: 'Team', caption: 'Team Spirit' },
         { src: '/images/gallery/World_Sight_Day_Pharmacy_Staff.jpg', category: 'Team', caption: 'Pharmacy Team' },
-        { src: '/images/gallery/World_Sight_Day_Pharmacy_Staff_Pose.jpg', category: 'Team', caption: 'Team Celebration' },
+        { src: '/images/report/report-47.jpeg', category: 'Team', caption: 'Partners and Community Leaders' },
     ];
 
     const filteredImages = activeTab === 'All'
@@ -43,7 +43,7 @@ const Gallery: React.FC = () => {
         : GALLERY_IMAGES.filter(img => img.category === activeTab);
 
     return (
-        <div className="pt-32 px-6 max-w-7xl mx-auto min-h-screen bg-[#FFF9F2]">
+        <div className="pt-16 px-6 max-w-7xl mx-auto min-h-screen bg-[#FFF9F2]">
             {/* Header */}
             <header className="text-center mb-16">
                 <span className="text-purple-600 font-bold tracking-widest uppercase text-xs">GMC in Focus</span>

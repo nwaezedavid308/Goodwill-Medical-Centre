@@ -2,20 +2,20 @@
 import React from 'react';
 
 const SERVICES = [
-  { title: 'General Outpatient Care', desc: 'Comprehensive medical consultations for all ages.' },
-  { title: 'Eye Health & Cataract Surgeries', desc: 'Expert eye care, screenings, and life-changing surgeries.' },
-  { title: 'Maternal & Child Health', desc: 'Antenatal, delivery, and postnatal care ensuring safe births.' },
-  { title: 'Diagnostic Laboratory & Scan', desc: 'Accurate and timely diagnostic services.' },
-  { title: 'Accident & Emergency', desc: '24/7 emergency care handling critical situations.' },
-  { title: 'Paediatric Care', desc: 'Specialized care for newborns and children.' },
-  { title: 'ENT Services', desc: 'Ear, Nose, and Throat diagnosis and treatment.' },
-  { title: 'Inpatient Admissions', desc: 'Comfortable wards and professional surgical procedures.' },
-  { title: 'Health Education', desc: 'Community outreach and preventive health education.' },
-  { title: 'School-Based Eye Screening', desc: 'Protecting the vision of the next generation.' }
+  { title: 'General Outpatient Care', desc: 'Consultant-led medical consultations for adults and children.' },
+  { title: 'Eye Health & Cataract Surgery', desc: 'Diagnostic, surgical and preventive eye care at 30–60% below city-hospital rates.' },
+  { title: 'Maternal, Newborn & Child Health', desc: 'Antenatal education, delivery, postnatal care and CEmONC emergency services.' },
+  { title: 'Diagnostic Laboratory & Scan', desc: 'Laboratory testing and imaging that support timely clinical decisions.' },
+  { title: 'Accident & Emergency', desc: 'Round-the-clock assessment and treatment for urgent conditions.' },
+  { title: 'Paediatric Care', desc: 'Specialist care for newborns, infants and children.' },
+  { title: 'ENT Services', desc: 'Assessment and treatment for ear, nose and throat conditions.' },
+  { title: 'Inpatient & Surgical Care', desc: 'Hospital admissions, general surgery and postoperative care.' },
+  { title: 'Pharmacy Services', desc: 'Structured inventory control and improved access to emergency medicines.' },
+  { title: 'Community & School Outreach', desc: 'Preventive health education, screenings and referral support.' }
 ];
 
 const ServicesGrid: React.FC = () => {
-  const PEDIATRICS_IMAGE = '/images/pediatrics.jpg';
+  const PEDIATRICS_IMAGE = '/images/report/report-03.jpeg';
 
   return (
     <section className="py-24 bg-[#FFF9F2]" id="services">
@@ -46,8 +46,8 @@ const ServicesGrid: React.FC = () => {
                 }}
               />
               <div className="absolute bottom-10 left-10 bg-white/90 backdrop-blur p-6 rounded-2xl shadow-xl">
-                <p className="text-purple-600 font-bold text-xs uppercase tracking-widest mb-1">Pediatrics</p>
-                <p className="text-slate-900 font-serif text-xl italic leading-tight">"Where life begins with dignity."</p>
+                <p className="text-purple-600 font-bold text-xs uppercase tracking-widest mb-1">Maternal & Newborn Care</p>
+                <p className="text-slate-900 font-serif text-xl italic leading-tight">217 deliveries since opening</p>
               </div>
             </div>
           </div>

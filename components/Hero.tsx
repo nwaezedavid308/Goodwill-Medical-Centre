@@ -13,8 +13,8 @@ const Hero: React.FC = () => {
       {/* Background Image with Loading State */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/images/hero-bg.jpeg"
-          alt="Goodwill Medical Centre building exterior showing modern healthcare facility"
+          src="/images/report/report-23.png"
+          alt="Goodwill Medical Centre main building in Umuchigbo, Enugu East"
           className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${imageLoaded ? 'opacity-100' : 'opacity-0'
             }`}
           onLoad={() => setImageLoaded(true)}
@@ -35,7 +35,7 @@ const Hero: React.FC = () => {
           </h1>
 
           <p className="text-lg text-slate-700 leading-relaxed font-light">
-            Bringing hope, healing, and quality medical care to those who need it most—especially low-income families and underserved communities.
+            Affordable, accessible secondary healthcare for Umuchigbo and underserved communities across Enugu East—delivered by specialists and dedicated medical professionals.
           </p>
 
           <div className="flex flex-wrap gap-4 pt-4" role="group" aria-label="Primary actions">

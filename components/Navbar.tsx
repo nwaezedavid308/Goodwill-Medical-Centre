@@ -35,7 +35,7 @@ const Navbar: React.FC = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-[#FFF9F2]/90 backdrop-blur-md shadow-sm py-3' : 'bg-transparent py-6'
+      className={`sticky top-0 left-0 right-0 z-50 bg-[#FFF9F2] border-b border-purple-100 transition-all duration-300 ${isScrolled ? 'shadow-md py-3' : 'shadow-sm py-4'
         }`}
       aria-label="Main navigation"
     >
@@ -53,7 +53,7 @@ const Navbar: React.FC = () => {
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-8" role="menubar">
+        <div className="hidden md:flex items-center gap-5" role="menubar">
           <NavLink to="/" className={navLinkClass} role="menuitem">
             Home
           </NavLink>
@@ -65,6 +65,9 @@ const Navbar: React.FC = () => {
           </NavLink>
           <NavLink to="/gallery" className={navLinkClass} role="menuitem">
             Gallery
+          </NavLink>
+          <NavLink to="/inception-report" className={navLinkClass} role="menuitem">
+            Inception Report
           </NavLink>
           <NavLink to="/blog" className={navLinkClass} role="menuitem">
             Blog
@@ -94,15 +97,16 @@ const Navbar: React.FC = () => {
         </button>
 
         {/* Mobile Menu Overlay */}
-        <div
-          className={`fixed inset-0 bg-[#FFF9F2] z-40 flex flex-col justify-center items-center gap-8 transition-all duration-300 md:hidden ${isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'
-            }`}
+        {isMenuOpen && <div
+          className="md:hidden shadow-xl"
+          style={{ backgroundColor: '#FFF9F2', position: 'fixed', inset: '77px 0 0', zIndex: 40, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}
         >
-          <div className="flex flex-col items-center gap-6 text-center">
+          <div className="text-center" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem' }}>
             <NavLink to="/" className={mobileLinkClass} role="menuitem">Home</NavLink>
             <NavLink to="/services" className={mobileLinkClass} role="menuitem">Our Services</NavLink>
             <NavLink to="/about" className={mobileLinkClass} role="menuitem">About</NavLink>
             <NavLink to="/gallery" className={mobileLinkClass} role="menuitem">Gallery</NavLink>
+            <NavLink to="/inception-report" className={mobileLinkClass} role="menuitem">Inception Report</NavLink>
             <NavLink to="/blog" className={mobileLinkClass} role="menuitem">Blog</NavLink>
             <Link
               to="/get-involved"
@@ -112,7 +116,7 @@ const Navbar: React.FC = () => {
               Partner With Us
             </Link>
           </div>
-        </div>
+        </div>}
       </div>
     </nav>
   );

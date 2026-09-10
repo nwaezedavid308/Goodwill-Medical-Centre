@@ -3,16 +3,16 @@ import BrochureGenerator from '../components/BrochureGenerator';
 
 const About: React.FC = () => {
     return (
-        <main className="pt-32 px-6 max-w-7xl mx-auto min-h-screen">
+        <main className="pt-16 px-6 max-w-7xl mx-auto min-h-screen">
             <section className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-24" aria-labelledby="our-story">
                 <div className="space-y-6">
                     <span className="text-purple-600 font-bold tracking-widest uppercase text-xs">Our Story</span>
                     <h1 id="our-story" className="text-4xl md:text-6xl font-serif text-slate-900 leading-tight">A Hospital with a Heart</h1>
                     <p className="text-lg text-slate-600 leading-relaxed">
-                        Too many families in Nigeria go without basic medical attention due to cost, distance, or fear of being turned away. That’s why we built <strong>GMC—not just as a hospital, but as a sanctuary of care.</strong>
+                        In 2023, General T. Y. Danjuma, GCON (Rtd), and the TY Danjuma Foundation approved funding for the construction and equipping of a model secondary hospital in an underserved community. GMC was designed to sustain its work through internally generated revenue while keeping care within reach of low-income families.
                     </p>
                     <p className="text-lg text-slate-600 leading-relaxed">
-                        Situated in the heart of Umuchigbo, Enugu East, we exist to bring hope, healing, and quality medical care to those who need it most—especially low-income families and underserved communities.
+                        Commissioned in November 2023 and opened to the public in February 2024, Goodwill Medical Centre serves Umuchigbo and surrounding communities in Enugu East with specialist-led maternal, newborn, surgical, eye, emergency and general medical care.
                     </p>
                     <div className="pt-4">
                         <BrochureGenerator />
@@ -21,8 +21,8 @@ const About: React.FC = () => {
                 <div className="relative">
                     <div className="absolute inset-0 bg-purple-100 rounded-[3rem] rotate-3 transform scale-95 opacity-50" />
                     <img
-                        src="/images/gallery/GMC_Building_Front_Check.jpg"
-                        alt="GMC Building"
+                        src="/images/report/report-53.jpeg"
+                        alt="Goodwill Medical Centre building and entrance in Umuchigbo"
                         className="relative w-full rounded-[3rem] shadow-2xl border-8 border-white"
                         onError={(e) => {
                             (e.target as HTMLImageElement).src = 'https://placehold.co/600x600/9333ea/ffffff?text=GMC+Building';
@@ -36,10 +36,10 @@ const About: React.FC = () => {
                     <h2 className="text-3xl md:text-5xl font-serif">Major Milestones</h2>
                     <div className="space-y-6">
                         {[
-                            { stat: '7,534', text: 'Total patients attended to at GMC since inception.' },
-                            { stat: '154+', text: 'Persons enrolled in the National Health Insurance Scheme.' },
-                            { stat: '60', text: 'Indigent community members reaching the universal health coverage goal.' },
-                            { stat: '100%', text: 'Increase in antenatal bookings following bridge construction.' }
+                            { stat: '12,509+', text: 'Patients served from February 2024 to December 2025.' },
+                            { stat: '2,306', text: 'Antenatal visits delivered during GMC’s first two years.' },
+                            { stat: '91', text: 'Free life-saving caesarean sections delivered in five months.' },
+                            { stat: '₦40.9M', text: 'Direct savings for vulnerable families through free C-sections.' }
                         ].map((m, i) => (
                             <div key={i} className="flex gap-6 items-start">
                                 <div className="text-3xl font-bold text-purple-400 font-serif">{m.stat}</div>
@@ -52,7 +52,7 @@ const About: React.FC = () => {
                     <div className="relative z-10">
                         <h2 className="text-3xl md:text-5xl font-serif">The Avah River Bridge</h2>
                         <p className="text-purple-100 text-lg leading-relaxed">
-                            Commissioned on <strong>8th April 2025</strong>, the bridge stands as a symbol of hope, progress, and unity. It eliminated dangerous river crossings and reduced travel time for families in need of urgent care.
+                            Opened on <strong>8 April 2025</strong>, the pedestrian and tricycle-accessible iron bridge links Ifo, Ugbo-Ezeji, Ugbo-Okonkwo and Ugbo-Paul to GMC. It replaced dangerous river crossings and an alternative journey of more than eight kilometres.
                         </p>
                         <a
                             href="https://youtube/zgICvsWCNWU?i=8yRnQ4MJLCkHODIR"
@@ -89,7 +89,7 @@ const About: React.FC = () => {
                         </div>
                         <h3 className="text-2xl font-bold font-serif">TBA Intervention Program</h3>
                         <p className="text-slate-600 leading-relaxed">
-                            GMC recognized the heavy reliance on untrained Traditional Birth Attendants (TBAs). In collaboration with the Enugu State Primary Healthcare Agency, we mapped and trained <strong>21 TBAs</strong> from five settlements to enhance early intervention for complications.
+                            GMC mapped and trained <strong>more than 30 Traditional Birth Attendants</strong> with ES-PHCDA. Monthly meetings and the toll-free referral line, 0800 005 7777, strengthen timely referrals for pregnancy complications and facility delivery.
                         </p>
                     </div>
 
@@ -99,9 +99,39 @@ const About: React.FC = () => {
                         </div>
                         <h3 className="text-2xl font-bold font-serif">Eye Health Screening</h3>
                         <p className="text-slate-600 leading-relaxed">
-                            In collaboration with <strong>Sightsavers Nigeria</strong>, we screened <strong>600 students</strong> across Enugu East, providing free spectacle corrections to 150 students, ensuring their vision doesn't hinder their education.
+                            GMC completed <strong>2,523 eye reviews and 91 cataract surgeries</strong> in its first two years. With Sightsavers Nigeria, the team screened 600 schoolchildren, provided 200 free pairs of glasses and delivered eye-health education to 1,800 students.
                         </p>
                     </div>
+                </div>
+            </section>
+
+            <section className="mb-24" aria-labelledby="growth-heading">
+                <div className="mb-12">
+                    <span className="text-purple-600 font-bold tracking-widest uppercase text-xs">Growth & Access</span>
+                    <h2 id="growth-heading" className="text-4xl font-serif text-slate-900 mt-2">Built to Serve and Sustain</h2>
+                    <p className="text-slate-500 mt-4 max-w-3xl leading-relaxed">Every investment at GMC expands clinical capacity, removes barriers to care and strengthens a model in which earned income helps finance treatment for vulnerable patients.</p>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    {[
+                        { title: 'Community Reach', text: 'In 2025, GMC enrolled 2,409 beneficiaries receiving subsidised or free care across 10 states, 44 LGAs, 129 communities and 415 villages. Enugu State accounted for 99% of beneficiaries.' },
+                        { title: 'Infrastructure', text: 'Year-one revenue funded a new antenatal and immunisation clinic. GMC also added 66 solar panels, a water-purification system and a new annex with maternal, ward, laboratory and conference facilities.' },
+                        { title: 'Financial Sustainability', text: 'GMC combines patient revenue, government insurance and institutional partnerships. At least 30% of annual operational surplus is committed to care for vulnerable patients.' }
+                    ].map((item) => (
+                        <article key={item.title} className="p-8 bg-white rounded-[2rem] border border-slate-100 shadow-sm">
+                            <h3 className="text-xl font-bold font-serif text-slate-900 mb-4">{item.title}</h3>
+                            <p className="text-slate-600 leading-relaxed">{item.text}</p>
+                        </article>
+                    ))}
+                </div>
+            </section>
+
+            <section className="mb-24 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center" aria-labelledby="partnerships-heading">
+                <img src="/images/report/report-47.jpeg" alt="GMC partners and community leaders during an official visit" className="w-full rounded-[3rem] shadow-xl" />
+                <div className="space-y-6">
+                    <span className="text-purple-600 font-bold tracking-widest uppercase text-xs">Strategic Partnerships</span>
+                    <h2 id="partnerships-heading" className="text-4xl font-serif text-slate-900">A Shared Commitment to Health Equity</h2>
+                    <p className="text-slate-600 leading-relaxed">GMC works with the TY Danjuma Foundation, Sightsavers Nigeria, ES-PHCDA, MITOSATH, the Federal Ministry of Health, NHIA, the Enugu State UHC Agency, WHO/TDR, Dewdrop Institute, Medbuddy Academy, SIHI-UNIZIK and Enugu East LGA.</p>
+                    <p className="text-slate-600 leading-relaxed">These partnerships support capital investment, maternal and eye care, health insurance, workforce training, operational research and community referral systems. GMC’s 2026–2028 roadmap aims for full operational self-sufficiency while expanding maternal, newborn and eye health services.</p>
                 </div>
             </section>
 
@@ -109,14 +139,14 @@ const About: React.FC = () => {
                 <div className="text-center mb-16">
                     <span className="text-purple-600 font-bold tracking-widest uppercase text-xs">Excellence</span>
                     <h2 id="team-heading" className="text-4xl font-serif text-slate-900 mt-2">Dignity in Every Interaction</h2>
-                    <p className="text-slate-500 mt-4 max-w-xl mx-auto">Our medical staff and leadership team are committed to providing the highest quality care to every patient who walks through our doors.</p>
+                    <p className="text-slate-500 mt-4 max-w-xl mx-auto">GMC’s workforce grew by 40% in its first two years and includes eight specialist consultants working alongside its clinical and administrative teams.</p>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {[
-                        { role: 'Medical Director', img: '/images/gallery/GMC_Leadership_Team_Group_Photo_1.jpg' },
-                        { role: 'Head of Nursing', img: '/images/gallery/Medical_Staff_Team_Photo_1.jpg' },
-                        { role: 'Pharmacy Department', img: '/images/gallery/GMC_Pharmacy_Stock_Room.jpg' }
+                        { role: 'Prof. Uche Amazigo — CEO/Administrator', img: '/images/report/report-36.jpeg' },
+                        { role: 'Dr. Nonso Igwe, FWACP — Clinical Director', img: '/images/report/report-37.jpeg' },
+                        { role: 'GMC Clinical Team', img: '/images/report/report-38.png' }
                     ].map((member, idx) => (
                         <div key={idx} className="group relative overflow-hidden rounded-[2rem] h-[400px]">
                             <img

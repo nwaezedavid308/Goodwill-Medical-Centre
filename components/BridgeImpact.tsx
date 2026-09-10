@@ -2,7 +2,7 @@
 import React from 'react';
 
 const BridgeImpact: React.FC = () => {
-  const BRIDGE_IMAGE = '/images/bridge-impact.jpg';
+  const BRIDGE_IMAGE = '/images/report/report-31.jpeg';
 
   return (
     <section className="py-32 bg-slate-900 text-white overflow-hidden relative">
@@ -18,26 +18,26 @@ const BridgeImpact: React.FC = () => {
             </div>
 
             <h2 className="text-4xl md:text-6xl font-serif leading-[1.1]">
-              Why We Exist <br /><span className="text-purple-400 italic">Our Purpose</span>
+              Breaking Barriers <br /><span className="text-purple-400 italic">The Avah River Bridge</span>
             </h2>
 
             <div className="space-y-6 text-slate-300 text-lg leading-relaxed font-light">
               <p>
-                Too many families in Nigeria go without basic medical attention due to cost, distance, or fear of being turned away. That’s why we built <strong>GMC—not just as a hospital, but as a sanctuary of care.</strong>
+                For years, the Avah River separated residents of Ifo, Ugbo-Ezeji, Ugbo-Okonkwo and Ugbo-Paul from lifesaving care. During the rainy season, a 20-minute walk to GMC could become an eight-kilometre journey or a dangerous river crossing.
               </p>
               <p>
-                We bring together the resources of the privileged and the needs of the underserved, creating a healthcare ecosystem that is both compassionate and sustainable.
+                GMC funded and constructed a pedestrian and tricycle-accessible iron bridge, officially opened on 8 April 2025. It now gives thousands of residents a safer route to emergency care and wider social and economic opportunities.
               </p>
             </div>
 
             <div className="grid grid-cols-2 gap-10 pt-8 border-t border-white/10">
               <div className="space-y-3">
-                <div className="text-4xl font-bold text-white tracking-tighter">PRO-POOR</div>
-                <p className="text-slate-400 text-xs uppercase tracking-[0.2em]">Healthcare Model</p>
+                <div className="text-4xl font-bold text-white tracking-tighter">20 MIN</div>
+                <p className="text-slate-400 text-xs uppercase tracking-[0.2em]">Direct Walk to GMC</p>
               </div>
               <div className="space-y-3">
-                <div className="text-4xl font-bold text-purple-400 tracking-tighter">HOLISTIC</div>
-                <p className="text-slate-400 text-xs uppercase tracking-[0.2em]">Services</p>
+                <div className="text-4xl font-bold text-purple-400 tracking-tighter">8 APR</div>
+                <p className="text-slate-400 text-xs uppercase tracking-[0.2em]">Bridge Opened in 2025</p>
               </div>
             </div>
           </div>
@@ -46,7 +46,7 @@ const BridgeImpact: React.FC = () => {
             <div className="relative rounded-[4rem] overflow-hidden shadow-2xl group border-4 border-white/10 bg-slate-800">
               <img
                 src={BRIDGE_IMAGE}
-                alt="GMC Entrance Gathering"
+                alt="Community leaders and partners opening the Avah River Bridge"
                 className="w-full h-[600px] object-cover transition-all duration-1000 group-hover:scale-105"
                 onError={(e) => {
                   (e.target as HTMLImageElement).src = 'https://placehold.co/800x600/9333ea/ffffff?text=Why+We+Exist';

@@ -15,7 +15,7 @@ const GetInvolved: React.FC = () => {
           {[
             {
               title: 'Donate',
-              desc: 'Sponsor a surgery, fund a water project, or support cataract operations for the elderly.',
+              desc: 'Support free maternal care, cataract surgery, advanced diagnostics or care for vulnerable families.',
               cta: 'Donate Now'
             },
             {
@@ -51,7 +51,7 @@ const GetInvolved: React.FC = () => {
               <span className="text-purple-600 font-bold tracking-widest uppercase text-xs">Priority Support</span>
               <h3 className="text-3xl md:text-5xl font-serif text-slate-900 mt-2">Current Facility Needs</h3>
               <p className="text-slate-500 mt-4 max-w-2xl">
-                To consolidate and expand our impact, GMC seeks support for critical equipment and infrastructure across our core departments.
+                GMC’s 2026–2028 roadmap prioritises maternal and newborn care, eye health, advanced diagnostics, cancer screening, workforce development and completion of the new annex.
               </p>
             </div>
 
@@ -59,19 +59,19 @@ const GetInvolved: React.FC = () => {
               {[
                 {
                   category: 'Ophthalmology',
-                  items: ['Pachymetry Machine', 'B-Scan Machine', 'Visual Field Analyser', 'Free School Screening Fund']
+                  items: ['Cataract surgery support', 'School screening fund', 'Diagnostic equipment', 'Preventive eye care']
                 },
                 {
                   category: 'Pediatrics',
-                  items: ['Incubators for newborns', 'Neonatal care equipment', 'Child wellness kits']
+                  items: ['Incubators for newborns', 'Neonatal care equipment', 'Child wellness support']
                 },
                 {
                   category: 'Obstetrics',
-                  items: ['CTG Machines', 'Fetal monitors', 'Modern Delivery Beds']
+                  items: ['CEmONC support', 'Fetal monitoring equipment', 'Safe delivery equipment']
                 },
                 {
-                  category: 'Dental Clinic',
-                  items: ['Establishment Funding', 'Dental Units', 'X-ray Equipment']
+                  category: 'Expansion',
+                  items: ['Advanced diagnostics', 'Cancer screening', 'Annex completion', 'Staff development']
                 }
               ].map((section, idx) => (
                 <div key={idx} className="space-y-4">
@@ -95,11 +95,11 @@ const GetInvolved: React.FC = () => {
             <div className="mt-12 p-8 bg-purple-50 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-6">
               <div className="space-y-1">
                 <p className="text-slate-900 font-bold">Help us close the gap.</p>
-                <p className="text-slate-500 text-sm">Every piece of equipment saved lives and restores dignity.</p>
+                <p className="text-slate-500 text-sm">Every contribution helps extend affordable specialist care to more families.</p>
               </div>
-              <button className="whitespace-nowrap px-8 py-3 bg-purple-600 text-white rounded-xl font-bold hover:bg-purple-700 transition-colors">
+              <a href="mailto:goodwillhospital25@gmail.com" className="whitespace-nowrap px-8 py-3 bg-purple-600 text-white rounded-xl font-bold hover:bg-purple-700 transition-colors">
                 Partner With Us
-              </button>
+              </a>
             </div>
           </div>
         </div>
