@@ -194,7 +194,8 @@ const BrochureGenerator: React.FC = () => {
             doc.setFontSize(9);
             doc.setTextColor(128);
             doc.text("www.goodwillmedicalcentre.com", margin, footerY);
-            doc.text("Contact us for more information.", pageWidth - margin - 50, footerY);
+            doc.text("WhatsApp: +234 703 258 5626", pageWidth - margin - 62, footerY - 4);
+            doc.text("goodwillhospital25@gmail.com", pageWidth - margin - 62, footerY);
 
             doc.save("GMC_Brochure.pdf");
 

@@ -72,14 +72,16 @@ const Navbar: React.FC = () => {
           <NavLink to="/blog" className={navLinkClass} role="menuitem">
             Blog
           </NavLink>
-          <Link
-            to="/get-involved"
+          <a
+            href="https://wa.me/2347032585626?text=Hello%20Goodwill%20Medical%20Centre%2C%20I%20would%20like%20to%20discuss%20a%20partnership."
+            target="_blank"
+            rel="noopener noreferrer"
             className="ml-4 px-6 py-2.5 bg-purple-600 text-white rounded-full text-sm font-bold hover:bg-purple-700 transition-all shadow-lg shadow-purple-600/20 hover:shadow-xl hover:-translate-y-0.5 focus-visible:ring-2 focus-visible:ring-purple-600 focus-visible:ring-offset-2"
             role="menuitem"
             aria-label="Partner with Goodwill Medical Centre"
           >
             Partner With Us
-          </Link>
+          </a>
         </div>
 
         {/* Mobile Menu Button */}
@@ -108,13 +110,15 @@ const Navbar: React.FC = () => {
             <NavLink to="/gallery" className={mobileLinkClass} role="menuitem">Gallery</NavLink>
             <NavLink to="/inception-report" className={mobileLinkClass} role="menuitem">Inception Report</NavLink>
             <NavLink to="/blog" className={mobileLinkClass} role="menuitem">Blog</NavLink>
-            <Link
-              to="/get-involved"
+            <a
+              href="https://wa.me/2347032585626?text=Hello%20Goodwill%20Medical%20Centre%2C%20I%20would%20like%20to%20discuss%20a%20partnership."
+              target="_blank"
+              rel="noopener noreferrer"
               className="mt-4 px-8 py-3 bg-purple-600 text-white rounded-full text-lg font-bold shadow-lg shadow-purple-600/20"
               role="menuitem"
             >
               Partner With Us
-            </Link>
+            </a>
           </div>
         </div>}
       </div>

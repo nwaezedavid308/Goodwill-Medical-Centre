@@ -48,7 +48,9 @@ const Services: React.FC = () => {
                         Our doors are open to everyone. Whether you need a routine check-up or specialized surgery, we are here to serve you with dignity.
                     </p>
                     <a
-                        href="#contact"
+                        href="https://wa.me/2347032585626?text=Hello%20Goodwill%20Medical%20Centre%2C%20I%20would%20like%20to%20book%20an%20appointment."
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="inline-block px-8 py-4 bg-purple-600 text-white rounded-2xl font-bold hover:bg-purple-500 transition-all shadow-lg shadow-purple-900/50 hover:shadow-xl hover:-translate-y-1 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
                         aria-label="Book an appointment at Goodwill Medical Centre"
                     >

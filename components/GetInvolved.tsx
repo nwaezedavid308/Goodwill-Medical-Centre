@@ -35,7 +35,7 @@ const GetInvolved: React.FC = () => {
               </div>
               <h4 className="text-2xl font-serif text-slate-900 mb-4">{item.title}</h4>
               <p className="text-slate-500 mb-8 text-sm leading-relaxed">{item.desc}</p>
-              <a href="#account-details" className="mt-auto px-8 py-3 bg-slate-900 text-white rounded-xl text-sm font-bold hover:bg-purple-600 transition-colors inline-block">
+              <a href={`https://wa.me/2347032585626?text=${encodeURIComponent(`Hello Goodwill Medical Centre, I am interested in: ${item.title}.`)}`} target="_blank" rel="noopener noreferrer" className="mt-auto px-8 py-3 bg-slate-900 text-white rounded-xl text-sm font-bold hover:bg-purple-600 transition-colors inline-block">
                 {item.cta}
               </a>
             </div>
@@ -97,7 +97,7 @@ const GetInvolved: React.FC = () => {
                 <p className="text-slate-900 font-bold">Help us close the gap.</p>
                 <p className="text-slate-500 text-sm">Every contribution helps extend affordable specialist care to more families.</p>
               </div>
-              <a href="mailto:goodwillhospital25@gmail.com" className="whitespace-nowrap px-8 py-3 bg-purple-600 text-white rounded-xl font-bold hover:bg-purple-700 transition-colors">
+              <a href="https://wa.me/2347032585626?text=Hello%20Goodwill%20Medical%20Centre%2C%20I%20would%20like%20to%20discuss%20a%20partnership." target="_blank" rel="noopener noreferrer" className="whitespace-nowrap px-8 py-3 bg-purple-600 text-white rounded-xl font-bold hover:bg-purple-700 transition-colors">
                 Partner With Us
               </a>
             </div>

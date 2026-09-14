@@ -30,7 +30,7 @@ const Blog: React.FC = () => {
                         <p className="text-slate-500 leading-relaxed line-clamp-3">
                             GMC funded and constructed a pedestrian and tricycle-accessible iron bridge linking Ifo, Ugbo-Ezeji, Ugbo-Okonkwo and Ugbo-Paul with lifesaving care in Umuchigbo.
                         </p>
-                        <button className="text-slate-900 font-bold text-sm underline decoration-purple-400 decoration-2 underline-offset-4 hover:text-purple-600">Read Full Story</button>
+                        <a href="https://wa.me/2347032585626?text=Hello%20Goodwill%20Medical%20Centre%2C%20I%20would%20like%20to%20know%20more%20about%20the%20Avah%20River%20Bridge." target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-slate-900 font-bold text-sm underline decoration-purple-400 decoration-2 underline-offset-4 hover:text-purple-600">Chat With Us</a>
                     </div>
                 </article>
 
@@ -51,7 +51,7 @@ const Blog: React.FC = () => {
                         <p className="text-slate-500 leading-relaxed line-clamp-3">
                             The CEmONC programme launched with NHIA support in October 2025. In five months, 91 vulnerable women received free caesarean sections, saving their families ₦40.9 million.
                         </p>
-                        <button className="text-slate-900 font-bold text-sm underline decoration-purple-400 decoration-2 underline-offset-4 hover:text-purple-600">Read Full Story</button>
+                        <a href="https://wa.me/2347032585626?text=Hello%20Goodwill%20Medical%20Centre%2C%20I%20would%20like%20to%20know%20more%20about%20your%20maternal%20health%20services." target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-slate-900 font-bold text-sm underline decoration-purple-400 decoration-2 underline-offset-4 hover:text-purple-600">Chat With Us</a>
                     </div>
                 </article>
             </section>

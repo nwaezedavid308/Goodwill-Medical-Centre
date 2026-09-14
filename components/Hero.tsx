@@ -49,7 +49,9 @@ const Hero: React.FC = () => {
               Book Appointment
             </a>
             <a
-              href="#account-details"
+              href="https://wa.me/2347032585626?text=Hello%20Goodwill%20Medical%20Centre%2C%20I%20would%20like%20to%20support%20your%20mission."
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-block px-8 py-4 bg-[#FFF9F2] text-slate-950 border border-purple-200 rounded-2xl font-bold hover:bg-purple-50 transition-all transform hover:-translate-y-1 focus-visible:ring-2 focus-visible:ring-purple-600 focus-visible:ring-offset-2"
               aria-label="View donation account details"
             >
