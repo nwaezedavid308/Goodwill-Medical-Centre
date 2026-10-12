@@ -66,54 +66,53 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenAppointment }) => {
 
   return (
     <header className="sticky top-0 left-0 right-0 z-50 transition-all duration-300">
-      {/* Organized Top Emergency & Facility Info Bar */}
+      {/* Center-Aligned Top Emergency & Facility Info Bar */}
       <div className="bg-slate-950 text-white text-[11px] font-medium border-b border-slate-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-2 flex flex-col md:flex-row items-center justify-between gap-2.5">
-          {/* Left: Prominent Emergency & Hotline */}
-          <div className="flex items-center flex-wrap justify-center sm:justify-start gap-2 sm:gap-3 text-xs">
-            <div className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-rose-600/25 border border-rose-500/40 rounded-full text-rose-300 font-bold">
-              <ShieldAlert className="w-3.5 h-3.5 text-rose-400" />
-              <span>TOLL-FREE EMERGENCY:</span>
-              <a href="tel:08000057777" className="text-white hover:underline">
-                0800 005 7777
-              </a>
-            </div>
-
-            <div className="hidden sm:inline-flex items-center gap-1.5 text-slate-300 bg-white/5 px-2.5 py-1 rounded-full border border-white/5">
-              <Phone className="w-3 h-3 text-purple-400" />
-              <span>Hospital Desk:</span>
-              <a href="tel:07032585626" className="text-white font-semibold hover:text-purple-300">
-                0703 258 5626
-              </a>
-            </div>
-          </div>
-
-          {/* Right: Hospital Status & Indigent Support */}
-          <div className="flex items-center gap-3 sm:gap-5 text-slate-300 text-[11px]">
-            <div className="hidden lg:flex items-center gap-1.5">
-              <Clock className="w-3.5 h-3.5 text-emerald-400" />
-              <span>24/7 Emergency & Maternity</span>
-            </div>
-
-            <div className="hidden md:flex items-center gap-1.5">
-              <MapPin className="w-3.5 h-3.5 text-purple-400" />
-              <span>Umuchigbo, Enugu East</span>
-            </div>
-
-            <a
-              href="https://wa.me/2347032585626?text=Hello%20Goodwill%20Medical%20Centre%2C%20I%20would%20like%20to%20support%20Treatment%20for%20Two."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-purple-900/60 text-purple-200 border border-purple-700/50 hover:bg-purple-800 transition-colors"
-            >
-              <Heart className="w-3 h-3 text-rose-400 fill-current" />
-              <span className="font-semibold">Treatment for Two</span>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-2 flex flex-wrap items-center justify-center gap-2.5 sm:gap-4 md:gap-6 text-center">
+          {/* Prominent Emergency Toll-Free Badge */}
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-rose-600/30 border border-rose-500/50 rounded-full text-rose-300 font-bold">
+            <ShieldAlert className="w-3.5 h-3.5 text-rose-400 flex-shrink-0" />
+            <span>TOLL-FREE EMERGENCY:</span>
+            <a href="tel:08000057777" className="text-white hover:underline font-bold">
+              0800 005 7777
             </a>
           </div>
+
+          {/* Hospital Reception Desk */}
+          <div className="inline-flex items-center gap-1.5 text-slate-300 bg-white/5 px-3 py-1 rounded-full border border-white/10">
+            <Phone className="w-3 h-3 text-purple-400 flex-shrink-0" />
+            <span>Desk:</span>
+            <a href="tel:07032585626" className="text-white font-semibold hover:text-purple-300">
+              0703 258 5626
+            </a>
+          </div>
+
+          {/* 24/7 Hours Status */}
+          <div className="hidden sm:inline-flex items-center gap-1.5 text-slate-300">
+            <Clock className="w-3.5 h-3.5 text-emerald-400 flex-shrink-0" />
+            <span>24/7 Emergency & Maternity</span>
+          </div>
+
+          {/* Location Badge */}
+          <div className="hidden md:inline-flex items-center gap-1.5 text-slate-300">
+            <MapPin className="w-3.5 h-3.5 text-purple-400 flex-shrink-0" />
+            <span>Umuchigbo, Enugu East</span>
+          </div>
+
+          {/* Treatment for Two Indigent Support */}
+          <a
+            href="https://wa.me/2347032585626?text=Hello%20Goodwill%20Medical%20Centre%2C%20I%20would%20like%20to%20support%20Treatment%20for%20Two."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-900/70 text-purple-200 border border-purple-700/60 hover:bg-purple-800 transition-colors"
+          >
+            <Heart className="w-3 h-3 text-rose-400 fill-current flex-shrink-0" />
+            <span className="font-semibold">Treatment for Two</span>
+          </a>
         </div>
       </div>
 
-      {/* Main Navigation Bar */}
+      {/* Main Navigation Bar with Center-Aligned Menu */}
       <nav
         className={`bg-[#FFF9F2]/95 backdrop-blur-md border-b border-purple-100 transition-all duration-300 ${
           isScrolled ? 'shadow-md py-2.5' : 'shadow-sm py-3.5'
@@ -122,23 +121,25 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenAppointment }) => {
         ref={dropdownRef}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
-          {/* Logo */}
-          <Link to="/" className="flex items-center gap-2.5 focus:outline-none" aria-label="Goodwill Medical Centre">
-            <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-purple-700 to-indigo-600 flex items-center justify-center text-white font-bold text-lg shadow-md shadow-purple-700/20">
-              G
-            </div>
-            <div>
-              <span className="text-lg lg:text-xl font-bold tracking-tight text-slate-900 block leading-tight">
-                GOODWILL <span className="text-purple-600">MEDICAL</span>
-              </span>
-              <span className="text-[10px] tracking-widest uppercase font-bold text-slate-500 block">
-                Secondary Care Hospital
-              </span>
-            </div>
-          </Link>
+          {/* Left: Hospital Logo */}
+          <div className="flex-shrink-0">
+            <Link to="/" className="flex items-center gap-2.5 focus:outline-none" aria-label="Goodwill Medical Centre">
+              <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-purple-700 to-indigo-600 flex items-center justify-center text-white font-bold text-lg shadow-md shadow-purple-700/20">
+                G
+              </div>
+              <div>
+                <span className="text-lg lg:text-xl font-bold tracking-tight text-slate-900 block leading-tight">
+                  GOODWILL <span className="text-purple-600">MEDICAL</span>
+                </span>
+                <span className="text-[10px] tracking-widest uppercase font-bold text-slate-500 block">
+                  Secondary Care Hospital
+                </span>
+              </div>
+            </Link>
+          </div>
 
-          {/* Desktop Subcategorized Navigation */}
-          <div className="hidden lg:flex items-center gap-1 xl:gap-2">
+          {/* Center: Desktop Subcategorized Navigation (Truly Centered) */}
+          <div className="hidden lg:flex flex-1 justify-center items-center gap-1 xl:gap-2 px-4">
             {/* 1. Home */}
             <NavLink
               to="/"
@@ -169,9 +170,9 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenAppointment }) => {
                 <ChevronDown className="w-3.5 h-3.5 text-slate-400 group-hover:text-purple-600 transition-transform duration-200" />
               </button>
 
-              {/* Dropdown Menu */}
+              {/* Centered Dropdown Menu */}
               <div
-                className={`absolute left-0 top-full mt-1 w-64 bg-white rounded-2xl shadow-xl border border-purple-100 p-2 space-y-1 transition-all duration-200 z-50 ${
+                className={`absolute left-1/2 -translate-x-1/2 top-full mt-2 w-64 bg-white rounded-2xl shadow-xl border border-purple-100 p-2 space-y-1 transition-all duration-200 z-50 ${
                   openDropdown === 'clinical'
                     ? 'opacity-100 visible translate-y-0'
                     : 'opacity-0 invisible -translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0'
@@ -229,9 +230,9 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenAppointment }) => {
                 <ChevronDown className="w-3.5 h-3.5 text-slate-400 group-hover:text-purple-600 transition-transform duration-200" />
               </button>
 
-              {/* Dropdown Menu */}
+              {/* Centered Dropdown Menu */}
               <div
-                className={`absolute left-0 top-full mt-1 w-64 bg-white rounded-2xl shadow-xl border border-purple-100 p-2 space-y-1 transition-all duration-200 z-50 ${
+                className={`absolute left-1/2 -translate-x-1/2 top-full mt-2 w-64 bg-white rounded-2xl shadow-xl border border-purple-100 p-2 space-y-1 transition-all duration-200 z-50 ${
                   openDropdown === 'about'
                     ? 'opacity-100 visible translate-y-0'
                     : 'opacity-0 invisible -translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0'
@@ -306,9 +307,9 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenAppointment }) => {
                 <ChevronDown className="w-3.5 h-3.5 text-slate-400 group-hover:text-purple-600 transition-transform duration-200" />
               </button>
 
-              {/* Dropdown Menu */}
+              {/* Centered Dropdown Menu */}
               <div
-                className={`absolute left-0 top-full mt-1 w-64 bg-white rounded-2xl shadow-xl border border-purple-100 p-2 space-y-1 transition-all duration-200 z-50 ${
+                className={`absolute left-1/2 -translate-x-1/2 top-full mt-2 w-64 bg-white rounded-2xl shadow-xl border border-purple-100 p-2 space-y-1 transition-all duration-200 z-50 ${
                   openDropdown === 'media'
                     ? 'opacity-100 visible translate-y-0'
                     : 'opacity-0 invisible -translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0'
@@ -382,38 +383,38 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenAppointment }) => {
             </NavLink>
           </div>
 
-          {/* Action CTAs */}
-          <div className="hidden sm:flex items-center gap-3">
+          {/* Right: Action CTAs & Mobile Hamburger */}
+          <div className="flex-shrink-0 flex items-center gap-2.5 sm:gap-3">
             <button
               onClick={() => {
                 if (onOpenAppointment) onOpenAppointment();
               }}
-              className="px-5 py-2.5 bg-purple-600 text-white rounded-full text-xs font-bold hover:bg-purple-700 transition-all shadow-md shadow-purple-600/25 flex items-center gap-1.5"
+              className="hidden sm:flex px-4 xl:px-5 py-2.5 bg-purple-600 text-white rounded-full text-xs font-bold hover:bg-purple-700 transition-all shadow-md shadow-purple-600/25 items-center gap-1.5"
             >
               <Calendar className="w-3.5 h-3.5" />
-              Book Appointment
+              <span>Book Appointment</span>
             </button>
 
             <a
               href="https://wa.me/2347032585626?text=Hello%20Goodwill%20Medical%20Centre%2C%20I%20would%20like%20to%20reach%20your%20desk."
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2.5 bg-white text-emerald-600 border border-purple-200 rounded-full hover:bg-emerald-50 transition-colors shadow-sm"
+              className="hidden sm:flex p-2.5 bg-white text-emerald-600 border border-purple-200 rounded-full hover:bg-emerald-50 transition-colors shadow-sm"
               title="Chat with GMC Desk on WhatsApp"
               aria-label="WhatsApp Desk"
             >
               <MessageSquare className="w-4 h-4" />
             </a>
-          </div>
 
-          {/* Mobile Menu Hamburger Button */}
-          <button
-            className="lg:hidden p-2 text-slate-800 hover:text-purple-600 focus:outline-none"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
-          >
-            {isMenuOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
-          </button>
+            {/* Mobile Menu Hamburger Button */}
+            <button
+              className="lg:hidden p-2 text-slate-800 hover:text-purple-600 focus:outline-none"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+            >
+              {isMenuOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Navigation Drawer with Accordion Subcategories */}
@@ -423,7 +424,7 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenAppointment }) => {
             <NavLink
               to="/"
               className={({ isActive }) =>
-                `block px-4 py-3 rounded-xl font-bold text-sm ${
+                `block px-4 py-3 rounded-xl font-bold text-sm text-center ${
                   isActive ? 'bg-purple-50 text-purple-700' : 'text-slate-800'
                 }`
               }
@@ -451,13 +452,13 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenAppointment }) => {
                 <div className="p-2 space-y-1 bg-white">
                   <NavLink
                     to="/services"
-                    className="block px-4 py-2.5 rounded-xl text-xs font-semibold text-slate-700 hover:bg-purple-50"
+                    className="block px-4 py-2.5 rounded-xl text-xs font-semibold text-slate-700 hover:bg-purple-50 text-center"
                   >
                     Medical Services & Clinics
                   </NavLink>
                   <NavLink
                     to="/doctors"
-                    className="block px-4 py-2.5 rounded-xl text-xs font-semibold text-slate-700 hover:bg-purple-50"
+                    className="block px-4 py-2.5 rounded-xl text-xs font-semibold text-slate-700 hover:bg-purple-50 text-center"
                   >
                     Doctors & Specialists Schedules
                   </NavLink>
@@ -485,19 +486,19 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenAppointment }) => {
                 <div className="p-2 space-y-1 bg-white">
                   <NavLink
                     to="/about"
-                    className="block px-4 py-2.5 rounded-xl text-xs font-semibold text-slate-700 hover:bg-purple-50"
+                    className="block px-4 py-2.5 rounded-xl text-xs font-semibold text-slate-700 hover:bg-purple-50 text-center"
                   >
                     Our Story & Avah Bridge
                   </NavLink>
                   <NavLink
                     to="/inception-report"
-                    className="block px-4 py-2.5 rounded-xl text-xs font-semibold text-slate-700 hover:bg-purple-50"
+                    className="block px-4 py-2.5 rounded-xl text-xs font-semibold text-slate-700 hover:bg-purple-50 text-center"
                   >
                     Inception Report 2024–2025
                   </NavLink>
                   <NavLink
                     to="/testimonials"
-                    className="block px-4 py-2.5 rounded-xl text-xs font-semibold text-slate-700 hover:bg-purple-50"
+                    className="block px-4 py-2.5 rounded-xl text-xs font-semibold text-slate-700 hover:bg-purple-50 text-center"
                   >
                     Patient Stories & Impact
                   </NavLink>
@@ -525,19 +526,19 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenAppointment }) => {
                 <div className="p-2 space-y-1 bg-white">
                   <NavLink
                     to="/gallery"
-                    className="block px-4 py-2.5 rounded-xl text-xs font-semibold text-slate-700 hover:bg-purple-50"
+                    className="block px-4 py-2.5 rounded-xl text-xs font-semibold text-slate-700 hover:bg-purple-50 text-center"
                   >
                     Photo & Video Gallery
                   </NavLink>
                   <NavLink
                     to="/blog"
-                    className="block px-4 py-2.5 rounded-xl text-xs font-semibold text-slate-700 hover:bg-purple-50"
+                    className="block px-4 py-2.5 rounded-xl text-xs font-semibold text-slate-700 hover:bg-purple-50 text-center"
                   >
                     Journal & Staff Essays
                   </NavLink>
                   <NavLink
                     to="/faq"
-                    className="block px-4 py-2.5 rounded-xl text-xs font-semibold text-slate-700 hover:bg-purple-50"
+                    className="block px-4 py-2.5 rounded-xl text-xs font-semibold text-slate-700 hover:bg-purple-50 text-center"
                   >
                     Frequently Asked Questions
                   </NavLink>
@@ -549,7 +550,7 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenAppointment }) => {
             <NavLink
               to="/contact"
               className={({ isActive }) =>
-                `block px-4 py-3 rounded-xl font-bold text-sm ${
+                `block px-4 py-3 rounded-xl font-bold text-sm text-center ${
                   isActive ? 'bg-purple-50 text-purple-700' : 'text-slate-800'
                 }`
               }
