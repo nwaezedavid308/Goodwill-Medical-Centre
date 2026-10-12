@@ -20,16 +20,19 @@ import {
   Award,
   Users
 } from 'lucide-react';
+import FreeTreatmentModal from './FreeTreatmentModal';
 
 interface NavbarProps {
   onOpenAppointment?: () => void;
+  onOpenFreeTreatment?: () => void;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ onOpenAppointment }) => {
+const Navbar: React.FC<NavbarProps> = ({ onOpenAppointment, onOpenFreeTreatment }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [mobileSubmenu, setMobileSubmenu] = useState<string | null>(null);
+  const [isFreeTreatmentModalOpen, setIsFreeTreatmentModalOpen] = useState(false);
 
   const location = useLocation();
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -60,17 +63,25 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenAppointment }) => {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
+  const handleFreeTreatmentClick = () => {
+    if (onOpenFreeTreatment) {
+      onOpenFreeTreatment();
+    } else {
+      setIsFreeTreatmentModalOpen(true);
+    }
+  };
+
   const isAboutActive = ['/about', '/inception-report', '/testimonials'].includes(location.pathname);
   const isServicesActive = ['/services', '/doctors'].includes(location.pathname);
   const isMediaActive = ['/gallery', '/blog', '/faq'].includes(location.pathname);
 
   return (
     <header className="sticky top-0 left-0 right-0 z-50 transition-all duration-300">
-      {/* Center-Aligned Top Emergency & Facility Info Bar */}
+      {/* Horizontally Center-Aligned Emergency & Info Bar with Uniform Pills */}
       <div className="bg-slate-950 text-white text-[11px] font-medium border-b border-slate-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-2 flex flex-wrap items-center justify-center gap-2.5 sm:gap-4 md:gap-6 text-center">
-          {/* Prominent Emergency Toll-Free Badge */}
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-rose-600/30 border border-rose-500/50 rounded-full text-rose-300 font-bold">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-2 flex items-center justify-center flex-wrap gap-2 sm:gap-3 lg:gap-4 text-center">
+          {/* 1. Toll-Free Emergency Pill */}
+          <div className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-rose-600/25 border border-rose-500/40 rounded-full text-rose-300 font-bold whitespace-nowrap leading-none">
             <ShieldAlert className="w-3.5 h-3.5 text-rose-400 flex-shrink-0" />
             <span>TOLL-FREE EMERGENCY:</span>
             <a href="tel:08000057777" className="text-white hover:underline font-bold">
@@ -78,8 +89,8 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenAppointment }) => {
             </a>
           </div>
 
-          {/* Hospital Reception Desk */}
-          <div className="inline-flex items-center gap-1.5 text-slate-300 bg-white/5 px-3 py-1 rounded-full border border-white/10">
+          {/* 2. Hospital Desk Pill */}
+          <div className="inline-flex items-center gap-1.5 text-slate-300 bg-white/5 px-3 py-1.5 rounded-full border border-white/10 whitespace-nowrap leading-none">
             <Phone className="w-3 h-3 text-purple-400 flex-shrink-0" />
             <span>Desk:</span>
             <a href="tel:07032585626" className="text-white font-semibold hover:text-purple-300">
@@ -87,28 +98,28 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenAppointment }) => {
             </a>
           </div>
 
-          {/* 24/7 Hours Status */}
-          <div className="hidden sm:inline-flex items-center gap-1.5 text-slate-300">
+          {/* 3. 24/7 Hours Pill */}
+          <div className="hidden sm:inline-flex items-center gap-1.5 text-slate-300 bg-white/5 px-3 py-1.5 rounded-full border border-white/5 whitespace-nowrap leading-none">
             <Clock className="w-3.5 h-3.5 text-emerald-400 flex-shrink-0" />
             <span>24/7 Emergency & Maternity</span>
           </div>
 
-          {/* Location Badge */}
-          <div className="hidden md:inline-flex items-center gap-1.5 text-slate-300">
+          {/* 4. Location Pill */}
+          <div className="hidden md:inline-flex items-center gap-1.5 text-slate-300 bg-white/5 px-3 py-1.5 rounded-full border border-white/5 whitespace-nowrap leading-none">
             <MapPin className="w-3.5 h-3.5 text-purple-400 flex-shrink-0" />
             <span>Umuchigbo, Enugu East</span>
           </div>
 
-          {/* Treatment for Two Indigent Support */}
-          <a
-            href="https://wa.me/2347032585626?text=Hello%20Goodwill%20Medical%20Centre%2C%20I%20would%20like%20to%20support%20Treatment%20for%20Two."
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-900/70 text-purple-200 border border-purple-700/60 hover:bg-purple-800 transition-colors"
+          {/* 5. Free Treatment Button Pill */}
+          <button
+            type="button"
+            onClick={handleFreeTreatmentClick}
+            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-purple-900/80 hover:bg-purple-800 text-purple-200 border border-purple-600/60 shadow-sm transition-all whitespace-nowrap leading-none cursor-pointer group"
+            title="Click to view Free Treatment & Health Insurance Details"
           >
-            <Heart className="w-3 h-3 text-rose-400 fill-current flex-shrink-0" />
-            <span className="font-semibold">Treatment for Two</span>
-          </a>
+            <Heart className="w-3.5 h-3.5 text-rose-400 fill-current flex-shrink-0 group-hover:scale-110 transition-transform" />
+            <span className="font-bold text-white tracking-wide">Free Treatment</span>
+          </button>
         </div>
       </div>
 
@@ -138,7 +149,7 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenAppointment }) => {
             </Link>
           </div>
 
-          {/* Center: Desktop Subcategorized Navigation (Truly Centered) */}
+          {/* Center: Desktop Subcategorized Navigation (Centered) */}
           <div className="hidden lg:flex flex-1 justify-center items-center gap-1 xl:gap-2 px-4">
             {/* 1. Home */}
             <NavLink
@@ -558,6 +569,18 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenAppointment }) => {
               Contact & Directions
             </NavLink>
 
+            {/* Free Treatment Information Trigger on Mobile */}
+            <button
+              onClick={() => {
+                setIsMenuOpen(false);
+                handleFreeTreatmentClick();
+              }}
+              className="w-full py-3 bg-purple-900/80 text-white rounded-2xl font-bold text-xs flex items-center justify-center gap-2 border border-purple-700"
+            >
+              <Heart className="w-4 h-4 text-rose-400 fill-current" />
+              Free Treatment & Insurance Guide
+            </button>
+
             {/* Mobile Actions */}
             <div className="pt-3 border-t border-slate-100 space-y-2">
               <button
@@ -593,6 +616,13 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenAppointment }) => {
           </div>
         )}
       </nav>
+
+      {/* Free Treatment & Insurance Information Modal */}
+      <FreeTreatmentModal
+        isOpen={isFreeTreatmentModalOpen}
+        onClose={() => setIsFreeTreatmentModalOpen(false)}
+        onOpenAppointment={onOpenAppointment}
+      />
     </header>
   );
 };

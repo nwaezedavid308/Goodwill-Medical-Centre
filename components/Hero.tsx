@@ -81,7 +81,7 @@ const Hero: React.FC<HeroProps> = ({ onOpenAppointment, onOpenVideoModal }) => {
               </span>
               <span className="flex items-center gap-1.5 font-medium">
                 <Heart className="w-4 h-4 text-purple-600" />
-                Treatment for Two Indigent Subsidies
+                Free & Subsidised Patient Treatment
               </span>
               <span className="flex items-center gap-1.5 font-medium">
                 <Stethoscope className="w-4 h-4 text-indigo-600" />

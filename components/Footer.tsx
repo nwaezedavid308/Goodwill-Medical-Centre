@@ -27,7 +27,7 @@ const Footer: React.FC = () => {
             <div className="p-6 bg-white/5 border border-purple-500/20 rounded-3xl space-y-4 max-w-md">
               <div className="flex items-center gap-2 text-white">
                 <Heart className="w-4 h-4 text-rose-400 fill-current" />
-                <h5 className="font-serif font-bold text-base">Support the "Treatment for Two" Fund</h5>
+                <h5 className="font-serif font-bold text-base">Support the Free Treatment Fund</h5>
               </div>
               <p className="text-xs text-slate-400">
                 Directly fund free maternal care, indigent surgeries, and emergency medications:
