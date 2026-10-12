@@ -1,0 +1,17 @@
+Goodwill Medical Centre Website Upgrade
+Version: 2.0.0
+Upgraded By: Niuxverse Web Agency (+2348110607341)
+Date: 2026-10-12
+
+Major Features & Enhancements:
+1. Modernized UI/UX design with refined purple & cream healthcare theme, Lucide icons, glassmorphism, responsive navigation drawer, and emergency ticker banner.
+2. Complete video tour integration with dedicated HD modal player for aerial/exterior and interior clinic walkthrough videos.
+3. Interactive appointment booking engine with multi-department selection, doctor selection, insurance scheme picker, and instant WhatsApp dispatch.
+4. Dedicated Doctors & Specialists page (/doctors) with consultant profiles, clinic schedules, and 1-click consultation bookings.
+5. Interactive Patient Wellness Tools: Maternal Due Date & Antenatal Schedule Planner and Adult BMI Screener.
+6. Comprehensive multimedia Gallery (/gallery) with category filters, video player, and full lightbox photo viewer.
+7. Expanded Journal & News (/blog) featuring full article modals and downloadable staff competition essay PDFs.
+8. Interactive FAQ page (/faq) with category search and collapsible accordions.
+9. Patient Testimonials & Stories page (/testimonials) highlighting real impact stories (free C-sections, cataract surgeries, Avah River Bridge).
+10. Enhanced Contact page (/contact) with interactive inquiry form, emergency hotlines, and route guidance.
+11. Floating 24/7 emergency hotline & WhatsApp widget on every page.

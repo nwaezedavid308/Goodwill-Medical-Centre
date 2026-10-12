@@ -1,89 +1,211 @@
-
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { MapPin, Phone, Mail, Clock, Heart, ShieldAlert, ArrowUpRight, MessageSquare, Award } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-slate-950 text-slate-400 pt-32 pb-12">
+    <footer className="bg-slate-950 text-slate-400 pt-24 pb-12 border-t border-slate-900">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-16 mb-24">
-          <div className="md:col-span-4 space-y-10">
-            <div className="flex flex-col">
-              <span className="block text-2xl font-bold tracking-tighter text-white uppercase leading-none">
-                Goodwill Medical
+        {/* Top Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-16 mb-20">
+          {/* Col 1: About GMC & Donation */}
+          <div className="md:col-span-5 space-y-6">
+            <div className="space-y-1">
+              <span className="text-2xl font-bold tracking-tight text-white uppercase block">
+                Goodwill Medical <span className="text-purple-400">Centre</span>
               </span>
-              <span className="text-[10px] font-bold text-purple-400 uppercase tracking-[0.2em] mt-2 block">Health Centre</span>
+              <span className="text-[10px] font-bold text-purple-400 uppercase tracking-[0.25em] block">
+                Model Secondary Hospital · Umuchigbo, Enugu
+              </span>
             </div>
 
-            <p className="text-lg leading-relaxed font-light text-slate-300 max-w-sm">
-              Bridging the healthcare divide by enabling the well-off to support the vulnerable through quality care.
+            <p className="text-sm leading-relaxed font-light text-slate-300 max-w-md">
+              Bridging the healthcare divide in Enugu East through specialist secondary care, subsidized treatments, and life-saving community interventions supported by the TY Danjuma Foundation and PACIEH.
             </p>
 
-            <div className="p-6 bg-white/5 border border-white/10 rounded-2xl space-y-4" id="account-details">
-              <h5 className="text-white font-serif font-bold text-lg">Help Us Continue the Mission</h5>
-              <div className="space-y-2 text-sm text-slate-400">
-                <p><span className="text-purple-400 font-bold uppercase text-[10px] tracking-widest block mb-1">Account Name</span> Goodwill Medicals Enugu</p>
-                <p><span className="text-purple-400 font-bold uppercase text-[10px] tracking-widest block mb-1">Account Number</span> 5521840293</p>
-                <p><span className="text-purple-400 font-bold uppercase text-[10px] tracking-widest block mb-1">Bank</span> Moniepoint</p>
+            {/* Donation Account Box */}
+            <div className="p-6 bg-white/5 border border-purple-500/20 rounded-3xl space-y-4 max-w-md">
+              <div className="flex items-center gap-2 text-white">
+                <Heart className="w-4 h-4 text-rose-400 fill-current" />
+                <h5 className="font-serif font-bold text-base">Support the "Treatment for Two" Fund</h5>
+              </div>
+              <p className="text-xs text-slate-400">
+                Directly fund free maternal care, indigent surgeries, and emergency medications:
+              </p>
+              <div className="space-y-2 text-xs bg-slate-900/80 p-4 rounded-2xl border border-slate-800">
+                <div className="flex justify-between">
+                  <span className="text-purple-300 uppercase font-bold text-[10px] tracking-wider">Account Name</span>
+                  <span className="font-medium text-white">Goodwill Medicals Enugu</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-purple-300 uppercase font-bold text-[10px] tracking-wider">Account Number</span>
+                  <span className="font-mono font-bold text-amber-400 text-sm">5521840293</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-purple-300 uppercase font-bold text-[10px] tracking-wider">Bank</span>
+                  <span className="font-medium text-white">Moniepoint</span>
+                </div>
               </div>
             </div>
           </div>
 
-          <div className="md:col-span-3 md:col-start-6 space-y-8">
-            <h4 className="text-white font-bold text-xs uppercase tracking-[0.2em] pt-2">Our Mission</h4>
-            <ul className="space-y-4 text-sm font-medium">
-              <li><a href="https://www.pacieh.com" target="_blank" rel="noopener noreferrer" className="hover:text-purple-400 transition-colors">About PACIEH</a></li>
-              <li><a href="#impact" className="hover:text-purple-400 transition-colors">Impact & Milestones</a></li>
-              <li><a href="#services" className="hover:text-purple-400 transition-colors">Medical Services</a></li>
-              <li><a href="/inception-report" className="hover:text-purple-400 transition-colors">Inception Report 2024–2025</a></li>
-              <li><a href="#get-involved" className="hover:text-purple-400 transition-colors">How You Can Help</a></li>
+          {/* Col 2: Quick Links */}
+          <div className="md:col-span-3 space-y-5">
+            <h4 className="text-white font-bold text-xs uppercase tracking-[0.2em]">Explore GMC</h4>
+            <ul className="space-y-3 text-xs font-medium">
+              <li>
+                <Link to="/" className="hover:text-purple-400 transition-colors">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link to="/services" className="hover:text-purple-400 transition-colors">
+                  Medical Services
+                </Link>
+              </li>
+              <li>
+                <Link to="/doctors" className="hover:text-purple-400 transition-colors">
+                  Doctors & Specialists
+                </Link>
+              </li>
+              <li>
+                <Link to="/about" className="hover:text-purple-400 transition-colors">
+                  About GMC & Avah Bridge
+                </Link>
+              </li>
+              <li>
+                <Link to="/gallery" className="hover:text-purple-400 transition-colors">
+                  Photo & Video Tours
+                </Link>
+              </li>
+              <li>
+                <Link to="/inception-report" className="hover:text-purple-400 transition-colors">
+                  Inception Report 2024–2025
+                </Link>
+              </li>
+              <li>
+                <Link to="/testimonials" className="hover:text-purple-400 transition-colors">
+                  Patient Testimonials
+                </Link>
+              </li>
+              <li>
+                <Link to="/faq" className="hover:text-purple-400 transition-colors">
+                  Frequently Asked Questions
+                </Link>
+              </li>
+              <li>
+                <Link to="/blog" className="hover:text-purple-400 transition-colors">
+                  Journal & Staff Essays
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" className="hover:text-purple-400 transition-colors">
+                  Contact & Route Guide
+                </Link>
+              </li>
             </ul>
           </div>
 
-          <div className="md:col-span-4 space-y-8">
-            <h4 className="text-white font-bold text-xs uppercase tracking-[0.2em] pt-2">Contact Us</h4>
-            <div className="space-y-6">
-              <div className="flex gap-4">
-                <div className="flex-shrink-0 w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center text-purple-500">
-                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+          {/* Col 3: Contact & Emergency */}
+          <div className="md:col-span-4 space-y-6">
+            <h4 className="text-white font-bold text-xs uppercase tracking-[0.2em]">Emergency & Contact</h4>
+            <div className="space-y-4 text-xs">
+              {/* Emergency Hotline */}
+              <div className="flex gap-3">
+                <div className="flex-shrink-0 w-8 h-8 bg-rose-600/20 text-rose-400 rounded-xl flex items-center justify-center">
+                  <ShieldAlert className="w-4 h-4" />
                 </div>
-                <p className="text-sm leading-relaxed">
-                  No. 3, Chief Jude Agu Street, <br />
-                  Umuchigbo, Enugu East LGA, <br />
-                  Enugu State, Nigeria
-                </p>
+                <div>
+                  <span className="font-bold text-rose-400 uppercase text-[10px] tracking-wider block">
+                    Toll-Free Emergency
+                  </span>
+                  <a href="tel:08000057777" className="text-white font-bold text-sm hover:underline">
+                    0800 005 7777
+                  </a>
+                </div>
               </div>
 
-              <div className="flex gap-4">
-                <div className="flex-shrink-0 w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center text-purple-500">
-                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.95.68l1.5 4.49a1 1 0 01-.5 1.21l-2.26 1.13a11 11 0 005.52 5.52l1.13-2.26a1 1 0 011.21-.5l4.49 1.5a1 1 0 01.68.95V19a2 2 0 01-2 2h-1C9.72 21 3 14.28 3 6V5z" /></svg>
+              {/* Hospital Phones */}
+              <div className="flex gap-3">
+                <div className="flex-shrink-0 w-8 h-8 bg-purple-600/20 text-purple-400 rounded-xl flex items-center justify-center">
+                  <Phone className="w-4 h-4" />
                 </div>
-                <p className="text-sm leading-relaxed">0802 409 4488 · 0703 258 5626<br /><a href="https://wa.me/2347032585626" target="_blank" rel="noopener noreferrer" className="hover:text-purple-400 transition-colors">+234 703 258 5626 on WhatsApp</a><br />Toll-free referrals: 0800 005 7777</p>
+                <div>
+                  <span className="font-bold text-slate-300 uppercase text-[10px] tracking-wider block">
+                    Desk & Consultations
+                  </span>
+                  <p className="text-white">
+                    0703 258 5626 · 0802 409 4488
+                  </p>
+                  <a
+                    href="https://wa.me/2347032585626"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-emerald-400 hover:underline inline-flex items-center gap-1 mt-0.5"
+                  >
+                    <MessageSquare className="w-3 h-3" /> WhatsApp Live Chat
+                  </a>
+                </div>
               </div>
 
-              <div className="flex gap-4">
-                <div className="flex-shrink-0 w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center text-sky-400">
-                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+              {/* Physical Address */}
+              <div className="flex gap-3">
+                <div className="flex-shrink-0 w-8 h-8 bg-purple-600/20 text-purple-400 rounded-xl flex items-center justify-center">
+                  <MapPin className="w-4 h-4" />
                 </div>
-                <a href="mailto:goodwillhospital25@gmail.com" className="text-sm hover:text-purple-400 transition-colors">goodwillhospital25@gmail.com</a>
+                <div>
+                  <span className="font-bold text-slate-300 uppercase text-[10px] tracking-wider block">
+                    Location
+                  </span>
+                  <p className="text-slate-300 leading-relaxed">
+                    No. 3, Chief Jude Agu Street, Umuchigbo, <br />
+                    Enugu East LGA, Enugu State, Nigeria
+                  </p>
+                </div>
+              </div>
+
+              {/* Email */}
+              <div className="flex gap-3">
+                <div className="flex-shrink-0 w-8 h-8 bg-purple-600/20 text-purple-400 rounded-xl flex items-center justify-center">
+                  <Mail className="w-4 h-4" />
+                </div>
+                <div>
+                  <span className="font-bold text-slate-300 uppercase text-[10px] tracking-wider block">
+                    Email
+                  </span>
+                  <a
+                    href="mailto:goodwillhospital25@gmail.com"
+                    className="text-purple-300 hover:text-white hover:underline"
+                  >
+                    goodwillhospital25@gmail.com
+                  </a>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
-          <p className="text-[10px] uppercase font-bold tracking-widest text-slate-600">
-            © {new Date().getFullYear()} Goodwill Medical Centre (GMC)
+        {/* Bottom Credits & Copyright */}
+        <div className="pt-10 border-t border-slate-900 flex flex-col md:flex-row justify-between items-center gap-6 text-[11px] text-slate-500 font-medium">
+          <p>© {new Date().getFullYear()} Goodwill Medical Centre (GMC) · All rights reserved.</p>
+
+          <p className="text-purple-400 font-semibold">
+            Supported by TY Danjuma Foundation & PACIEH
           </p>
-          <div className="flex gap-8 text-[10px] uppercase font-bold tracking-widest text-slate-600">
-            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+
+          {/* Niuxverse Web Agency Developer Credit */}
+          <div className="flex items-center gap-2 text-slate-400 bg-white/5 px-4 py-2 rounded-full border border-white/5">
+            <span>Website Designed & Developed by</span>
+            <a
+              href="https://wa.me/2348110607341"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-purple-400 hover:text-purple-300 font-bold flex items-center gap-1 transition-colors"
+            >
+              Niuxverse Web Agency (+2348110607341)
+              <ArrowUpRight className="w-3.5 h-3.5" />
+            </a>
           </div>
-          <p className="text-[10px] uppercase font-bold tracking-widest text-purple-600">
-            Powered by PACIEH
-          </p>
-          <p className="text-[10px] uppercase font-bold tracking-widest text-slate-500">
-            Website by <a href="https://wa.me/2348110607341" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-400 transition-colors">Niuxverse Web Agency</a> (+2348110607341)
-          </p>
         </div>
       </div>
     </footer>
