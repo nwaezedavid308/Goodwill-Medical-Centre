@@ -96,7 +96,7 @@ const FAQ: React.FC = () => {
         <span className="text-purple-600 font-bold tracking-widest uppercase text-xs">
           Clear Answers & Guidance
         </span>
-        <h1 className="text-4xl md:text-6xl font-serif text-slate-900 leading-tight">
+        <h1 className="text-4xl md:text-6xl font-sans text-slate-900 leading-tight">
           Frequently Asked Questions
         </h1>
         <p className="text-lg text-slate-600 leading-relaxed font-light">
@@ -149,7 +149,7 @@ const FAQ: React.FC = () => {
                   className="w-full px-6 sm:px-8 py-5 text-left flex items-center justify-between gap-4 hover:bg-purple-50/40 transition-colors"
                   aria-expanded={isOpen}
                 >
-                  <span className="font-serif font-bold text-slate-900 text-base sm:text-lg">
+                  <span className="font-sans font-bold text-slate-900 text-base sm:text-lg">
                     {faq.question}
                   </span>
                   <span
@@ -187,7 +187,7 @@ const FAQ: React.FC = () => {
 
       {/* Still Have Questions Box */}
       <section className="mt-16 bg-[#FFF9F2] border border-purple-200 rounded-[2.5rem] p-8 sm:p-12 text-center space-y-6">
-        <h3 className="text-2xl font-serif font-bold text-slate-900">Still have a question?</h3>
+        <h3 className="text-2xl font-sans font-bold text-slate-900">Still have a question?</h3>
         <p className="text-slate-600 text-sm max-w-lg mx-auto leading-relaxed">
           Our administrative and patient care officers are on standby to answer your inquiries regarding treatments, registration, or visiting hours.
         </p>

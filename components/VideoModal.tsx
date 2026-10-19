@@ -58,7 +58,7 @@ const VideoModal: React.FC<VideoModalProps> = ({ isOpen, onClose, initialVideo =
               <Play className="w-5 h-5 fill-current" />
             </span>
             <div>
-              <h3 id="video-modal-title" className="text-white font-serif font-bold text-lg leading-tight">
+              <h3 id="video-modal-title" className="text-white font-sans font-bold text-lg leading-tight">
                 {currentVideo.title}
               </h3>
               <p className="text-slate-400 text-xs">Official Goodwill Medical Centre Tour</p>

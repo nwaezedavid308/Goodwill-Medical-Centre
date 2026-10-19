@@ -220,7 +220,6 @@
   --color-sky: #bce6f6;
   --color-lavender: #e6dafa;
   --font-sans: "Plus Jakarta Sans", sans-serif;
-  --font-serif: "Playfair Display", serif;
   --line: #30213d;
   --radius-card: 24px;
 }
@@ -288,9 +287,6 @@ input[type="date"],
 select {
   min-width: 0;
   max-width: 100%;
-}
-.font-serif {
-  font-family: var(--font-serif);
 }
 .skip-to-main {
   position: fixed;
@@ -1346,12 +1342,12 @@ select {
   align-items: center;
   font-size: 12px;
 }
-/* Shared pages retain their established type pairing, with a sharper card system. */
+/* Shared pages use the same typography as the landing page. */
 main > div > header h1,
 main > div > section h1 {
   letter-spacing: -0.05em;
 }
-main > div > header h1.font-serif {
+main > div > header h1.font-sans {
   font-family: var(--font-sans);
   font-weight: 600;
 }

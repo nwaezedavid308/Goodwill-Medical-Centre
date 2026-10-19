@@ -40,7 +40,7 @@ const Blog: React.FC = () => {
         <span className="text-purple-600 font-bold tracking-widest uppercase text-xs">
           Hospital News, Updates & Perspectives
         </span>
-        <h1 className="text-4xl md:text-6xl font-serif text-slate-900 leading-tight">
+        <h1 className="text-4xl md:text-6xl font-sans text-slate-900 leading-tight">
           GMC Journal & Announcements
         </h1>
         <p className="text-lg text-slate-600 leading-relaxed font-light">
@@ -119,7 +119,7 @@ const Blog: React.FC = () => {
 
                 <h2
                   onClick={() => setActivePost(post)}
-                  className="font-serif font-bold text-xl text-slate-900 hover:text-purple-600 transition-colors cursor-pointer leading-snug line-clamp-2"
+                  className="font-sans font-bold text-xl text-slate-900 hover:text-purple-600 transition-colors cursor-pointer leading-snug line-clamp-2"
                 >
                   {post.title}
                 </h2>
@@ -162,7 +162,7 @@ const Blog: React.FC = () => {
             <span className="text-purple-400 font-bold tracking-[0.2em] uppercase text-xs">
               Staff Essay Competition Archive
             </span>
-            <h2 className="text-3xl md:text-5xl font-serif font-bold leading-tight">
+            <h2 className="text-3xl md:text-5xl font-sans font-bold leading-tight">
               Clinical Insights Written by GMC Professionals
             </h2>
             <p className="text-slate-400 text-sm md:text-base leading-relaxed font-light">
@@ -260,7 +260,7 @@ const Blog: React.FC = () => {
                 <span className="px-3 py-1 bg-purple-600 rounded-full text-[10px] font-bold uppercase tracking-wider">
                   {activePost.category}
                 </span>
-                <h2 className="text-2xl sm:text-3xl font-serif font-bold leading-tight">
+                <h2 className="text-2xl sm:text-3xl font-sans font-bold leading-tight">
                   {activePost.title}
                 </h2>
                 <div className="flex items-center gap-3 text-xs text-slate-300">

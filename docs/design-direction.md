@@ -2,7 +2,7 @@
 
 The user's seven references informed the proportions, expressive typography and playful card arrangement. Their palettes, illustrations and content were not copied.
 
-Milk `#FFF9F2` remains the base. Purple `#7939C6` anchors key actions, sky `#BCE6F6` marks wayfinding, lavender `#E6DAFA` softens secondary surfaces, and ink `#241C30` provides the outlines and text. The existing Plus Jakarta Sans / Playfair Display families remain available; the new homepage uses the sans family for a bolder, simpler hierarchy.
+Milk `#FFF9F2` remains the base. Purple `#7939C6` anchors key actions, sky `#BCE6F6` marks wayfinding, lavender `#E6DAFA` softens secondary surfaces, and ink `#241C30` provides the outlines and text. Plus Jakarta Sans is used throughout the website, including headings, cards, forms and dialogs, matching the landing page. The former Playfair Display font has been removed.
 
 The layout pairs a large, left-aligned heading with an asymmetric three-part grid: a clear invitation, real hospital photography and two practical action cards. Medical plus signs are structural brand details. Mixed card sizes, small offset shadows on interaction and a lightly tilted insurance stack provide personality without mascots, neon or animation loops.
 

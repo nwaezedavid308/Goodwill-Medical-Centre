@@ -235,7 +235,7 @@ const Gallery: React.FC = () => {
         <span className="text-purple-600 font-bold tracking-widest uppercase text-xs">
           Visual Archive · Media Hub
         </span>
-        <h1 className="text-4xl md:text-6xl font-serif text-slate-900 leading-tight">
+        <h1 className="text-4xl md:text-6xl font-sans text-slate-900 leading-tight">
           Goodwill Medical Centre Gallery
         </h1>
         <p className="text-lg text-slate-600 leading-relaxed font-light">
@@ -252,7 +252,7 @@ const Gallery: React.FC = () => {
             <span className="px-3.5 py-1.5 bg-purple-500/20 text-purple-300 rounded-full text-xs font-bold uppercase tracking-wider inline-flex items-center gap-2 border border-purple-500/30">
               <Video className="w-3.5 h-3.5" /> High-Definition Video Tours
             </span>
-            <h2 className="text-3xl md:text-5xl font-serif font-bold text-white leading-tight">
+            <h2 className="text-3xl md:text-5xl font-sans font-bold text-white leading-tight">
               Experience GMC Through Official Video Tours
             </h2>
             <p className="text-slate-300 text-sm md:text-base leading-relaxed font-light">
@@ -355,7 +355,7 @@ const Gallery: React.FC = () => {
             </div>
 
             <div className="p-6 flex-1 flex flex-col justify-between space-y-2">
-              <h3 className="font-serif font-bold text-base sm:text-lg text-slate-900 group-hover:text-purple-600 transition-colors">
+              <h3 className="font-sans font-bold text-base sm:text-lg text-slate-900 group-hover:text-purple-600 transition-colors">
                 {item.title}
               </h3>
               <p className="text-slate-500 text-xs leading-relaxed font-light line-clamp-2">
@@ -424,7 +424,7 @@ const Gallery: React.FC = () => {
 
             {/* Bottom Caption */}
             <div className="p-6 bg-slate-950/90 space-y-2">
-              <h3 className="text-white font-serif font-bold text-lg sm:text-xl">
+              <h3 className="text-white font-sans font-bold text-lg sm:text-xl">
                 {filteredItems[lightboxIndex].title}
               </h3>
               <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">

@@ -66,7 +66,7 @@ const Testimonials: React.FC = () => {
         <span className="text-purple-600 font-bold tracking-widest uppercase text-xs">
           Voices of Healing & Hope
         </span>
-        <h1 className="text-4xl md:text-6xl font-serif text-slate-900 leading-tight">
+        <h1 className="text-4xl md:text-6xl font-sans text-slate-900 leading-tight">
           Patient Stories & Testimonials
         </h1>
         <p className="text-lg text-slate-600 leading-relaxed font-light">
@@ -77,25 +77,25 @@ const Testimonials: React.FC = () => {
       {/* Highlights Metric Banner */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
         <div className="p-6 bg-white rounded-3xl border border-purple-100 shadow-sm text-center">
-          <div className="text-3xl font-bold font-serif text-purple-700">12,509+</div>
+          <div className="text-3xl font-bold font-sans text-purple-700">12,509+</div>
           <p className="text-slate-500 text-xs uppercase tracking-wider font-semibold mt-1">
             Total Patients Served
           </p>
         </div>
         <div className="p-6 bg-white rounded-3xl border border-purple-100 shadow-sm text-center">
-          <div className="text-3xl font-bold font-serif text-emerald-600">91</div>
+          <div className="text-3xl font-bold font-sans text-emerald-600">91</div>
           <p className="text-slate-500 text-xs uppercase tracking-wider font-semibold mt-1">
             Free C-Sections Performed
           </p>
         </div>
         <div className="p-6 bg-white rounded-3xl border border-purple-100 shadow-sm text-center">
-          <div className="text-3xl font-bold font-serif text-purple-700">2,523</div>
+          <div className="text-3xl font-bold font-sans text-purple-700">2,523</div>
           <p className="text-slate-500 text-xs uppercase tracking-wider font-semibold mt-1">
             Eye Patients Reviewed
           </p>
         </div>
         <div className="p-6 bg-white rounded-3xl border border-purple-100 shadow-sm text-center">
-          <div className="text-3xl font-bold font-serif text-amber-600">₦40.9M</div>
+          <div className="text-3xl font-bold font-sans text-amber-600">₦40.9M</div>
           <p className="text-slate-500 text-xs uppercase tracking-wider font-semibold mt-1">
             Direct Financial Savings
           </p>
@@ -137,7 +137,7 @@ const Testimonials: React.FC = () => {
                 />
               </div>
               <div className="min-w-0 flex-1">
-                <h4 className="font-serif font-bold text-slate-900 text-base truncate">{item.name}</h4>
+                <h4 className="font-sans font-bold text-slate-900 text-base truncate">{item.name}</h4>
                 <p className="text-purple-600 text-xs font-semibold">{item.category}</p>
                 <p className="text-slate-400 text-[11px]">{item.community}</p>
               </div>
@@ -149,7 +149,7 @@ const Testimonials: React.FC = () => {
       {/* Share Your Story CTA */}
       <section className="mt-20 bg-slate-900 text-white rounded-[3rem] p-10 md:p-16 text-center max-w-4xl mx-auto space-y-6">
         <Heart className="w-12 h-12 text-rose-400 mx-auto" />
-        <h2 className="text-3xl md:text-4xl font-serif font-bold">Were You Treated at GMC?</h2>
+        <h2 className="text-3xl md:text-4xl font-sans font-bold">Were You Treated at GMC?</h2>
         <p className="text-slate-300 text-base max-w-xl mx-auto font-light">
           Your story inspires our medical personnel and reassures vulnerable families in need of care. Share your testimony or experience with our patient satisfaction desk.
         </p>

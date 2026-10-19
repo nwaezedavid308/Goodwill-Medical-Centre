@@ -11,7 +11,7 @@ const ImpactSection: React.FC = () => {
         <div className="flex flex-col md:flex-row items-end justify-between gap-12 mb-20">
           <div className="max-w-xl space-y-6">
             <h2 className="text-sm font-bold tracking-[0.3em] text-purple-600 uppercase">Our Impact So Far</h2>
-            <h3 className="text-4xl md:text-6xl font-serif text-slate-900 leading-tight">
+            <h3 className="text-4xl md:text-6xl font-sans text-slate-900 leading-tight">
               Real Impact, <br />Real Lives Changed
             </h3>
             <p className="text-slate-600 text-lg leading-relaxed">
@@ -34,7 +34,7 @@ const ImpactSection: React.FC = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent" />
               <div className="absolute bottom-8 left-8 text-white">
-                <h4 className="text-2xl font-serif">12,509+ Patients Served</h4>
+                <h4 className="text-2xl font-sans">12,509+ Patients Served</h4>
                 <p className="text-slate-200 text-xs uppercase tracking-widest font-bold">Since GMC Opened in 2024</p>
               </div>
             </div>

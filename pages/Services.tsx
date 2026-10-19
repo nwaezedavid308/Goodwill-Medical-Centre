@@ -23,7 +23,7 @@ const Services: React.FC<ServicesPageProps> = ({ onBookService }) => {
         <span className="text-purple-600 font-bold tracking-widest uppercase text-xs">
           Comprehensive Clinical Services
         </span>
-        <h1 className="text-4xl md:text-6xl font-serif text-slate-900 leading-tight">
+        <h1 className="text-4xl md:text-6xl font-sans text-slate-900 leading-tight">
           Specialist-Led Healthcare in Umuchigbo
         </h1>
         <p className="text-lg text-slate-600 leading-relaxed font-light">
@@ -75,7 +75,7 @@ const Services: React.FC<ServicesPageProps> = ({ onBookService }) => {
 
               {/* Service Info */}
               <div className="p-6 sm:p-8 space-y-4">
-                <h3 className="font-serif font-bold text-xl text-slate-900 group-hover:text-purple-600 transition-colors leading-snug">
+                <h3 className="font-sans font-bold text-xl text-slate-900 group-hover:text-purple-600 transition-colors leading-snug">
                   {service.title}
                 </h3>
 
@@ -129,7 +129,7 @@ const Services: React.FC<ServicesPageProps> = ({ onBookService }) => {
           <span className="text-purple-400 font-bold text-xs uppercase tracking-widest">
             Healthcare Cross-Subsidy
           </span>
-          <h2 className="text-3xl md:text-5xl font-serif font-bold">
+          <h2 className="text-3xl md:text-5xl font-sans font-bold">
             Subsidised Care For Every Vulnerable Family
           </h2>
           <p className="text-slate-300 text-base font-light leading-relaxed">

@@ -11,7 +11,7 @@ const TreatmentForTwo: React.FC = () => {
 
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="space-y-6">
-              <h2 className="text-4xl md:text-5xl font-serif text-white">Community-Powered. <br /> Donor-Supported.</h2>
+              <h2 className="text-4xl md:text-5xl font-sans text-white">Community-Powered. <br /> Donor-Supported.</h2>
               <p className="text-purple-200 text-lg leading-relaxed">
                 Our success is built on the spirit of shared responsibility. Through our <strong>“Treatment for Two” initiative</strong>, well-off patients can voluntarily support the medical costs of those who cannot afford care.
               </p>

@@ -68,7 +68,7 @@ const FreeTreatmentModal: React.FC<FreeTreatmentModalProps> = ({ isOpen, onClose
               <span className="text-[10px] font-bold tracking-widest uppercase text-purple-300 block">
                 Healthcare Access & Protection
               </span>
-              <h2 id="free-treatment-modal-title" className="text-xl sm:text-2xl font-bold font-serif leading-tight">
+              <h2 id="free-treatment-modal-title" className="text-xl sm:text-2xl font-bold font-sans leading-tight">
                 Free Treatment & Insurance Information
               </h2>
             </div>
@@ -105,7 +105,7 @@ const FreeTreatmentModal: React.FC<FreeTreatmentModalProps> = ({ isOpen, onClose
                   className="p-5 bg-white rounded-2xl border border-slate-200 hover:border-purple-300 shadow-sm transition-all space-y-3"
                 >
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-                    <h4 className="font-serif font-bold text-base text-slate-900 flex items-center gap-2">
+                    <h4 className="font-sans font-bold text-base text-slate-900 flex items-center gap-2">
                       <span className="w-2 h-2 rounded-full bg-purple-600 flex-shrink-0" />
                       {scheme.title}
                     </h4>
@@ -138,7 +138,7 @@ const FreeTreatmentModal: React.FC<FreeTreatmentModalProps> = ({ isOpen, onClose
 
           {/* How to Access / Eligibility */}
           <div className="p-6 bg-slate-900 text-white rounded-2xl space-y-3">
-            <h4 className="font-serif font-bold text-base text-purple-300 flex items-center gap-2">
+            <h4 className="font-sans font-bold text-base text-purple-300 flex items-center gap-2">
               <Award className="w-4 h-4 text-purple-400" />
               How to Access Free Care or Register Your Insurance at GMC
             </h4>

@@ -17,7 +17,7 @@ const BridgeImpact: React.FC = () => {
               <span className="text-purple-400 font-bold text-xs uppercase tracking-widest italic">A Hospital with a Heart</span>
             </div>
 
-            <h2 className="text-4xl md:text-6xl font-serif leading-[1.1]">
+            <h2 className="text-4xl md:text-6xl font-sans leading-[1.1]">
               Breaking Barriers <br /><span className="text-purple-400 italic">The Avah River Bridge</span>
             </h2>
 

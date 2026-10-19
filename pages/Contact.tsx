@@ -34,7 +34,7 @@ const Contact: React.FC = () => {
         <span className="text-purple-600 font-bold tracking-widest uppercase text-xs">
           Get in Touch With Us
         </span>
-        <h1 className="text-4xl md:text-6xl font-serif text-slate-900 leading-tight">
+        <h1 className="text-4xl md:text-6xl font-sans text-slate-900 leading-tight">
           Contact & Location Details
         </h1>
         <p className="text-lg text-slate-600 leading-relaxed font-light">
@@ -190,7 +190,7 @@ const Contact: React.FC = () => {
                 <span className="text-purple-600 font-bold text-xs uppercase tracking-wider">
                   Send a Message
                 </span>
-                <h3 className="text-2xl sm:text-3xl font-serif font-bold text-slate-900 mt-1">
+                <h3 className="text-2xl sm:text-3xl font-sans font-bold text-slate-900 mt-1">
                   How Can We Help You Today?
                 </h3>
                 <p className="text-slate-500 text-sm mt-1">
@@ -296,7 +296,7 @@ const Contact: React.FC = () => {
                 <CheckCircle2 className="w-10 h-10" />
               </div>
               <div className="space-y-2">
-                <h3 className="text-2xl font-serif font-bold text-slate-900">Your message is ready.</h3>
+                <h3 className="text-2xl font-sans font-bold text-slate-900">Your message is ready.</h3>
                 <p className="text-slate-600 text-sm max-w-md mx-auto">
                   Thank you, {name}. Your enquiry about "{subject}" has been prepared. Open WhatsApp, review it and press send to reach our desk. Nothing has been sent yet.
                 </p>
@@ -331,7 +331,7 @@ const Contact: React.FC = () => {
             <span className="text-purple-600 font-bold text-xs uppercase tracking-wider flex items-center gap-2">
               <Navigation className="w-4 h-4" /> Patient Route Guide
             </span>
-            <h2 className="text-3xl font-serif font-bold text-slate-900 mt-1">
+            <h2 className="text-3xl font-sans font-bold text-slate-900 mt-1">
               How to Reach Goodwill Medical Centre
             </h2>
             <p className="text-slate-600 text-sm mt-2 max-w-2xl">

@@ -103,7 +103,7 @@ const reportImages = [
 const Section: React.FC<{ eyebrow: string; title: string; children: React.ReactNode }> = ({ eyebrow, title, children }) => (
   <section className="mb-24">
     <span className="text-purple-600 font-bold tracking-widest uppercase text-xs">{eyebrow}</span>
-    <h2 className="text-3xl md:text-5xl font-serif text-slate-900 mt-2 mb-8">{title}</h2>
+    <h2 className="text-3xl md:text-5xl font-sans text-slate-900 mt-2 mb-8">{title}</h2>
     {children}
   </section>
 );
@@ -122,14 +122,14 @@ const InceptionReport: React.FC = () => (
     <header className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center mb-24">
       <div className="space-y-6">
         <span className="text-purple-600 font-bold tracking-[0.2em] uppercase text-xs">Inception Activities and Achievement Report</span>
-        <h1 className="text-4xl md:text-6xl font-serif text-slate-900 leading-tight">February 2024 to December 2025</h1>
+        <h1 className="text-4xl md:text-6xl font-sans text-slate-900 leading-tight">February 2024 to December 2025</h1>
         <p className="text-lg text-slate-600 leading-relaxed">Goodwill Medical Centre is a model secondary hospital in Umuchigbo, Enugu East LGA. This page presents the clinical, community, infrastructure, financial and partnership record from its opening through December 2025.</p>
       </div>
       <img loading="lazy" src="/images/report/report-23.png" alt="Goodwill Medical Centre building" className="w-full rounded-[3rem] shadow-2xl" />
     </header>
 
     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-24">
-      {headlineStats.map(([value, label]) => <div key={label} className="bg-white rounded-2xl border border-purple-100 p-5 text-center shadow-sm"><div className="text-2xl font-bold text-purple-600 font-serif">{value}</div><p className="text-xs text-slate-500 mt-2">{label}</p></div>)}
+      {headlineStats.map(([value, label]) => <div key={label} className="bg-white rounded-2xl border border-purple-100 p-5 text-center shadow-sm"><div className="text-2xl font-bold text-purple-600 font-sans">{value}</div><p className="text-xs text-slate-500 mt-2">{label}</p></div>)}
     </div>
 
     <Section eyebrow="Executive Summary" title="A Mission of Goodwill">
@@ -167,7 +167,7 @@ const InceptionReport: React.FC = () => (
         </div>
         <img loading="lazy" src="/images/report/report-03.jpeg" alt="Maternal and newborn care at GMC" className="w-full rounded-[3rem] shadow-xl" />
       </div>
-      <div className="mt-10 bg-purple-50 border border-purple-100 rounded-[2rem] p-8"><h3 className="font-serif text-2xl text-slate-900 mb-3">Patient Story</h3><p className="text-slate-600 leading-relaxed">Mrs Ngozi arrived with prolonged-labour complications. Through CEmONC she received a fully subsidised caesarean section. Mother and child recovered and continue to thrive—one of 91 families given a second chance.</p></div>
+      <div className="mt-10 bg-purple-50 border border-purple-100 rounded-[2rem] p-8"><h3 className="font-sans text-2xl text-slate-900 mb-3">Patient Story</h3><p className="text-slate-600 leading-relaxed">Mrs Ngozi arrived with prolonged-labour complications. Through CEmONC she received a fully subsidised caesarean section. Mother and child recovered and continue to thrive—one of 91 families given a second chance.</p></div>
     </Section>
 
     <Section eyebrow="Eye Health" title="Restoring Sight and Transforming Lives">
@@ -210,14 +210,14 @@ const InceptionReport: React.FC = () => (
         ['Patient Revenue', 'Premium ward fees, specialist consultations, diaspora family plans and corporate wellness arrangements.'],
         ['Government Partnership', 'NHIA/GIFSHIP enrolment, CEmONC reimbursement, Enugu State UHC and LGA insurance agreements.'],
         ['Institutional Support', 'TY Danjuma Foundation, WHO/TDR, Sightsavers, MITOSATH and individual partners.'],
-      ].map(([title, text]) => <article key={title} className="p-8 bg-white rounded-[2rem] border border-purple-100 shadow-sm"><h3 className="text-xl font-serif font-bold text-slate-900 mb-4">{title}</h3><p className="text-slate-600 leading-relaxed">{text}</p></article>)}</div>
+      ].map(([title, text]) => <article key={title} className="p-8 bg-white rounded-[2rem] border border-purple-100 shadow-sm"><h3 className="text-xl font-sans font-bold text-slate-900 mb-4">{title}</h3><p className="text-slate-600 leading-relaxed">{text}</p></article>)}</div>
       <div className="space-y-5 text-slate-600 leading-relaxed"><p>GMC uses a cross-subsidy model in which premium fees from higher-income patients help finance subsidised and free care. At least 30% of annual operational surplus is committed to vulnerable populations and reviewed annually by the Board.</p><p>Income grew from ₦1.77 million in February 2024, the first full operating month, to ₦8.79 million in August 2024. More than ₦38 million was generated over eight months, demonstrating the potential of the internally generated revenue model.</p><p>Government is a co-investor in health equity. NHIA accreditation enables GIFSHIP enrolment, while CEmONC reimbursement financed 91 free C-sections. State and LGA agreements expand coverage for residents, staff and elderly people aged 70 and above. GMC targets 200 new insurance enrollees each year and 350 free deliveries annually by 2027.</p></div>
     </Section>
 
     <Section eyebrow="Challenges and Lessons" title="What the First Two Years Taught Us">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div className="bg-white p-8 rounded-[2rem] border border-slate-100"><h3 className="text-2xl font-serif mb-4">Challenges</h3><ul className="space-y-3 text-slate-600 list-disc pl-5"><li>Poor roads, geographic isolation and the river barrier</li><li>Water shortages and power fluctuations</li><li>Security coordination with local authorities</li><li>Staff retention amid public-sector salary competition</li><li>Severe poverty among many patients and communities</li></ul></div>
-        <div className="bg-white p-8 rounded-[2rem] border border-slate-100"><h3 className="text-2xl font-serif mb-4">Responses and Lessons</h3><ul className="space-y-3 text-slate-600 list-disc pl-5"><li>The bridge, solar expansion and water system are direct health interventions</li><li>NHIA and UHC integration expand financial protection</li><li>Donor funding combined with earned income supports a replicable pro-poor model</li><li>TBA integration, outreach and community leadership build trust</li><li>Continuing professional development and international mentorship strengthen retention and clinical quality</li></ul></div>
+        <div className="bg-white p-8 rounded-[2rem] border border-slate-100"><h3 className="text-2xl font-sans mb-4">Challenges</h3><ul className="space-y-3 text-slate-600 list-disc pl-5"><li>Poor roads, geographic isolation and the river barrier</li><li>Water shortages and power fluctuations</li><li>Security coordination with local authorities</li><li>Staff retention amid public-sector salary competition</li><li>Severe poverty among many patients and communities</li></ul></div>
+        <div className="bg-white p-8 rounded-[2rem] border border-slate-100"><h3 className="text-2xl font-sans mb-4">Responses and Lessons</h3><ul className="space-y-3 text-slate-600 list-disc pl-5"><li>The bridge, solar expansion and water system are direct health interventions</li><li>NHIA and UHC integration expand financial protection</li><li>Donor funding combined with earned income supports a replicable pro-poor model</li><li>TBA integration, outreach and community leadership build trust</li><li>Continuing professional development and international mentorship strengthen retention and clinical quality</li></ul></div>
       </div>
     </Section>
 
@@ -226,7 +226,7 @@ const InceptionReport: React.FC = () => (
         ['2026', 'Introduce electronic medical records and a pricing policy; add three donor streams; increase GIFSHIP and UHC enrolment.'],
         ['2027', 'Expand support for vulnerable mothers and newborns; pursue zero maternal deaths; grow eye-health services; open the SIHI research hub; sign two new MoUs.'],
         ['2028', 'Reach full financial independence and document a replicable model for pro-poor secondary healthcare.'],
-      ].map(([year, text]) => <article key={year} className="bg-slate-900 text-white p-8 rounded-[2rem]"><div className="text-purple-400 text-4xl font-serif font-bold mb-4">{year}</div><p className="text-slate-300 leading-relaxed">{text}</p></article>)}</div>
+      ].map(([year, text]) => <article key={year} className="bg-slate-900 text-white p-8 rounded-[2rem]"><div className="text-purple-400 text-4xl font-sans font-bold mb-4">{year}</div><p className="text-slate-300 leading-relaxed">{text}</p></article>)}</div>
       <p className="text-slate-600 leading-relaxed mt-8">GMC also seeks support to expand advanced diagnostics and cancer screening. The roadmap depends on public insurance, specialist organisations, academic research and community networks working together.</p>
     </Section>
 

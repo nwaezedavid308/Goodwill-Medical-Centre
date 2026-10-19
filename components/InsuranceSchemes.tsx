@@ -39,11 +39,11 @@ const InsuranceSchemes: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
           <div className="lg:col-span-5 space-y-8">
             <h2 className="text-sm font-bold tracking-[0.2em] text-purple-600 uppercase">Subsidized Healthcare</h2>
-            <h3 className="text-4xl md:text-5xl font-serif text-slate-900 leading-tight">GMC supports the <br/>less privileged</h3>
+            <h3 className="text-4xl md:text-5xl font-sans text-slate-900 leading-tight">GMC supports the <br/>less privileged</h3>
             <p className="text-lg text-slate-600 leading-relaxed font-light">
               GMC’s cross-subsidy model uses revenue from higher-income patients, public insurance and partner support to fund subsidised and free care. At least 30% of annual operational surplus is committed to vulnerable patients.
             </p>
-            <div className="p-8 bg-[#FFF9F2] rounded-[2rem] border border-purple-100 italic text-purple-900 font-serif">
+            <div className="p-8 bg-[#FFF9F2] rounded-[2rem] border border-purple-100 italic text-purple-900 font-sans">
               "Ensuring that financial barriers never stand in the way of life-saving medical intervention."
             </div>
           </div>

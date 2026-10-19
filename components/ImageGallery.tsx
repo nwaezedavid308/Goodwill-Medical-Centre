@@ -62,7 +62,7 @@ const ImageGallery: React.FC = () => {
             <span className="text-xs font-bold tracking-[0.25em] text-purple-600 uppercase">
               Visual Highlights · Life at GMC
             </span>
-            <h2 className="text-4xl md:text-5xl font-serif text-slate-900 leading-tight">
+            <h2 className="text-4xl md:text-5xl font-sans text-slate-900 leading-tight">
               Compassionate Care in Focus
             </h2>
             <p className="text-base text-slate-600 leading-relaxed font-light">
@@ -133,7 +133,7 @@ const ImageGallery: React.FC = () => {
 
               <div className="p-6 flex-1 flex flex-col justify-between space-y-3">
                 <div>
-                  <h3 className="font-serif font-bold text-lg text-slate-900 group-hover:text-purple-600 transition-colors">
+                  <h3 className="font-sans font-bold text-lg text-slate-900 group-hover:text-purple-600 transition-colors">
                     {img.title}
                   </h3>
                   <p className="text-slate-500 text-xs leading-relaxed mt-2 line-clamp-3">
@@ -160,7 +160,7 @@ const ImageGallery: React.FC = () => {
             <span className="text-purple-400 text-xs font-bold uppercase tracking-widest flex items-center gap-2">
               <Play className="w-3.5 h-3.5 fill-current" /> Video Walkthrough Experience
             </span>
-            <h3 className="text-2xl md:text-3xl font-serif font-bold">
+            <h3 className="text-2xl md:text-3xl font-sans font-bold">
               Take a Virtual Aerial & Facility Tour of GMC
             </h3>
             <p className="text-slate-300 text-sm leading-relaxed font-light">
