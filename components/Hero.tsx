@@ -159,14 +159,14 @@ export default function Hero({ onOpenAppointment, onOpenVideoModal }: Props) {
           >
             <video
               ref={videoRef}
-              src="/videos/GMC_VIEW.mp4"
+              src="/videos/gmc-hospital-intro.mp4"
               poster="/images/optimised/facility-1280.webp"
               autoPlay={!reduced}
               muted={muted}
               loop
               playsInline
               preload={reduced ? "none" : "auto"}
-              aria-label="Aerial tour of Goodwill Medical Centre"
+              aria-label="Introduction to Goodwill Medical Centre"
               onPlay={() => setPlaying(true)}
               onPause={() => setPlaying(false)}
             />

@@ -11,9 +11,9 @@ interface VideoModalProps {
 const VIDEOS = [
   {
     id: 'aerial',
-    title: 'Goodwill Medical Centre - Aerial & Exterior Tour',
-    description: 'An overview of the hospital complex, grounds, and facility architecture in Umuchigbo, Enugu East.',
-    src: '/videos/GMC_VIEW.mp4',
+    title: 'Welcome to Goodwill Medical Centre',
+    description: 'Get to know Goodwill Medical Centre in Umuchigbo, Enugu East.',
+    src: '/videos/gmc-hospital-intro.mp4',
     icon: Building2,
   },
   {
@@ -105,7 +105,7 @@ const VideoModal: React.FC<VideoModalProps> = ({ isOpen, onClose, initialVideo =
                   }`}
                 >
                   <Icon className="w-4 h-4" />
-                  <span>{vid.id === 'aerial' ? 'Exterior & Grounds' : 'Interior Clinics & Wards'}</span>
+                  <span>{vid.id === 'aerial' ? 'Hospital Introduction' : 'Interior Clinics & Wards'}</span>
                 </button>
               );
             })}

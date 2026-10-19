@@ -13,3 +13,5 @@ A sky-blue patient-support card immediately follows the hero, with matching supp
 Primary tasks are explicit: request a visit, explore services, find directions and call for urgent help. The former top information bar is removed entirely. Emergency contact stays available in the contact menu and footer.
 
 The former individual clinician directory has been replaced by a showcase of 14 clinical and support teams. Staff and department-space photos have captions describing what is pictured; support departments without supplied portraits use GMC facility imagery. Individual clinician names have also been removed from appointment requests. GMC still needs to confirm schedules, programme terms and historical impact figures. The new homepage avoids patient quotes and undated numerical impact claims.
+
+The landing video uses a web-ready H.264 copy of BEST HOSPITAL INTRO1019.mp4 with its original audio removed. The first 40.31 seconds of the supplied Vector Pulse.mp3 replace that soundtrack, encoded as AAC in the same MP4 so playback and sound controls remain synchronized. The original uploads remain untouched locally.
