@@ -2,6 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
+/* A slow, three-pixel drift on alternate service cards only, after entry. */
+.service-card[data-floating="true"][data-scroll-state="visible"] {
+  animation: care-card-float 7s ease-in-out infinite;
+}
+.service-card[data-floating="true"]:nth-child(4n) {
+  animation-delay: -3.5s;
+}
+.service-card[data-floating="true"]:hover,
+.service-card[data-floating="true"]:focus-within {
+  animation: none;
+}
+@keyframes care-card-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-scroll-state] {
+    opacity: 1 !important;
+    translate: none !important;
+  }
+  .service-card[data-floating="true"] {
+    animation: none !important;
+  }
+}
+
 .teams-page {
   padding-block: 60px 80px;
 }
