@@ -1,4 +1,6 @@
 {
+  "include": ["App.tsx", "index.tsx", "components/**/*.tsx", "pages/**/*.tsx", "hooks/**/*.ts", "data/**/*.ts", "vite.config.ts"],
+  "exclude": ["node_modules", "dist"],
   "compilerOptions": {
     "target": "ES2022",
     "experimentalDecorators": true,

@@ -1,404 +1,252 @@
-import React, { useState } from 'react';
-import { X, Calendar, Clock, User, Phone, Mail, Shield, CheckCircle2, MessageSquare, ChevronRight, Stethoscope } from 'lucide-react';
-
-interface AppointmentModalProps {
+import React, { useRef, useState } from "react";
+import { Link } from "react-router-dom";
+import { X, ArrowUpRight, Calendar, ArrowLeft, Phone } from "lucide-react";
+import { SERVICES_DATA } from "../data/care";
+import { useDialog } from "../hooks/useDialog";
+interface Props {
   isOpen: boolean;
   onClose: () => void;
   preselectedService?: string;
-  preselectedDoctor?: string;
 }
-
-const DEPARTMENTS = [
-  'General Outpatient Care (GOPD)',
-  'Maternal, Antenatal & Delivery (CEmONC)',
-  'Eye Health & Cataract Surgery',
-  'Paediatric & Child Care',
-  'Inpatient & General Surgery',
-  'Diagnostic Laboratory & Ultrasound Scan',
-  'Accident & Emergency (24/7)',
-  'Ear, Nose & Throat (ENT)',
-  'Pharmacy Consultation',
+const insuranceOptions = [
+  "Please help me choose",
+  "NHIA / GIFSHIP",
+  "ESCHIS",
+  "Private / HMO cover",
+  "Self-pay",
+  "Subsidised care enquiry",
 ];
-
-const DOCTORS = [
-  'Any Available Specialist / Medical Officer',
-  'Dr. Chidubem Okafor (Chief Medical Officer & Consultant Surgeon)',
-  'Dr. Nneka Umeh (Consultant Obstetrician & Gynecologist)',
-  'Dr. Emeka Nwankwo (Consultant Ophthalmologist / Eye Surgeon)',
-  'Dr. Ifeoma Eze (Senior Paediatric Specialist)',
-  'Dr. Kalu Okoro (Internal Medicine Specialist)',
+const times = [
+  "08:00 AM - 10:00 AM",
+  "10:00 AM - 12:00 PM",
+  "12:00 PM - 02:00 PM",
+  "02:00 PM - 04:00 PM",
 ];
-
-const INSURANCE_OPTIONS = [
-  'National Health Insurance Authority (NHIA / GIFSHIP)',
-  'Enugu State UHC Agency (ESCHIS)',
-  'Private / HMO Corporate Cover',
-  'Private Self-Pay / Subsidised Cash',
-  'Treatment for Two (Indigent Assistance Subsidy)',
-];
-
-const AppointmentModal: React.FC<AppointmentModalProps> = ({
+export default function AppointmentModal({
   isOpen,
   onClose,
-  preselectedService = '',
-  preselectedDoctor = '',
-}) => {
-  const [department, setDepartment] = useState(preselectedService || DEPARTMENTS[0]);
-  const [doctor, setDoctor] = useState(preselectedDoctor || DOCTORS[0]);
-  const [date, setDate] = useState('');
-  const [timeSlot, setTimeSlot] = useState('09:00 AM - 11:00 AM');
-  const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');
-  const [email, setEmail] = useState('');
-  const [insurance, setInsurance] = useState(INSURANCE_OPTIONS[0]);
-  const [notes, setNotes] = useState('');
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [bookingRef, setBookingRef] = useState('');
-
+  preselectedService = "",
+}: Props) {
+  const validService =
+    SERVICES_DATA[Number(preselectedService)] && preselectedService !== ""
+      ? preselectedService
+      : "0";
+  const [department, setDepartment] = useState(validService);
+  const [date, setDate] = useState("");
+  const [timeSlot, setTimeSlot] = useState(times[0]);
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [insurance, setInsurance] = useState(insuranceOptions[0]);
+  const [review, setReview] = useState(false);
+  const [handoff, setHandoff] = useState(false);
+  const reviewRef = useRef<HTMLHeadingElement>(null);
+  const formRef = useRef<HTMLHeadingElement>(null);
+  const dialogRef = useDialog(isOpen, onClose);
   React.useEffect(() => {
-    if (preselectedService) setDepartment(preselectedService);
-    if (preselectedDoctor) setDoctor(preselectedDoctor);
-  }, [preselectedService, preselectedDoctor]);
-
-  React.useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose();
-    };
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-      window.addEventListener('keydown', handleKeyDown);
-    }
-    return () => {
-      document.body.style.overflow = 'auto';
-      window.removeEventListener('keydown', handleKeyDown);
-    };
-  }, [isOpen, onClose]);
-
+    if (review) reviewRef.current?.focus();
+    else if (isOpen) formRef.current?.focus();
+  }, [review, isOpen]);
   if (!isOpen) return null;
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const ref = 'GMC-' + Math.floor(100000 + Math.random() * 900000);
-    setBookingRef(ref);
-    setIsSubmitted(true);
-  };
-
-  const handleSendWhatsApp = () => {
-    const text = `*New Appointment Request - Goodwill Medical Centre*
-*Booking Ref:* ${bookingRef}
-*Patient Name:* ${name}
-*Phone:* ${phone}
-*Email:* ${email || 'N/A'}
-*Department:* ${department}
-*Doctor:* ${doctor}
-*Preferred Date:* ${date}
-*Time Slot:* ${timeSlot}
-*Payment/Scheme:* ${insurance}
-*Notes/Symptoms:* ${notes || 'None provided'}
-
-Please confirm availability. Thank you!`;
-
-    const encoded = encodeURIComponent(text);
-    window.open(`https://wa.me/2347032585626?text=${encoded}`, '_blank');
-  };
-
-  const resetForm = () => {
-    setIsSubmitted(false);
-    setName('');
-    setPhone('');
-    setEmail('');
-    setNotes('');
-    setDate('');
-    onClose();
-  };
-
+  const service = SERVICES_DATA[Number(department)];
+  const today = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Africa/Lagos",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).format(new Date());
+  const message = `Hello GMC, I would like to request an appointment.\nName: ${name.trim()}\nPhone: ${phone.trim()}\nService: ${service.title}\nPreferred date: ${date}\nPreferred time: ${timeSlot} (Nigeria time)\nPayment/support: ${insurance}\nPlease confirm availability. I understand this is a request, not a confirmed booking.`;
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-slate-950/80 backdrop-blur-sm animate-fade-in"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="appointment-modal-title"
+      className="gmc-modal-backdrop"
+      onClick={(event) => {
+        if (event.target === event.currentTarget) onClose();
+      }}
     >
       <div
-        className="relative w-full max-w-2xl bg-white rounded-3xl shadow-2xl border border-purple-100 overflow-hidden flex flex-col max-h-[92vh]"
-        onClick={(e) => e.stopPropagation()}
+        ref={dialogRef}
+        tabIndex={-1}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="appointment-title"
+        aria-describedby="appointment-description"
+        className="gmc-modal"
       >
-        {/* Header */}
-        <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-indigo-900 text-white p-6 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-2xl bg-white/10 flex items-center justify-center backdrop-blur-md">
-              <Calendar className="w-5 h-5 text-purple-300" />
-            </div>
-            <div>
-              <h2 id="appointment-modal-title" className="text-xl font-bold font-serif">
-                Schedule a Medical Visit
-              </h2>
-              <p className="text-purple-200 text-xs">Goodwill Medical Centre · Umuchigbo, Enugu East</p>
-            </div>
-          </div>
+        <header className="gmc-modal-header">
+          <span>
+            <Calendar size={20} /> Plan your visit
+          </span>
           <button
             onClick={onClose}
-            className="p-2 text-white/70 hover:text-white hover:bg-white/10 rounded-full transition-colors"
-            aria-label="Close modal"
+            aria-label="Close appointment request"
+            className="icon-button"
           >
-            <X className="w-6 h-6" />
+            <X />
           </button>
-        </div>
-
-        {/* Content */}
-        <div className="p-6 md:p-8 overflow-y-auto space-y-6">
-          {!isSubmitted ? (
-            <form onSubmit={handleSubmit} className="space-y-5">
-              {/* Emergency Banner Note */}
-              <div className="p-3.5 bg-amber-50 border border-amber-200 rounded-2xl flex items-start gap-3 text-xs text-amber-900">
-                <Shield className="w-4 h-4 text-amber-600 flex-shrink-0 mt-0.5" />
-                <p>
-                  For life-threatening emergencies, please proceed directly to our <strong>24/7 Accident & Emergency Unit</strong> or call our emergency line at{' '}
-                  <a href="tel:08000057777" className="underline font-bold text-amber-800">0800 005 7777</a> (Toll-free).
-                </p>
+        </header>
+        <div className="gmc-modal-body">
+          <h2 id="appointment-title" ref={formRef} tabIndex={-1}>
+            A little planning.
+            <br />A simpler visit.
+          </h2>
+          <p id="appointment-description">
+            Choose your preferences. Our desk will confirm the clinician, date
+            and time after you send your request.
+          </p>
+          {!review ? (
+            <form
+              onSubmit={(event) => {
+                event.preventDefault();
+                setReview(true);
+              }}
+              className="appointment-form"
+            >
+              <div className="field">
+                <label htmlFor="appointment-service">
+                  What care do you need?
+                </label>
+                <select
+                  id="appointment-service"
+                  value={department}
+                  onChange={(e) => {
+                    setDepartment(e.target.value);
+                  }}
+                >
+                  {SERVICES_DATA.map((item, id) => (
+                    <option key={id} value={String(id)}>
+                      {item.title}
+                    </option>
+                  ))}
+                </select>
               </div>
-
-              {/* Service Selection */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
-                    Clinical Department *
-                  </label>
-                  <select
-                    value={department}
-                    onChange={(e) => setDepartment(e.target.value)}
-                    required
-                    className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm text-slate-800 focus:bg-white focus:border-purple-600 focus:ring-2 focus:ring-purple-600/20 transition-all outline-none"
-                  >
-                    {DEPARTMENTS.map((dept) => (
-                      <option key={dept} value={dept}>
-                        {dept}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
-                    Preferred Doctor / Consultant
-                  </label>
-                  <select
-                    value={doctor}
-                    onChange={(e) => setDoctor(e.target.value)}
-                    className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm text-slate-800 focus:bg-white focus:border-purple-600 focus:ring-2 focus:ring-purple-600/20 transition-all outline-none"
-                  >
-                    {DOCTORS.map((doc) => (
-                      <option key={doc} value={doc}>
-                        {doc}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-              </div>
-
-              {/* Date & Time Slot */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
-                    Preferred Date *
-                  </label>
-                  <div className="relative">
-                    <input
-                      type="date"
-                      value={date}
-                      onChange={(e) => setDate(e.target.value)}
-                      required
-                      min={new Date().toISOString().split('T')[0]}
-                      className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm text-slate-800 focus:bg-white focus:border-purple-600 focus:ring-2 focus:ring-purple-600/20 transition-all outline-none"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
-                    Preferred Time Slot *
-                  </label>
-                  <select
-                    value={timeSlot}
-                    onChange={(e) => setTimeSlot(e.target.value)}
-                    className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm text-slate-800 focus:bg-white focus:border-purple-600 focus:ring-2 focus:ring-purple-600/20 transition-all outline-none"
-                  >
-                    <option value="08:00 AM - 10:00 AM">Morning (08:00 AM - 10:00 AM)</option>
-                    <option value="10:00 AM - 12:00 PM">Late Morning (10:00 AM - 12:00 PM)</option>
-                    <option value="12:00 PM - 02:00 PM">Afternoon (12:00 PM - 02:00 PM)</option>
-                    <option value="02:00 PM - 04:00 PM">Late Afternoon (02:00 PM - 04:00 PM)</option>
-                    <option value="04:00 PM - 06:00 PM">Evening (04:00 PM - 06:00 PM)</option>
-                  </select>
-                </div>
-              </div>
-
-              {/* Patient Details */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
-                    Patient Full Name *
-                  </label>
-                  <div className="relative">
-                    <input
-                      type="text"
-                      value={name}
-                      onChange={(e) => setName(e.target.value)}
-                      placeholder="e.g. Mary N. Chukwu"
-                      required
-                      className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm text-slate-800 focus:bg-white focus:border-purple-600 focus:ring-2 focus:ring-purple-600/20 transition-all outline-none"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
-                    Phone Number (WhatsApp) *
-                  </label>
-                  <div className="relative">
-                    <input
-                      type="tel"
-                      value={phone}
-                      onChange={(e) => setPhone(e.target.value)}
-                      placeholder="e.g. 0802 123 4567"
-                      required
-                      className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm text-slate-800 focus:bg-white focus:border-purple-600 focus:ring-2 focus:ring-purple-600/20 transition-all outline-none"
-                    />
-                  </div>
-                </div>
-              </div>
-
-              {/* Email & Payment / Insurance Scheme */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
-                    Email Address (Optional)
-                  </label>
+              <div className="field-pair">
+                <div className="field">
+                  <label htmlFor="appointment-date">Preferred date</label>
                   <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="patient@example.com"
-                    className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm text-slate-800 focus:bg-white focus:border-purple-600 focus:ring-2 focus:ring-purple-600/20 transition-all outline-none"
+                    id="appointment-date"
+                    type="date"
+                    required
+                    min={today}
+                    value={date}
+                    onChange={(e) => setDate(e.target.value)}
                   />
                 </div>
-
-                <div>
-                  <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
-                    Health Coverage / Payment *
+                <div className="field">
+                  <label htmlFor="appointment-time">
+                    Preferred time · Nigeria
                   </label>
                   <select
-                    value={insurance}
-                    onChange={(e) => setInsurance(e.target.value)}
-                    className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm text-slate-800 focus:bg-white focus:border-purple-600 focus:ring-2 focus:ring-purple-600/20 transition-all outline-none"
+                    id="appointment-time"
+                    value={timeSlot}
+                    onChange={(e) => setTimeSlot(e.target.value)}
                   >
-                    {INSURANCE_OPTIONS.map((ins) => (
-                      <option key={ins} value={ins}>
-                        {ins}
-                      </option>
+                    {times.map((time) => (
+                      <option key={time}>{time}</option>
                     ))}
                   </select>
                 </div>
               </div>
-
-              {/* Note / Symptoms */}
-              <div>
-                <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
-                  Brief Reason / Symptoms (Optional)
-                </label>
-                <textarea
-                  value={notes}
-                  onChange={(e) => setNotes(e.target.value)}
-                  rows={2}
-                  placeholder="Tell our clinical team any details that may help prepare for your visit..."
-                  className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm text-slate-800 focus:bg-white focus:border-purple-600 focus:ring-2 focus:ring-purple-600/20 transition-all outline-none"
-                />
+              <div className="field-pair">
+                <div className="field">
+                  <label htmlFor="appointment-name">Your name</label>
+                  <input
+                    id="appointment-name"
+                    autoComplete="name"
+                    required
+                    maxLength={100}
+                    value={name}
+                    pattern=".*\S.*"
+                    onChange={(e) => setName(e.target.value)}
+                  />
+                </div>
+                <div className="field">
+                  <label htmlFor="appointment-phone">Phone number</label>
+                  <input
+                    id="appointment-phone"
+                    type="tel"
+                    autoComplete="tel"
+                    required
+                    pattern="[+]?[0-9][0-9 ]{5,18}[0-9]"
+                    title="Enter a phone number using digits, spaces and an optional + at the start"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                  />
+                </div>
               </div>
-
-              {/* Submit CTA */}
-              <div className="pt-2 flex flex-col sm:flex-row gap-3">
-                <button
-                  type="submit"
-                  className="flex-1 py-4 bg-purple-600 text-white rounded-2xl font-bold text-sm hover:bg-purple-700 transition-all shadow-lg shadow-purple-600/25 hover:shadow-xl flex items-center justify-center gap-2"
+              <div className="field">
+                <label htmlFor="appointment-cover">Payment or support</label>
+                <select
+                  id="appointment-cover"
+                  value={insurance}
+                  onChange={(e) => setInsurance(e.target.value)}
                 >
-                  <Stethoscope className="w-4 h-4" />
-                  Confirm & Reserve Appointment
-                </button>
-                <button
-                  type="button"
-                  onClick={onClose}
-                  className="px-6 py-4 bg-slate-100 text-slate-700 rounded-2xl font-semibold text-sm hover:bg-slate-200 transition-colors"
-                >
-                  Cancel
-                </button>
+                  {insuranceOptions.map((option) => (
+                    <option key={option}>{option}</option>
+                  ))}
+                </select>
               </div>
+              <p className="form-disclosure">
+                This form prepares a WhatsApp message. Nothing is sent until you
+                send it in WhatsApp. Please keep medical records and detailed
+                health information out of your request.{" "}
+                <Link to="/privacy" onClick={onClose}>
+                  How your information is used
+                </Link>
+                .
+              </p>
+              <button className="gmc-button" type="submit">
+                Review your request <ArrowUpRight size={18} />
+              </button>
             </form>
           ) : (
-            /* Confirmation View */
-            <div className="text-center py-6 space-y-6">
-              <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto shadow-inner">
-                <CheckCircle2 className="w-10 h-10" />
-              </div>
-
-              <div className="space-y-2">
-                <span className="text-xs font-bold tracking-widest uppercase text-emerald-600">
-                  Appointment Requested
-                </span>
-                <h3 className="text-2xl font-serif font-bold text-slate-900">
-                  Thank You, {name}!
-                </h3>
-                <p className="text-slate-600 text-sm max-w-md mx-auto">
-                  Your appointment reservation has been submitted. Our records desk is notified.
+            <section className="request-review">
+              <h3 ref={reviewRef} tabIndex={-1}>
+                Your request is ready.
+              </h3>
+              <p>
+                Nothing has been sent yet. Check these details, then open
+                WhatsApp and press send.
+              </p>
+              <dl>
+                {[
+                  ["Name", name],
+                  ["Phone", phone],
+                  ["Service", service.title],
+                  ["Preferred visit", `${date} · ${timeSlot}`],
+                  ["Payment/support", insurance],
+                ].map(([label, value]) => (
+                  <div key={label}>
+                    <dt>{label}</dt>
+                    <dd>{value}</dd>
+                  </div>
+                ))}
+              </dl>
+              <a
+                className="gmc-button"
+                href={`https://wa.me/2347032585626?text=${encodeURIComponent(message)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setHandoff(true)}
+              >
+                Continue to WhatsApp <ArrowUpRight size={18} />
+              </a>
+              {handoff && (
+                <p role="status" className="form-disclosure">
+                  If WhatsApp opened, review your message there and press send.
+                  We cannot check whether it was sent. If it didn’t open, call{" "}
+                  <a href="tel:07032585626">0703 258 5626</a>.
                 </p>
-              </div>
-
-              {/* Booking Summary Box */}
-              <div className="bg-[#FFF9F2] border border-purple-100 rounded-2xl p-6 text-left max-w-md mx-auto space-y-3 text-sm">
-                <div className="flex justify-between items-center pb-2 border-b border-purple-100">
-                  <span className="text-xs font-bold text-slate-500 uppercase">Booking Reference</span>
-                  <span className="font-mono font-bold text-purple-700 text-base">{bookingRef}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-slate-500">Department:</span>
-                  <span className="font-medium text-slate-800 text-right">{department}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-slate-500">Date & Slot:</span>
-                  <span className="font-medium text-slate-800 text-right">{date} ({timeSlot})</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-slate-500">Coverage:</span>
-                  <span className="font-medium text-slate-800 text-right">{insurance}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-slate-500">Contact:</span>
-                  <span className="font-medium text-slate-800">{phone}</span>
-                </div>
-              </div>
-
-              {/* Action Buttons */}
-              <div className="space-y-3 max-w-md mx-auto">
-                <button
-                  type="button"
-                  onClick={handleSendWhatsApp}
-                  className="w-full py-4 bg-emerald-600 hover:bg-emerald-700 text-white rounded-2xl font-bold text-sm transition-all shadow-lg shadow-emerald-600/25 flex items-center justify-center gap-2"
-                >
-                  <MessageSquare className="w-5 h-5" />
-                  Send Instant Confirmation to GMC WhatsApp
-                </button>
-                <button
-                  type="button"
-                  onClick={resetForm}
-                  className="w-full py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-2xl font-semibold text-sm transition-colors"
-                >
-                  Close Window
-                </button>
-              </div>
-            </div>
+              )}
+              <button onClick={() => setReview(false)} className="text-button">
+                <ArrowLeft size={16} /> Edit details
+              </button>
+            </section>
           )}
+          <p className="emergency-note">
+            <Phone size={16} /> Need urgent help?{" "}
+            <a href="tel:08000057777">Call 0800 005 7777</a>
+          </p>
         </div>
       </div>
     </div>
   );
-};
-
-export default AppointmentModal;
+}

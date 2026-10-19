@@ -118,14 +118,14 @@ const DataTable: React.FC<{ headers: string[]; rows: string[][] }> = ({ headers,
 );
 
 const InceptionReport: React.FC = () => (
-  <main id="main-content" className="pt-16 px-6 max-w-7xl mx-auto min-h-screen">
+  <div id="main-content" className="pt-16 px-6 max-w-7xl mx-auto min-h-screen">
     <header className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center mb-24">
       <div className="space-y-6">
         <span className="text-purple-600 font-bold tracking-[0.2em] uppercase text-xs">Inception Activities and Achievement Report</span>
         <h1 className="text-4xl md:text-6xl font-serif text-slate-900 leading-tight">February 2024 to December 2025</h1>
         <p className="text-lg text-slate-600 leading-relaxed">Goodwill Medical Centre is a model secondary hospital in Umuchigbo, Enugu East LGA. This page presents the clinical, community, infrastructure, financial and partnership record from its opening through December 2025.</p>
       </div>
-      <img src="/images/report/report-23.png" alt="Goodwill Medical Centre building" className="w-full rounded-[3rem] shadow-2xl" />
+      <img loading="lazy" src="/images/report/report-23.png" alt="Goodwill Medical Centre building" className="w-full rounded-[3rem] shadow-2xl" />
     </header>
 
     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-24">
@@ -139,7 +139,7 @@ const InceptionReport: React.FC = () => (
           <p>GMC was commissioned in November 2023 and opened to the public in February 2024. It provides affordable, accessible and high-quality care through consultants, specialists and medical personnel. In its first two years it served more than 12,500 patients across maternal and newborn, surgical, eye and sensory-health programmes.</p>
           <p>GMC acknowledges the Enugu State Government, Enugu East LGA, TY Danjuma Foundation, trustees, partners, healthcare professionals, volunteers, patients and community members whose support made these achievements possible.</p>
         </div>
-        <img src="/images/report/report-54.jpeg" alt="Gen. Theophilus Yakubu Danjuma, GCON (Rtd)" className="w-full max-h-[430px] object-cover rounded-[2rem] shadow-lg" />
+        <img loading="lazy" src="/images/report/report-54.jpeg" alt="Gen. Theophilus Yakubu Danjuma, GCON (Rtd)" className="w-full max-h-[430px] object-cover rounded-[2rem] shadow-lg" />
       </div>
     </Section>
 
@@ -165,14 +165,14 @@ const InceptionReport: React.FC = () => (
           <p>CEmONC services launched with NHIA support in October 2025. In five months, 91 vulnerable women received free caesarean sections, creating ₦40.9 million in direct savings for their families.</p>
           <p>In 2025, GMC recorded 137 deliveries: 60 spontaneous vaginal deliveries and 77 caesarean sections. Four mothers were under 20 years old. The 56% C-section rate reflects the clinical complexity of referred cases.</p>
         </div>
-        <img src="/images/report/report-03.jpeg" alt="Maternal and newborn care at GMC" className="w-full rounded-[3rem] shadow-xl" />
+        <img loading="lazy" src="/images/report/report-03.jpeg" alt="Maternal and newborn care at GMC" className="w-full rounded-[3rem] shadow-xl" />
       </div>
       <div className="mt-10 bg-purple-50 border border-purple-100 rounded-[2rem] p-8"><h3 className="font-serif text-2xl text-slate-900 mb-3">Patient Story</h3><p className="text-slate-600 leading-relaxed">Mrs Ngozi arrived with prolonged-labour complications. Through CEmONC she received a fully subsidised caesarean section. Mother and child recovered and continue to thrive—one of 91 families given a second chance.</p></div>
     </Section>
 
     <Section eyebrow="Eye Health" title="Restoring Sight and Transforming Lives">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        <img src="/images/report/report-11.jpeg" alt="Consultant ophthalmologist examining a patient" className="w-full rounded-[3rem] shadow-xl" />
+        <img loading="lazy" src="/images/report/report-11.jpeg" alt="Consultant ophthalmologist examining a patient" className="w-full rounded-[3rem] shadow-xl" />
         <div className="space-y-5 text-slate-600 leading-relaxed"><p>GMC completed 2,523 eye reviews and 91 cataract surgeries in less than two years. As the primary eye-health provider in Enugu East LGA, it offers diagnostic, surgical and preventive services at 30–60% below city-hospital rates.</p><p>With Sightsavers Nigeria, GMC screened 600 students and their teachers at Umuchigbo Community Secondary School, provided 200 free pairs of glasses and delivered eye-health education to 1,800 students.</p></div>
       </div>
     </Section>
@@ -183,24 +183,24 @@ const InceptionReport: React.FC = () => (
     </Section>
 
     <Section eyebrow="Pharmacy" title="Reliable Access to Medicines">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"><div className="space-y-5 text-slate-600 leading-relaxed"><p>Frequent medicine stock-outs from March to August 2024 disrupted care and delayed emergency treatment. The pharmacy and hospital management strengthened drug monitoring, procurement and supply systems.</p><p>Bin Cards, weekly checks and structured documentation improved inventory control. A dedicated pharmacy account enabled faster procurement and emergency purchases. By December 2025, stock-outs, waste and expiries had fallen while emergency medicine availability improved.</p></div><img src="/images/report/report-38.png" alt="GMC Pharmacy Team" className="w-full rounded-[3rem] shadow-xl" /></div>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"><div className="space-y-5 text-slate-600 leading-relaxed"><p>Frequent medicine stock-outs from March to August 2024 disrupted care and delayed emergency treatment. The pharmacy and hospital management strengthened drug monitoring, procurement and supply systems.</p><p>Bin Cards, weekly checks and structured documentation improved inventory control. A dedicated pharmacy account enabled faster procurement and emergency purchases. By December 2025, stock-outs, waste and expiries had fallen while emergency medicine availability improved.</p></div><img loading="lazy" src="/images/report/report-38.png" alt="GMC Pharmacy Team" className="w-full rounded-[3rem] shadow-xl" /></div>
     </Section>
 
     <Section eyebrow="Infrastructure and Access" title="Health Investment Beyond the Hospital Walls">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
-        <img src="/images/report/report-26.jpeg" alt="GMC Annex nearing completion" className="w-full h-72 object-cover rounded-[2rem] shadow-lg" />
-        <img src="/images/report/report-30.jpeg" alt="Completed Avah River Bridge" className="w-full h-72 object-cover rounded-[2rem] shadow-lg" />
+        <img loading="lazy" src="/images/report/report-26.jpeg" alt="GMC Annex nearing completion" className="w-full h-72 object-cover rounded-[2rem] shadow-lg" />
+        <img loading="lazy" src="/images/report/report-30.jpeg" alt="Completed Avah River Bridge" className="w-full h-72 object-cover rounded-[2rem] shadow-lg" />
       </div>
       <div className="space-y-5 text-slate-600 leading-relaxed"><p>Year-one internally generated revenue funded a new antenatal and immunisation clinic. GMC installed 66 additional solar panels, added a water-purification system and advanced construction of an annex containing a Mother and Child Unit, private and male wards, a laboratory, conference room and other facilities.</p><p>The Avah River had isolated residents of Ifo, Ugbo-Ezeji, Ugbo-Okonkwo and Ugbo-Paul. A direct 20-minute walk to GMC could become an eight-kilometre journey during the rainy season. GMC mobilised support to build a pedestrian and tricycle-accessible iron bridge, opened on 8 April 2025 by Enugu East LGA Chairman Hon. Beloved-Dan Anike with TY Danjuma Foundation CEO Mr Gima Forje, GMC trustees and community leaders.</p></div>
     </Section>
 
     <Section eyebrow="Community Partnerships" title="Referrals Outreach and Trust">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12"><div className="space-y-5 text-slate-600 leading-relaxed"><p>GMC mapped and trained more than 30 Traditional Birth Attendants with ES-PHCDA. Monthly meetings and the toll-free referral line, 0800 005 7777, strengthened the pathway from community care to safe facility delivery.</p><p>The first official outreach in January 2024 served 839 attendees with vital-sign checks, blood sugar, malaria and HIV tests, consultations, eye screening and medicines. Of those attending, 567 received medicines, 277 presented with eye concerns, 110 received medicated glasses and 20 were booked for free cataract surgery.</p><p>A further outreach in May 2025 served 532 attendees, bringing total outreach attendance to 1,371. These activities supported health education, early detection and confidence in formal health services.</p></div><img src="/images/report/report-19.jpeg" alt="GMC community outreach participants" className="w-full rounded-[3rem] shadow-xl" /></div>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12"><div className="space-y-5 text-slate-600 leading-relaxed"><p>GMC mapped and trained more than 30 Traditional Birth Attendants with ES-PHCDA. Monthly meetings and the toll-free referral line, 0800 005 7777, strengthened the pathway from community care to safe facility delivery.</p><p>The first official outreach in January 2024 served 839 attendees with vital-sign checks, blood sugar, malaria and HIV tests, consultations, eye screening and medicines. Of those attending, 567 received medicines, 277 presented with eye concerns, 110 received medicated glasses and 20 were booked for free cataract surgery.</p><p>A further outreach in May 2025 served 532 attendees, bringing total outreach attendance to 1,371. These activities supported health education, early detection and confidence in formal health services.</p></div><img loading="lazy" src="/images/report/report-19.jpeg" alt="GMC community outreach participants" className="w-full rounded-[3rem] shadow-xl" /></div>
     </Section>
 
     <Section eyebrow="Human Resources" title="The People Behind GMC">
       <p className="text-slate-600 leading-relaxed mb-8">The workforce grew by 40% in two years. GMC reports a staff-to-patient ratio of 1:3, a doctor-to-patient ratio of 1:15 and eight specialist consultants. Leadership includes Prof. Uche Amazigo, FAS, CEO and Administrator, and Dr Nonso Igwe, FWACP, Clinical Director. A December 2025 staff essay competition recognised the quiet dedication of GMC’s teams, with the Pharmacy Department named the winning team.</p>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6"><img src="/images/report/report-36.jpeg" alt="Prof. Uche Amazigo" className="w-full h-80 object-cover rounded-[2rem]" /><img src="/images/report/report-37.jpeg" alt="Dr Nonso Igwe" className="w-full h-80 object-cover rounded-[2rem]" /><img src="/images/report/report-38.png" alt="GMC Pharmacy Team" className="w-full h-80 object-cover rounded-[2rem]" /></div>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6"><img loading="lazy" src="/images/report/report-36.jpeg" alt="Prof. Uche Amazigo" className="w-full h-80 object-cover rounded-[2rem]" /><img loading="lazy" src="/images/report/report-37.jpeg" alt="Dr Nonso Igwe" className="w-full h-80 object-cover rounded-[2rem]" /><img loading="lazy" src="/images/report/report-38.png" alt="GMC Pharmacy Team" className="w-full h-80 object-cover rounded-[2rem]" /></div>
     </Section>
 
     <Section eyebrow="Strategic Partnerships" title="A Shared Health-Equity Mission"><DataTable headers={['Partner', 'Role', 'Contribution']} rows={partners} /></Section>
@@ -251,7 +251,7 @@ const InceptionReport: React.FC = () => (
     <Section eyebrow="Report Contributors" title="Acknowledged Contributors">
       <p className="text-slate-600 leading-relaxed">Professor Uche Amazigo, FAS; Dr Nonso Igwe, FWACP; Mr Chuma Amazigo, GMC Trustee; Mr David Nweze; Nurse Chekwube Gloria Onah; Nurse Miracle Nwala; Ms Ozioma Nnadi; Ms Martha Nwankwo; and Dr Gabriel Afolayan of Pen-Impact Writing & Publishing Ltd, Abuja, adviser.</p>
     </Section>
-  </main>
+  </div>
 );
 
 export default InceptionReport;

@@ -1,3 +1,4 @@
+import { useDialog } from '../hooks/useDialog';
 import React, { useEffect } from 'react';
 import { X, ShieldCheck, Heart, CheckCircle2, Phone, MessageSquare, ExternalLink, Calendar, HelpCircle, Award } from 'lucide-react';
 
@@ -39,25 +40,15 @@ const SCHEMES = [
 ];
 
 const FreeTreatmentModal: React.FC<FreeTreatmentModalProps> = ({ isOpen, onClose, onOpenAppointment }) => {
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose();
-    };
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-      window.addEventListener('keydown', handleKeyDown);
-    }
-    return () => {
-      document.body.style.overflow = 'auto';
-      window.removeEventListener('keydown', handleKeyDown);
-    };
-  }, [isOpen, onClose]);
+  const dialogRef = useDialog(isOpen, onClose);
 
   if (!isOpen) return null;
 
   return (
     <div
       className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-slate-950/80 backdrop-blur-sm animate-fade-in"
+      ref={dialogRef}
+      tabIndex={-1}
       role="dialog"
       aria-modal="true"
       aria-labelledby="free-treatment-modal-title"

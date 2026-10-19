@@ -116,13 +116,13 @@ const ImageGallery: React.FC = () => {
               className="group bg-white rounded-[2.5rem] overflow-hidden border border-purple-50 shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col"
             >
               <div className="relative h-64 overflow-hidden bg-slate-100">
-                <img
+                <img loading="lazy"
                   src={img.src}
                   alt={img.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   onError={(e) => {
                     (e.target as HTMLImageElement).src =
-                      'https://placehold.co/600x400/9333ea/ffffff?text=' + encodeURIComponent(img.title);
+                      '/images/fallback.svg';
                   }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent opacity-80 group-hover:opacity-60 transition-opacity" />

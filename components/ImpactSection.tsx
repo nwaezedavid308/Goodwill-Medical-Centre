@@ -24,12 +24,12 @@ const ImpactSection: React.FC = () => {
           <div className="relative group">
             <div className="absolute -inset-2 bg-purple-500 rounded-[3rem] opacity-10 blur-xl" />
             <div className="relative aspect-[4/3] rounded-[3rem] overflow-hidden shadow-2xl bg-slate-100">
-              <img
+              <img loading="lazy"
                 src={OUTREACH_IMAGE}
                 alt="GMC community outreach participants"
                 className="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-1000"
                 onError={(e) => {
-                  (e.target as HTMLImageElement).src = 'https://placehold.co/800x600/9333ea/ffffff?text=Community+Outreach';
+                  (e.target as HTMLImageElement).src = '/images/fallback.svg';
                 }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent" />
@@ -42,12 +42,12 @@ const ImpactSection: React.FC = () => {
 
           <div className="space-y-12">
             <div className="relative aspect-video rounded-[2rem] overflow-hidden shadow-lg border-4 border-[#FFF9F2] bg-slate-100">
-              <img
+              <img loading="lazy"
                 src={TENT_IMAGE}
                 alt="A GMC clinician checking a patient during community outreach"
                 className="w-full h-full object-cover"
                 onError={(e) => {
-                  (e.target as HTMLImageElement).src = 'https://placehold.co/800x450/9333ea/ffffff?text=Outreach+Tent';
+                  (e.target as HTMLImageElement).src = '/images/fallback.svg';
                 }}
               />
             </div>

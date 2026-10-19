@@ -1,3 +1,4 @@
+import { useDialog } from '../hooks/useDialog';
 import React, { useEffect } from 'react';
 import { X, Play, Video, Building2 } from 'lucide-react';
 
@@ -31,19 +32,7 @@ const VideoModal: React.FC<VideoModalProps> = ({ isOpen, onClose, initialVideo =
     setActiveVideoId(initialVideo);
   }, [initialVideo]);
 
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose();
-    };
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-      window.addEventListener('keydown', handleKeyDown);
-    }
-    return () => {
-      document.body.style.overflow = 'auto';
-      window.removeEventListener('keydown', handleKeyDown);
-    };
-  }, [isOpen, onClose]);
+  const dialogRef = useDialog(isOpen, onClose);
 
   if (!isOpen) return null;
 
@@ -52,6 +41,8 @@ const VideoModal: React.FC<VideoModalProps> = ({ isOpen, onClose, initialVideo =
   return (
     <div
       className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-slate-950/85 backdrop-blur-md animate-fade-in"
+      ref={dialogRef}
+      tabIndex={-1}
       role="dialog"
       aria-modal="true"
       aria-labelledby="video-modal-title"
@@ -87,7 +78,7 @@ const VideoModal: React.FC<VideoModalProps> = ({ isOpen, onClose, initialVideo =
           <video
             key={currentVideo.src}
             controls
-            autoPlay
+            preload="metadata"
             className="w-full h-full object-contain"
             playsInline
           >

@@ -44,12 +44,12 @@ const BridgeImpact: React.FC = () => {
 
           <div className="relative order-1 lg:order-2">
             <div className="relative rounded-[4rem] overflow-hidden shadow-2xl group border-4 border-white/10 bg-slate-800">
-              <img
+              <img loading="lazy"
                 src={BRIDGE_IMAGE}
                 alt="Community leaders and partners opening the Avah River Bridge"
                 className="w-full h-[600px] object-cover transition-all duration-1000 group-hover:scale-105"
                 onError={(e) => {
-                  (e.target as HTMLImageElement).src = 'https://placehold.co/800x600/9333ea/ffffff?text=Why+We+Exist';
+                  (e.target as HTMLImageElement).src = '/images/fallback.svg';
                 }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 to-transparent" />

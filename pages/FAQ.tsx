@@ -90,7 +90,7 @@ const FAQ: React.FC = () => {
   };
 
   return (
-    <main className="pt-16 pb-24 px-6 max-w-5xl mx-auto min-h-screen">
+    <div className="pt-16 pb-24 px-6 max-w-5xl mx-auto min-h-screen">
       {/* Header */}
       <header className="text-center mb-16 max-w-3xl mx-auto space-y-4">
         <span className="text-purple-600 font-bold tracking-widest uppercase text-xs">
@@ -110,6 +110,7 @@ const FAQ: React.FC = () => {
           type="text"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
+          aria-label="Search frequently asked questions"
           placeholder="Search questions (e.g. C-section, insurance, location, fees)..."
           className="w-full pl-12 pr-6 py-4 bg-white border border-purple-100 rounded-full text-sm text-slate-800 shadow-md focus:outline-none focus:border-purple-600 focus:ring-2 focus:ring-purple-600/20 transition-all"
         />
@@ -209,7 +210,7 @@ const FAQ: React.FC = () => {
           </a>
         </div>
       </section>
-    </main>
+    </div>
   );
 };
 

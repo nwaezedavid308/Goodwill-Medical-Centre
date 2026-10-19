@@ -1,3 +1,4 @@
+import { useDialog } from '../hooks/useDialog';
 import React, { useState } from 'react';
 import { Play, X, ChevronLeft, ChevronRight, Maximize2, Video, Image as ImageIcon, Camera, Building, Sparkles } from 'lucide-react';
 import VideoModal from '../components/VideoModal';
@@ -199,14 +200,24 @@ const Gallery: React.FC = () => {
 
   const openLightbox = (index: number) => {
     setLightboxIndex(index);
-    document.body.style.overflow = 'hidden';
+
   };
 
   const closeLightbox = () => {
     setLightboxIndex(null);
-    document.body.style.overflow = 'auto';
+
   };
 
+  const dialogRef = useDialog(lightboxIndex !== null, closeLightbox);
+  React.useEffect(() => {
+    if (lightboxIndex === null) return;
+    const navigatePhoto = (event: KeyboardEvent) => {
+      if (event.key === 'ArrowRight') { event.preventDefault(); setLightboxIndex(index => index === null ? null : (index + 1) % filteredItems.length); }
+      if (event.key === 'ArrowLeft') { event.preventDefault(); setLightboxIndex(index => index === null ? null : (index - 1 + filteredItems.length) % filteredItems.length); }
+    };
+    window.addEventListener('keydown', navigatePhoto);
+    return () => window.removeEventListener('keydown', navigatePhoto);
+  }, [lightboxIndex, filteredItems.length]);
   const showNext = () => {
     if (lightboxIndex === null) return;
     setLightboxIndex((lightboxIndex + 1) % filteredItems.length);
@@ -218,7 +229,7 @@ const Gallery: React.FC = () => {
   };
 
   return (
-    <main className="pt-16 pb-24 px-6 max-w-7xl mx-auto min-h-screen">
+    <div className="pt-16 pb-24 px-6 max-w-7xl mx-auto min-h-screen">
       {/* Header */}
       <header className="text-center mb-16 max-w-3xl mx-auto space-y-4">
         <span className="text-purple-600 font-bold tracking-widest uppercase text-xs">
@@ -279,7 +290,7 @@ const Gallery: React.FC = () => {
               }}
               className="relative aspect-video rounded-3xl overflow-hidden cursor-pointer group shadow-2xl border-4 border-white/10"
             >
-              <img
+              <img loading="lazy"
                 src="/images/Goodwill-Medical-centre-front-view.jpeg"
                 alt="Video thumbnail"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
@@ -323,13 +334,13 @@ const Gallery: React.FC = () => {
             className="group bg-white rounded-[2rem] overflow-hidden border border-purple-50 shadow-sm hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 cursor-pointer flex flex-col"
           >
             <div className="relative h-64 overflow-hidden bg-slate-100">
-              <img
+              <img loading="lazy"
                 src={item.src}
                 alt={item.title}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 onError={(e) => {
                   (e.target as HTMLImageElement).src =
-                    'https://placehold.co/600x400/9333ea/ffffff?text=' + encodeURIComponent(item.title);
+                    '/images/fallback.svg';
                 }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent opacity-70 group-hover:opacity-40 transition-opacity" />
@@ -360,6 +371,9 @@ const Gallery: React.FC = () => {
         <div
           className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/90 backdrop-blur-md animate-fade-in"
           onClick={closeLightbox}
+          ref={dialogRef}
+          tabIndex={-1}
+          aria-label="Photo gallery viewer"
           role="dialog"
           aria-modal="true"
         >
@@ -383,7 +397,7 @@ const Gallery: React.FC = () => {
 
             {/* Photo Container with navigation */}
             <div className="relative aspect-video max-h-[65vh] bg-black flex items-center justify-center overflow-hidden">
-              <img
+              <img loading="lazy"
                 src={filteredItems[lightboxIndex].src}
                 alt={filteredItems[lightboxIndex].title}
                 className="w-full h-full object-contain"
@@ -427,7 +441,7 @@ const Gallery: React.FC = () => {
         onClose={() => setIsVideoModalOpen(false)}
         initialVideo={activeVideo}
       />
-    </main>
+    </div>
   );
 };
 

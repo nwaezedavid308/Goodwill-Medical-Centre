@@ -30,7 +30,7 @@ const TreatmentForTwo: React.FC = () => {
                   <p className="text-purple-300 text-sm font-medium">Shuttle for Staff</p>
                 </div>
                 <div className="aspect-square bg-white rounded-3xl p-8 flex flex-col justify-end shadow-xl">
-                  <img src="/images/waiting-area.jpg" alt="Waiting Area" className="absolute inset-0 w-full h-full object-cover rounded-3xl opacity-30 mix-blend-overlay" />
+                  <img loading="lazy" src="/images/waiting-area.jpg" alt="Waiting Area" className="absolute inset-0 w-full h-full object-cover rounded-3xl opacity-30 mix-blend-overlay" />
                   <p className="text-purple-900 text-3xl font-bold relative z-10">Care</p>
                   <p className="text-purple-700 text-sm font-medium relative z-10">For the Indigent</p>
                 </div>

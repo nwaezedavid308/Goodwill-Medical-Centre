@@ -1,630 +1,160 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { Link, NavLink, useLocation } from 'react-router-dom';
-import {
-  Phone,
-  Calendar,
-  Clock,
-  MapPin,
-  Menu,
-  X,
-  ShieldAlert,
-  Heart,
-  ChevronDown,
-  MessageSquare,
-  Stethoscope,
-  Building2,
-  FileText,
-  HelpCircle,
-  Image as ImageIcon,
-  BookOpen,
-  Award,
-  Users
-} from 'lucide-react';
-import FreeTreatmentModal from './FreeTreatmentModal';
-
-interface NavbarProps {
+import { useEffect, useState } from "react";
+import { Link, NavLink, useLocation } from "react-router-dom";
+import { Plus, ArrowUpRight, Menu, X, ChevronDown } from "lucide-react";
+import { useDialog } from "../hooks/useDialog";
+interface Props {
   onOpenAppointment?: () => void;
   onOpenFreeTreatment?: () => void;
 }
-
-const Navbar: React.FC<NavbarProps> = ({ onOpenAppointment, onOpenFreeTreatment }) => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
-  const [mobileSubmenu, setMobileSubmenu] = useState<string | null>(null);
-  const [isFreeTreatmentModalOpen, setIsFreeTreatmentModalOpen] = useState(false);
-
-  const location = useLocation();
-  const dropdownRef = useRef<HTMLDivElement>(null);
-
+const primaryLinks = [
+  ["/", "Home"],
+  ["/services", "Our services"],
+  ["/doctors", "Our team"],
+  ["/about", "Our story"],
+  ["/contact", "Contact"],
+];
+const moreLinks = [
+  ["/faq", "Patient information"],
+  ["/gallery", "Inside GMC"],
+  ["/inception-report", "Community report"],
+  ["/testimonials", "Patient stories"],
+  ["/blog", "Journal & essays"],
+];
+export default function Navbar({ onOpenAppointment }: Props) {
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [moreOpen, setMoreOpen] = useState(false);
+  const { pathname } = useLocation();
+  const mobileRef = useDialog(mobileOpen, () => setMobileOpen(false));
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 30);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  // Close menus on route change
-  useEffect(() => {
-    setIsMenuOpen(false);
-    setOpenDropdown(null);
-    setMobileSubmenu(null);
-  }, [location]);
-
-  // Click outside listener for dropdowns
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-        setOpenDropdown(null);
-      }
-    };
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, []);
-
-  const handleFreeTreatmentClick = () => {
-    if (onOpenFreeTreatment) {
-      onOpenFreeTreatment();
-    } else {
-      setIsFreeTreatmentModalOpen(true);
-    }
-  };
-
-  const isAboutActive = ['/about', '/inception-report', '/testimonials'].includes(location.pathname);
-  const isServicesActive = ['/services', '/doctors'].includes(location.pathname);
-  const isMediaActive = ['/gallery', '/blog', '/faq'].includes(location.pathname);
-
+    setMobileOpen(false);
+    setMoreOpen(false);
+  }, [pathname]);
   return (
-    <header className="sticky top-0 left-0 right-0 z-50 transition-all duration-300">
-      {/* Horizontally Center-Aligned Emergency & Info Bar with Uniform Pills */}
-      <div className="bg-slate-950 text-white text-[11px] font-medium border-b border-slate-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-2 flex items-center justify-center flex-wrap gap-2 sm:gap-3 lg:gap-4 text-center">
-          {/* 1. Toll-Free Emergency Pill */}
-          <div className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-rose-600/25 border border-rose-500/40 rounded-full text-rose-300 font-bold whitespace-nowrap leading-none">
-            <ShieldAlert className="w-3.5 h-3.5 text-rose-400 flex-shrink-0" />
-            <span>TOLL-FREE EMERGENCY:</span>
-            <a href="tel:08000057777" className="text-white hover:underline font-bold">
-              0800 005 7777
-            </a>
-          </div>
-
-          {/* 2. Hospital Desk Pill */}
-          <div className="inline-flex items-center gap-1.5 text-slate-300 bg-white/5 px-3 py-1.5 rounded-full border border-white/10 whitespace-nowrap leading-none">
-            <Phone className="w-3 h-3 text-purple-400 flex-shrink-0" />
-            <span>Desk:</span>
-            <a href="tel:07032585626" className="text-white font-semibold hover:text-purple-300">
-              0703 258 5626
-            </a>
-          </div>
-
-          {/* 3. 24/7 Hours Pill */}
-          <div className="hidden sm:inline-flex items-center gap-1.5 text-slate-300 bg-white/5 px-3 py-1.5 rounded-full border border-white/5 whitespace-nowrap leading-none">
-            <Clock className="w-3.5 h-3.5 text-emerald-400 flex-shrink-0" />
-            <span>24/7 Emergency & Maternity</span>
-          </div>
-
-          {/* 4. Location Pill */}
-          <div className="hidden md:inline-flex items-center gap-1.5 text-slate-300 bg-white/5 px-3 py-1.5 rounded-full border border-white/5 whitespace-nowrap leading-none">
-            <MapPin className="w-3.5 h-3.5 text-purple-400 flex-shrink-0" />
-            <span>Umuchigbo, Enugu East</span>
-          </div>
-
-          {/* 5. Free Treatment Button Pill */}
-          <button
-            type="button"
-            onClick={handleFreeTreatmentClick}
-            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-purple-900/80 hover:bg-purple-800 text-purple-200 border border-purple-600/60 shadow-sm transition-all whitespace-nowrap leading-none cursor-pointer group"
-            title="Click to view Free Treatment & Health Insurance Details"
+    <header className="site-header">
+      <div className="nav-shell">
+        <Link
+          to="/"
+          className="brand"
+          aria-label="Goodwill Medical Centre home"
+        >
+          <span className="brand-mark" aria-hidden="true">
+            <Plus size={27} strokeWidth={1.6} />
+          </span>
+          <span>
+            Goodwill<span className="brand-subtitle">Medical Centre</span>
+          </span>
+        </Link>
+        <nav aria-label="Main navigation" className="desktop-nav">
+          {primaryLinks.map(([url, label]) => (
+            <NavLink
+              end={url === "/"}
+              key={url}
+              to={url}
+              className={({ isActive }) =>
+                isActive ? "nav-link active" : "nav-link"
+              }
+            >
+              {label}
+            </NavLink>
+          ))}
+          <div
+            className="more-nav"
+            onBlur={(e) => {
+              if (!e.currentTarget.contains(e.relatedTarget))
+                setMoreOpen(false);
+            }}
+            onKeyDown={(e) => {
+              if (e.key === "Escape") {
+                setMoreOpen(false);
+                e.currentTarget.querySelector("button")?.focus();
+              }
+            }}
           >
-            <Heart className="w-3.5 h-3.5 text-rose-400 fill-current flex-shrink-0 group-hover:scale-110 transition-transform" />
-            <span className="font-bold text-white tracking-wide">Free Treatment</span>
+            <button
+              className={`nav-link ${moreLinks.some(([url]) => pathname.startsWith(url)) ? "active" : ""}`}
+              aria-expanded={moreOpen}
+              aria-controls="more-navigation"
+              onClick={() => setMoreOpen(!moreOpen)}
+            >
+              Explore <ChevronDown size={13} />
+            </button>
+            {moreOpen && (
+              <div id="more-navigation" className="more-menu">
+                {moreLinks.map(([url, label]) => (
+                  <Link key={url} to={url} onClick={() => setMoreOpen(false)}>
+                    {label}
+                    <ArrowUpRight size={15} />
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
+        </nav>
+        <div className="nav-actions">
+          <button
+            onClick={onOpenAppointment}
+            className="gmc-button nav-appointment"
+          >
+            Plan your visit <ArrowUpRight size={17} />
+          </button>
+          <button
+            className="mobile-menu-button icon-button"
+            aria-label="Open navigation menu"
+            aria-expanded={mobileOpen}
+            onClick={() => setMobileOpen(true)}
+          >
+            <Menu size={24} />
           </button>
         </div>
       </div>
-
-      {/* Main Navigation Bar with Center-Aligned Menu */}
-      <nav
-        className={`bg-[#FFF9F2]/95 backdrop-blur-md border-b border-purple-100 transition-all duration-300 ${
-          isScrolled ? 'shadow-md py-2.5' : 'shadow-sm py-3.5'
-        }`}
-        aria-label="Main navigation"
-        ref={dropdownRef}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
-          {/* Left: Hospital Logo */}
-          <div className="flex-shrink-0">
-            <Link to="/" className="flex items-center gap-2.5 focus:outline-none" aria-label="Goodwill Medical Centre">
-              <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-purple-700 to-indigo-600 flex items-center justify-center text-white font-bold text-lg shadow-md shadow-purple-700/20">
-                G
-              </div>
-              <div>
-                <span className="text-lg lg:text-xl font-bold tracking-tight text-slate-900 block leading-tight">
-                  GOODWILL <span className="text-purple-600">MEDICAL</span>
-                </span>
-                <span className="text-[10px] tracking-widest uppercase font-bold text-slate-500 block">
-                  Secondary Care Hospital
-                </span>
-              </div>
-            </Link>
-          </div>
-
-          {/* Center: Desktop Subcategorized Navigation (Centered) */}
-          <div className="hidden lg:flex flex-1 justify-center items-center gap-1 xl:gap-2 px-4">
-            {/* 1. Home */}
-            <NavLink
-              to="/"
-              className={({ isActive }) =>
-                `px-3 py-2 rounded-xl text-xs xl:text-sm font-semibold transition-all ${
-                  isActive
-                    ? 'text-purple-600 font-bold bg-purple-50'
-                    : 'text-slate-700 hover:text-purple-600 hover:bg-purple-50/50'
-                }`
-              }
-            >
-              Home
-            </NavLink>
-
-            {/* 2. Clinical Care Subcategory Dropdown */}
-            <div className="relative group">
+      {mobileOpen && (
+        <div
+          className="mobile-nav-backdrop"
+          onClick={(e) => {
+            if (e.target === e.currentTarget) setMobileOpen(false);
+          }}
+        >
+          <div
+            ref={mobileRef}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Navigation menu"
+            tabIndex={-1}
+            className="mobile-navigation"
+          >
+            <div className="mobile-nav-title">
+              <span>Take a look around.</span>
               <button
-                type="button"
-                onClick={() => setOpenDropdown(openDropdown === 'clinical' ? null : 'clinical')}
-                className={`flex items-center gap-1 px-3 py-2 rounded-xl text-xs xl:text-sm font-semibold transition-all ${
-                  isServicesActive
-                    ? 'text-purple-600 font-bold bg-purple-50'
-                    : 'text-slate-700 hover:text-purple-600 hover:bg-purple-50/50'
-                }`}
-                aria-expanded={openDropdown === 'clinical'}
+                className="icon-button"
+                aria-label="Close navigation menu"
+                onClick={() => setMobileOpen(false)}
               >
-                <span>Clinical Care</span>
-                <ChevronDown className="w-3.5 h-3.5 text-slate-400 group-hover:text-purple-600 transition-transform duration-200" />
+                <X />
               </button>
-
-              {/* Centered Dropdown Menu */}
-              <div
-                className={`absolute left-1/2 -translate-x-1/2 top-full mt-2 w-64 bg-white rounded-2xl shadow-xl border border-purple-100 p-2 space-y-1 transition-all duration-200 z-50 ${
-                  openDropdown === 'clinical'
-                    ? 'opacity-100 visible translate-y-0'
-                    : 'opacity-0 invisible -translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0'
-                }`}
-              >
-                <NavLink
-                  to="/services"
-                  className={({ isActive }) =>
-                    `flex items-start gap-3 p-2.5 rounded-xl transition-all ${
-                      isActive ? 'bg-purple-50 text-purple-700 font-semibold' : 'text-slate-700 hover:bg-purple-50/60'
-                    }`
-                  }
-                >
-                  <Stethoscope className="w-4 h-4 text-purple-600 mt-0.5 flex-shrink-0" />
-                  <div>
-                    <span className="block text-xs font-bold text-slate-900">Medical Services</span>
-                    <span className="block text-[11px] text-slate-500 font-normal">
-                      Specialist clinics, emergency, scan & lab
-                    </span>
-                  </div>
-                </NavLink>
-
-                <NavLink
-                  to="/doctors"
-                  className={({ isActive }) =>
-                    `flex items-start gap-3 p-2.5 rounded-xl transition-all ${
-                      isActive ? 'bg-purple-50 text-purple-700 font-semibold' : 'text-slate-700 hover:bg-purple-50/60'
-                    }`
-                  }
-                >
-                  <Users className="w-4 h-4 text-purple-600 mt-0.5 flex-shrink-0" />
-                  <div>
-                    <span className="block text-xs font-bold text-slate-900">Doctors & Specialists</span>
-                    <span className="block text-[11px] text-slate-500 font-normal">
-                      Consultant profiles, duty days & schedules
-                    </span>
-                  </div>
-                </NavLink>
-              </div>
             </div>
-
-            {/* 3. About GMC Subcategory Dropdown */}
-            <div className="relative group">
-              <button
-                type="button"
-                onClick={() => setOpenDropdown(openDropdown === 'about' ? null : 'about')}
-                className={`flex items-center gap-1 px-3 py-2 rounded-xl text-xs xl:text-sm font-semibold transition-all ${
-                  isAboutActive
-                    ? 'text-purple-600 font-bold bg-purple-50'
-                    : 'text-slate-700 hover:text-purple-600 hover:bg-purple-50/50'
-                }`}
-                aria-expanded={openDropdown === 'about'}
-              >
-                <span>About GMC</span>
-                <ChevronDown className="w-3.5 h-3.5 text-slate-400 group-hover:text-purple-600 transition-transform duration-200" />
-              </button>
-
-              {/* Centered Dropdown Menu */}
-              <div
-                className={`absolute left-1/2 -translate-x-1/2 top-full mt-2 w-64 bg-white rounded-2xl shadow-xl border border-purple-100 p-2 space-y-1 transition-all duration-200 z-50 ${
-                  openDropdown === 'about'
-                    ? 'opacity-100 visible translate-y-0'
-                    : 'opacity-0 invisible -translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0'
-                }`}
-              >
-                <NavLink
-                  to="/about"
-                  className={({ isActive }) =>
-                    `flex items-start gap-3 p-2.5 rounded-xl transition-all ${
-                      isActive ? 'bg-purple-50 text-purple-700 font-semibold' : 'text-slate-700 hover:bg-purple-50/60'
-                    }`
-                  }
-                >
-                  <Building2 className="w-4 h-4 text-purple-600 mt-0.5 flex-shrink-0" />
-                  <div>
-                    <span className="block text-xs font-bold text-slate-900">Our Story & Mission</span>
-                    <span className="block text-[11px] text-slate-500 font-normal">
-                      Founder, PACIEH & Avah River Bridge
-                    </span>
-                  </div>
+            <nav aria-label="Mobile navigation">
+              {[...primaryLinks, ...moreLinks].map(([url, label]) => (
+                <NavLink key={url} to={url} end={url === "/"}>
+                  {label}
+                  <ArrowUpRight size={19} />
                 </NavLink>
-
-                <NavLink
-                  to="/inception-report"
-                  className={({ isActive }) =>
-                    `flex items-start gap-3 p-2.5 rounded-xl transition-all ${
-                      isActive ? 'bg-purple-50 text-purple-700 font-semibold' : 'text-slate-700 hover:bg-purple-50/60'
-                    }`
-                  }
-                >
-                  <FileText className="w-4 h-4 text-purple-600 mt-0.5 flex-shrink-0" />
-                  <div>
-                    <span className="block text-xs font-bold text-slate-900">Inception Report</span>
-                    <span className="block text-[11px] text-slate-500 font-normal">
-                      Official data, finances & impact metrics
-                    </span>
-                  </div>
-                </NavLink>
-
-                <NavLink
-                  to="/testimonials"
-                  className={({ isActive }) =>
-                    `flex items-start gap-3 p-2.5 rounded-xl transition-all ${
-                      isActive ? 'bg-purple-50 text-purple-700 font-semibold' : 'text-slate-700 hover:bg-purple-50/60'
-                    }`
-                  }
-                >
-                  <Award className="w-4 h-4 text-purple-600 mt-0.5 flex-shrink-0" />
-                  <div>
-                    <span className="block text-xs font-bold text-slate-900">Patient Testimonials</span>
-                    <span className="block text-[11px] text-slate-500 font-normal">
-                      Real stories of healing and survival
-                    </span>
-                  </div>
-                </NavLink>
-              </div>
-            </div>
-
-            {/* 4. Media & Resources Subcategory Dropdown */}
-            <div className="relative group">
-              <button
-                type="button"
-                onClick={() => setOpenDropdown(openDropdown === 'media' ? null : 'media')}
-                className={`flex items-center gap-1 px-3 py-2 rounded-xl text-xs xl:text-sm font-semibold transition-all ${
-                  isMediaActive
-                    ? 'text-purple-600 font-bold bg-purple-50'
-                    : 'text-slate-700 hover:text-purple-600 hover:bg-purple-50/50'
-                }`}
-                aria-expanded={openDropdown === 'media'}
-              >
-                <span>Media & Info</span>
-                <ChevronDown className="w-3.5 h-3.5 text-slate-400 group-hover:text-purple-600 transition-transform duration-200" />
-              </button>
-
-              {/* Centered Dropdown Menu */}
-              <div
-                className={`absolute left-1/2 -translate-x-1/2 top-full mt-2 w-64 bg-white rounded-2xl shadow-xl border border-purple-100 p-2 space-y-1 transition-all duration-200 z-50 ${
-                  openDropdown === 'media'
-                    ? 'opacity-100 visible translate-y-0'
-                    : 'opacity-0 invisible -translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0'
-                }`}
-              >
-                <NavLink
-                  to="/gallery"
-                  className={({ isActive }) =>
-                    `flex items-start gap-3 p-2.5 rounded-xl transition-all ${
-                      isActive ? 'bg-purple-50 text-purple-700 font-semibold' : 'text-slate-700 hover:bg-purple-50/60'
-                    }`
-                  }
-                >
-                  <ImageIcon className="w-4 h-4 text-purple-600 mt-0.5 flex-shrink-0" />
-                  <div>
-                    <span className="block text-xs font-bold text-slate-900">Photo & Video Gallery</span>
-                    <span className="block text-[11px] text-slate-500 font-normal">
-                      Aerial tour, facilities & outreach
-                    </span>
-                  </div>
-                </NavLink>
-
-                <NavLink
-                  to="/blog"
-                  className={({ isActive }) =>
-                    `flex items-start gap-3 p-2.5 rounded-xl transition-all ${
-                      isActive ? 'bg-purple-50 text-purple-700 font-semibold' : 'text-slate-700 hover:bg-purple-50/60'
-                    }`
-                  }
-                >
-                  <BookOpen className="w-4 h-4 text-purple-600 mt-0.5 flex-shrink-0" />
-                  <div>
-                    <span className="block text-xs font-bold text-slate-900">Journal & Staff Essays</span>
-                    <span className="block text-[11px] text-slate-500 font-normal">
-                      Medical news & essay prize downloads
-                    </span>
-                  </div>
-                </NavLink>
-
-                <NavLink
-                  to="/faq"
-                  className={({ isActive }) =>
-                    `flex items-start gap-3 p-2.5 rounded-xl transition-all ${
-                      isActive ? 'bg-purple-50 text-purple-700 font-semibold' : 'text-slate-700 hover:bg-purple-50/60'
-                    }`
-                  }
-                >
-                  <HelpCircle className="w-4 h-4 text-purple-600 mt-0.5 flex-shrink-0" />
-                  <div>
-                    <span className="block text-xs font-bold text-slate-900">FAQs</span>
-                    <span className="block text-[11px] text-slate-500 font-normal">
-                      Insurance, NHIA, fees & schedules
-                    </span>
-                  </div>
-                </NavLink>
-              </div>
-            </div>
-
-            {/* 5. Contact */}
-            <NavLink
-              to="/contact"
-              className={({ isActive }) =>
-                `px-3 py-2 rounded-xl text-xs xl:text-sm font-semibold transition-all ${
-                  isActive
-                    ? 'text-purple-600 font-bold bg-purple-50'
-                    : 'text-slate-700 hover:text-purple-600 hover:bg-purple-50/50'
-                }`
-              }
-            >
-              Contact
-            </NavLink>
-          </div>
-
-          {/* Right: Action CTAs & Mobile Hamburger */}
-          <div className="flex-shrink-0 flex items-center gap-2.5 sm:gap-3">
-            <button
-              onClick={() => {
-                if (onOpenAppointment) onOpenAppointment();
-              }}
-              className="hidden sm:flex px-4 xl:px-5 py-2.5 bg-purple-600 text-white rounded-full text-xs font-bold hover:bg-purple-700 transition-all shadow-md shadow-purple-600/25 items-center gap-1.5"
-            >
-              <Calendar className="w-3.5 h-3.5" />
-              <span>Book Appointment</span>
-            </button>
-
-            <a
-              href="https://wa.me/2347032585626?text=Hello%20Goodwill%20Medical%20Centre%2C%20I%20would%20like%20to%20reach%20your%20desk."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hidden sm:flex p-2.5 bg-white text-emerald-600 border border-purple-200 rounded-full hover:bg-emerald-50 transition-colors shadow-sm"
-              title="Chat with GMC Desk on WhatsApp"
-              aria-label="WhatsApp Desk"
-            >
-              <MessageSquare className="w-4 h-4" />
+              ))}
+            </nav>
+            <a href="tel:08000057777" className="mobile-emergency">
+              Emergency: 0800 005 7777
             </a>
-
-            {/* Mobile Menu Hamburger Button */}
             <button
-              className="lg:hidden p-2 text-slate-800 hover:text-purple-600 focus:outline-none"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+              className="gmc-button"
+              onClick={() => {
+                setMobileOpen(false);
+                onOpenAppointment?.();
+              }}
             >
-              {isMenuOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
+              Request an appointment <ArrowUpRight size={18} />
             </button>
           </div>
         </div>
-
-        {/* Mobile Navigation Drawer with Accordion Subcategories */}
-        {isMenuOpen && (
-          <div className="lg:hidden bg-white border-b border-purple-100 px-5 py-6 space-y-3 animate-fade-in shadow-2xl max-h-[85vh] overflow-y-auto">
-            {/* Home */}
-            <NavLink
-              to="/"
-              className={({ isActive }) =>
-                `block px-4 py-3 rounded-xl font-bold text-sm text-center ${
-                  isActive ? 'bg-purple-50 text-purple-700' : 'text-slate-800'
-                }`
-              }
-            >
-              Home
-            </NavLink>
-
-            {/* Subcategory 1: Clinical Care */}
-            <div className="border border-purple-100 rounded-2xl overflow-hidden">
-              <button
-                onClick={() => setMobileSubmenu(mobileSubmenu === 'clinical' ? null : 'clinical')}
-                className="w-full px-4 py-3 bg-slate-50 flex items-center justify-between text-slate-900 font-bold text-sm"
-              >
-                <span className="flex items-center gap-2">
-                  <Stethoscope className="w-4 h-4 text-purple-600" />
-                  Clinical Care
-                </span>
-                <ChevronDown
-                  className={`w-4 h-4 text-slate-500 transition-transform duration-200 ${
-                    mobileSubmenu === 'clinical' ? 'rotate-180' : ''
-                  }`}
-                />
-              </button>
-              {mobileSubmenu === 'clinical' && (
-                <div className="p-2 space-y-1 bg-white">
-                  <NavLink
-                    to="/services"
-                    className="block px-4 py-2.5 rounded-xl text-xs font-semibold text-slate-700 hover:bg-purple-50 text-center"
-                  >
-                    Medical Services & Clinics
-                  </NavLink>
-                  <NavLink
-                    to="/doctors"
-                    className="block px-4 py-2.5 rounded-xl text-xs font-semibold text-slate-700 hover:bg-purple-50 text-center"
-                  >
-                    Doctors & Specialists Schedules
-                  </NavLink>
-                </div>
-              )}
-            </div>
-
-            {/* Subcategory 2: About GMC */}
-            <div className="border border-purple-100 rounded-2xl overflow-hidden">
-              <button
-                onClick={() => setMobileSubmenu(mobileSubmenu === 'about' ? null : 'about')}
-                className="w-full px-4 py-3 bg-slate-50 flex items-center justify-between text-slate-900 font-bold text-sm"
-              >
-                <span className="flex items-center gap-2">
-                  <Building2 className="w-4 h-4 text-purple-600" />
-                  About GMC
-                </span>
-                <ChevronDown
-                  className={`w-4 h-4 text-slate-500 transition-transform duration-200 ${
-                    mobileSubmenu === 'about' ? 'rotate-180' : ''
-                  }`}
-                />
-              </button>
-              {mobileSubmenu === 'about' && (
-                <div className="p-2 space-y-1 bg-white">
-                  <NavLink
-                    to="/about"
-                    className="block px-4 py-2.5 rounded-xl text-xs font-semibold text-slate-700 hover:bg-purple-50 text-center"
-                  >
-                    Our Story & Avah Bridge
-                  </NavLink>
-                  <NavLink
-                    to="/inception-report"
-                    className="block px-4 py-2.5 rounded-xl text-xs font-semibold text-slate-700 hover:bg-purple-50 text-center"
-                  >
-                    Inception Report 2024–2025
-                  </NavLink>
-                  <NavLink
-                    to="/testimonials"
-                    className="block px-4 py-2.5 rounded-xl text-xs font-semibold text-slate-700 hover:bg-purple-50 text-center"
-                  >
-                    Patient Stories & Impact
-                  </NavLink>
-                </div>
-              )}
-            </div>
-
-            {/* Subcategory 3: Media & Information */}
-            <div className="border border-purple-100 rounded-2xl overflow-hidden">
-              <button
-                onClick={() => setMobileSubmenu(mobileSubmenu === 'media' ? null : 'media')}
-                className="w-full px-4 py-3 bg-slate-50 flex items-center justify-between text-slate-900 font-bold text-sm"
-              >
-                <span className="flex items-center gap-2">
-                  <ImageIcon className="w-4 h-4 text-purple-600" />
-                  Media & Info
-                </span>
-                <ChevronDown
-                  className={`w-4 h-4 text-slate-500 transition-transform duration-200 ${
-                    mobileSubmenu === 'media' ? 'rotate-180' : ''
-                  }`}
-                />
-              </button>
-              {mobileSubmenu === 'media' && (
-                <div className="p-2 space-y-1 bg-white">
-                  <NavLink
-                    to="/gallery"
-                    className="block px-4 py-2.5 rounded-xl text-xs font-semibold text-slate-700 hover:bg-purple-50 text-center"
-                  >
-                    Photo & Video Gallery
-                  </NavLink>
-                  <NavLink
-                    to="/blog"
-                    className="block px-4 py-2.5 rounded-xl text-xs font-semibold text-slate-700 hover:bg-purple-50 text-center"
-                  >
-                    Journal & Staff Essays
-                  </NavLink>
-                  <NavLink
-                    to="/faq"
-                    className="block px-4 py-2.5 rounded-xl text-xs font-semibold text-slate-700 hover:bg-purple-50 text-center"
-                  >
-                    Frequently Asked Questions
-                  </NavLink>
-                </div>
-              )}
-            </div>
-
-            {/* Contact */}
-            <NavLink
-              to="/contact"
-              className={({ isActive }) =>
-                `block px-4 py-3 rounded-xl font-bold text-sm text-center ${
-                  isActive ? 'bg-purple-50 text-purple-700' : 'text-slate-800'
-                }`
-              }
-            >
-              Contact & Directions
-            </NavLink>
-
-            {/* Free Treatment Information Trigger on Mobile */}
-            <button
-              onClick={() => {
-                setIsMenuOpen(false);
-                handleFreeTreatmentClick();
-              }}
-              className="w-full py-3 bg-purple-900/80 text-white rounded-2xl font-bold text-xs flex items-center justify-center gap-2 border border-purple-700"
-            >
-              <Heart className="w-4 h-4 text-rose-400 fill-current" />
-              Free Treatment & Insurance Guide
-            </button>
-
-            {/* Mobile Actions */}
-            <div className="pt-3 border-t border-slate-100 space-y-2">
-              <button
-                onClick={() => {
-                  setIsMenuOpen(false);
-                  if (onOpenAppointment) onOpenAppointment();
-                }}
-                className="w-full py-3.5 bg-purple-600 text-white rounded-2xl font-bold text-xs shadow-md flex items-center justify-center gap-2"
-              >
-                <Calendar className="w-4 h-4" />
-                Schedule Appointment Online
-              </button>
-
-              <div className="grid grid-cols-2 gap-2">
-                <a
-                  href="tel:08000057777"
-                  className="py-3 bg-rose-50 text-rose-800 border border-rose-200 rounded-xl font-bold text-xs flex items-center justify-center gap-1.5"
-                >
-                  <ShieldAlert className="w-4 h-4 text-rose-600" />
-                  0800 005 7777
-                </a>
-                <a
-                  href="https://wa.me/2347032585626"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="py-3 bg-emerald-50 text-emerald-800 border border-emerald-200 rounded-xl font-bold text-xs flex items-center justify-center gap-1.5"
-                >
-                  <MessageSquare className="w-4 h-4 text-emerald-600" />
-                  WhatsApp
-                </a>
-              </div>
-            </div>
-          </div>
-        )}
-      </nav>
-
-      {/* Free Treatment & Insurance Information Modal */}
-      <FreeTreatmentModal
-        isOpen={isFreeTreatmentModalOpen}
-        onClose={() => setIsFreeTreatmentModalOpen(false)}
-        onOpenAppointment={onOpenAppointment}
-      />
+      )}
     </header>
   );
-};
-
-export default Navbar;
+}

@@ -3,7 +3,7 @@ import BrochureGenerator from '../components/BrochureGenerator';
 
 const About: React.FC = () => {
     return (
-        <main className="pt-16 px-6 max-w-7xl mx-auto min-h-screen">
+        <div className="pt-16 px-6 max-w-7xl mx-auto min-h-screen">
             <section className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-24" aria-labelledby="our-story">
                 <div className="space-y-6">
                     <span className="text-purple-600 font-bold tracking-widest uppercase text-xs">Our Story</span>
@@ -20,12 +20,12 @@ const About: React.FC = () => {
                 </div>
                 <div className="relative">
                     <div className="absolute inset-0 bg-purple-100 rounded-[3rem] rotate-3 transform scale-95 opacity-50" />
-                    <img
+                    <img loading="lazy"
                         src="/images/report/report-53.jpeg"
                         alt="Goodwill Medical Centre building and entrance in Umuchigbo"
                         className="relative w-full rounded-[3rem] shadow-2xl border-8 border-white"
                         onError={(e) => {
-                            (e.target as HTMLImageElement).src = 'https://placehold.co/600x600/9333ea/ffffff?text=GMC+Building';
+                            (e.target as HTMLImageElement).src = '/images/fallback.svg';
                         }}
                     />
                 </div>
@@ -55,7 +55,7 @@ const About: React.FC = () => {
                             Opened on <strong>8 April 2025</strong>, the pedestrian and tricycle-accessible iron bridge links Ifo, Ugbo-Ezeji, Ugbo-Okonkwo and Ugbo-Paul to GMC. It replaced dangerous river crossings and an alternative journey of more than eight kilometres.
                         </p>
                         <a
-                            href="https://youtube/zgICvsWCNWU?i=8yRnQ4MJLCkHODIR"
+                            href="https://www.youtube.com/watch?v=zgICvsWCNWU"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 font-bold text-sm bg-white text-purple-600 px-6 py-3 rounded-xl hover:bg-purple-50 transition-all hover:shadow-lg focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-purple-600"
@@ -126,7 +126,7 @@ const About: React.FC = () => {
             </section>
 
             <section className="mb-24 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center" aria-labelledby="partnerships-heading">
-                <img src="/images/report/report-47.jpeg" alt="GMC partners and community leaders during an official visit" className="w-full rounded-[3rem] shadow-xl" />
+                <img loading="lazy" src="/images/report/report-47.jpeg" alt="GMC partners and community leaders during an official visit" className="w-full rounded-[3rem] shadow-xl" />
                 <div className="space-y-6">
                     <span className="text-purple-600 font-bold tracking-widest uppercase text-xs">Strategic Partnerships</span>
                     <h2 id="partnerships-heading" className="text-4xl font-serif text-slate-900">A Shared Commitment to Health Equity</h2>
@@ -149,12 +149,12 @@ const About: React.FC = () => {
                         { role: 'GMC Clinical Team', img: '/images/report/report-38.png' }
                     ].map((member, idx) => (
                         <div key={idx} className="group relative overflow-hidden rounded-[2rem] h-[400px]">
-                            <img
+                            <img loading="lazy"
                                 src={member.img}
                                 alt={member.role}
                                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                                 onError={(e) => {
-                                    (e.target as HTMLImageElement).src = 'https://placehold.co/400x500/9333ea/ffffff?text=Staff';
+                                    (e.target as HTMLImageElement).src = '/images/fallback.svg';
                                 }}
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/20 to-transparent flex flex-col justify-end p-8">
@@ -165,7 +165,7 @@ const About: React.FC = () => {
                     ))}
                 </div>
             </section>
-        </main>
+        </div>
     );
 };
 

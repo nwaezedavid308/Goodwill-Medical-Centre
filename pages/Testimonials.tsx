@@ -60,7 +60,7 @@ const TESTIMONIALS = [
 
 const Testimonials: React.FC = () => {
   return (
-    <main className="pt-16 pb-24 px-6 max-w-7xl mx-auto min-h-screen">
+    <div className="pt-16 pb-24 px-6 max-w-7xl mx-auto min-h-screen">
       {/* Header */}
       <header className="text-center mb-16 max-w-3xl mx-auto space-y-4">
         <span className="text-purple-600 font-bold tracking-widest uppercase text-xs">
@@ -126,13 +126,13 @@ const Testimonials: React.FC = () => {
 
             <div className="pt-4 border-t border-slate-100 flex items-center gap-4">
               <div className="w-12 h-12 rounded-full overflow-hidden bg-purple-100 flex-shrink-0 border-2 border-purple-200">
-                <img
+                <img loading="lazy"
                   src={item.avatar}
                   alt={item.name}
                   className="w-full h-full object-cover"
                   onError={(e) => {
                     (e.target as HTMLImageElement).src =
-                      'https://placehold.co/100x100/9333ea/ffffff?text=' + encodeURIComponent(item.name[0]);
+                      '/images/fallback.svg';
                   }}
                 />
               </div>
@@ -163,7 +163,7 @@ const Testimonials: React.FC = () => {
           <ArrowRight className="w-4 h-4" />
         </a>
       </section>
-    </main>
+    </div>
   );
 };
 

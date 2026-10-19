@@ -1,75 +1,64 @@
-# Goodwill Medical Centre (GMC) - Official Website Upgrade
+# Goodwill Medical Centre website
 
-A modern, responsive, and accessible web application for **Goodwill Medical Centre (GMC)**, a model secondary hospital located in Umuchigbo, Enugu East LGA, Enugu State, Nigeria. Founded with support from the **TY Danjuma Foundation** and governed under **PACIEH**.
+React, TypeScript and Vite website for Goodwill Medical Centre in Umuchigbo, Enugu East, Nigeria.
 
----
+## Run locally
 
-## 🌟 Upgrades & Key Features
+Use Node.js 22 or later.
 
-### 1. 🎨 Modernized UI/UX Design & Branding
-- **Healthcare Theme**: Sophisticated purple and cream medical aesthetic with fluid typography (`Playfair Display` + `Plus Jakarta Sans`).
-- **Emergency Top Announcement Bar**: Prominently displays the 24/7 toll-free emergency hotline (`0800 005 7777`) and reception phone numbers.
-- **Glassmorphic Navigation**: Sticky responsive navbar with full active route highlighting and slide-out mobile drawer.
-- **Floating 24/7 Emergency Widget**: Instant 1-tap dialer for toll-free emergency, reception desk, and WhatsApp live chat on all pages.
+```powershell
+npm.cmd install
+npm.cmd run dev
+```
 
-### 2. 📅 Interactive Online Appointment Booking
-- Modal-based booking engine accessible from anywhere on the website.
-- Supports department selection, consultant preference, date & time slot selection.
-- Supports insurance scheme specification (NHIA, ESCHIS, Private HMO, Self-Pay, Indigent Subsidy).
-- Generates an instant booking reference code with 1-click dispatch to GMC’s official WhatsApp desk (`+2347032585626`).
+Open http://127.0.0.1:3000.
 
-### 3. 🎥 Multimedia Video Tour & Lightbox Gallery
-- High-definition video player modal supporting both **Aerial/Exterior Grounds Tour** (`GMC_VIEW.mp4`) and **Interior Clinics & Wards Walkthrough** (`GMC_VIEW_INSIDE.mp4`).
-- Interactive multimedia Gallery (`/gallery`) with category tabs (Facilities, Maternal Care, Clinical, Team, Training, Bridge).
-- Interactive Lightbox photo viewer with zoom and keyboard navigation.
+## Validate and build
 
-### 4. 🩺 Doctors & Medical Specialists (`/doctors`)
-- Detailed profiles for lead consultants, surgeons, pediatricians, pharmacists, and nursing leadership.
-- Clinic days and availability schedules.
-- Direct "Book Consultation" action linking into the appointment scheduler.
+```powershell
+npm.cmd run typecheck
+npm.cmd run build
+npm.cmd test
+npm.cmd run preview
+```
 
-### 5. 🤰 Interactive Patient Wellness Calculators
-- **Maternal Due Date & ANC Milestone Planner**: Calculates estimated delivery date (EDD) based on LMP and outlines GMC antenatal checkup schedules.
-- **Adult BMI Health Screener**: Calculates Body Mass Index and provides clinical wellness guidance.
+The tests verify service booking mappings, team coverage, referenced care/editorial assets, and the generated per-page metadata. Run the build before the tests.
 
-### 6. 💬 Patient Testimonials & Stories (`/testimonials`)
-- Verified patient stories covering free CEmONC emergency Caesarean sections, subsidized cataract surgeries, and community leader accounts of the Avah River Bridge.
+Tailwind is compiled locally through PostCSS. Browser import maps and the Tailwind runtime CDN are no longer used. Route modules, including the PDF-heavy About page, load on demand.
 
-### 7. ❓ Searchable FAQ Page (`/faq`)
-- Comprehensive interactive accordion answering questions on NHIA, emergency admissions, clinic hours, and donation transparency.
+## Requests and enquiries
 
-### 8. 📰 Journal & Staff Essay Competition Archive (`/blog`)
-- In-depth articles with modal reading view.
-- PDF downloads of the official prize-winning GMC staff essays (Pharmacy Department 1st Prize, Nursing Department 2nd Prize, Access Essay 3rd Prize).
+Appointment and contact forms prepare a WhatsApp message locally. They do not create a hospital record, notify the desk, check live availability, or reserve a time slot. The visitor reviews the message and sends it in WhatsApp; staff confirm separately. The interface reflects those distinctions. No message is automatically sent.
 
-### 9. 📍 Contact & Route Guide (`/contact`)
-- Interactive contact inquiry form with live WhatsApp forwarding.
-- Step-by-step route directions from Enugu urban (Abakpa Nike) and through the Avah River Bridge.
+Each appointment modal starts a new request when opened. Service buttons prefill the matching options using the shared data in `data/care.ts`. Individual clinician names and the preferred-clinician selector have been removed. There is no randomly generated booking confirmation. The initial appointment request no longer asks for symptoms, clinical notes or an email address.
 
----
+## Design and accessibility
 
-## 🚀 Running Locally
+Milk, purple, sky blue and lavender surfaces, outlined cards, strong sans-serif display type, real facility photography and restrained motion. The former top announcement bar has been removed. See `docs/design-direction.md`.
 
-**Prerequisites:** Node.js (v18+)
+The shared main landmark supports the skip link on every route. Dialogs isolate background content, trap keyboard focus, close with Escape and restore the triggering control where it remains on the page. The gallery supports left/right arrow keys. Reduced-motion preferences disable entrance, reveal and hover transitions.
 
-1. Install dependencies:
-   ```bash
-   npm.cmd install
-   ```
+## Content and assets
 
-2. Run development server:
-   ```bash
-   npm.cmd run dev
-   ```
+- `data/care.ts`: service information and booking mappings.
+- `data/teams.ts`: the department showcase, photographs and captions.
+- `data/posts.ts`: journal articles and download references.
+- `data/metadata.ts`: route titles and descriptions.
+- `public/images/optimised`: responsive WebP copies used on the homepage. Original photography remains available.
+- `scripts/optimise-images.py`: regenerate those copies with Pillow installed.
 
-3. Build production bundle:
-   ```bash
-   npm.cmd run build
-   ```
+Existing photographs, schedules, clinical claims, programme terms and impact data require GMC's factual approval before publication. Team cards use existing staff or department-space photos with matching captions; dedicated portraits for every support team were not supplied. The privacy page describes the implemented website flow and does not invent a hospital retention policy.
 
----
+## Deployment
 
-## 🤝 Project Credits
-- **Client**: Goodwill Medical Centre (GMC), Umuchigbo, Enugu East LGA
-- **Founding Partner**: TY Danjuma Foundation & PACIEH
-- **Website Upgrade**: Niuxverse Web Agency (+2348110607341)
+`npm.cmd run build` produces `dist`, with unique HTML metadata for all public routes and each journal article. Articles are shareable at `/blog/1`, `/blog/2`, etc. These HTML files carry route metadata; the application content renders in React.
+
+Set `SITE_URL` to the actual HTTPS production origin in the hosting provider's build environment to generate canonical URLs, absolute sharing images and `sitemap.xml`. It is deliberately not set to an invented domain. The build always generates `robots.txt`.
+
+Deploy the entire `dist` directory, including images, videos, documents and generated route directories. `public/_redirects` supports Netlify fallback routing; `vercel.json` checks generated/static files before the SPA fallback. Other hosts must serve existing files and route remaining page requests to `index.html`. The application displays a dedicated missing-page screen for unknown routes; a true HTTP 404 status depends on the hosting platform.
+
+No private service credentials belong in client environment definitions. The obsolete Gemini key definitions have been removed from Vite configuration.
+
+## Project credits
+
+GMC is supported by the TY Danjuma Foundation and PACIEH. Website work: Niuxverse Web Agency.

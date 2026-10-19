@@ -8,6 +8,8 @@ const Contact: React.FC = () => {
   const [subject, setSubject] = useState('General Medical Inquiry');
   const [message, setMessage] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const reviewRef = React.useRef<HTMLDivElement>(null);
+  React.useEffect(() => { if (isSubmitted) reviewRef.current?.focus(); }, [isSubmitted]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -22,11 +24,11 @@ const Contact: React.FC = () => {
 *Subject:* ${subject}
 *Message:* ${message}`;
     const encoded = encodeURIComponent(text);
-    window.open(`https://wa.me/2347032585626?text=${encoded}`, '_blank');
+    window.open(`https://wa.me/2347032585626?text=${encoded}`, '_blank', 'noopener,noreferrer');
   };
 
   return (
-    <main className="pt-16 pb-24 px-6 max-w-7xl mx-auto min-h-screen">
+    <div className="pt-16 pb-24 px-6 max-w-7xl mx-auto min-h-screen">
       {/* Header */}
       <header className="text-center mb-16 max-w-3xl mx-auto space-y-4">
         <span className="text-purple-600 font-bold tracking-widest uppercase text-xs">
@@ -183,7 +185,7 @@ const Contact: React.FC = () => {
         {/* Contact Form */}
         <div className="lg:col-span-7 bg-white rounded-[3rem] p-8 sm:p-12 border border-purple-100 shadow-xl flex flex-col justify-between">
           {!isSubmitted ? (
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6"><p className="form-disclosure">This form prepares a WhatsApp message. You choose when to send it. Please leave out medical records and detailed health information. <a href="/privacy">How your information is used</a>.</p>
               <div>
                 <span className="text-purple-600 font-bold text-xs uppercase tracking-wider">
                   Send a Message
@@ -192,16 +194,16 @@ const Contact: React.FC = () => {
                   How Can We Help You Today?
                 </h3>
                 <p className="text-slate-500 text-sm mt-1">
-                  Leave a message and our patient care team will get back to you promptly.
+                  Prepare a message, then send it to our desk through WhatsApp.
                 </p>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
+                  <label htmlFor="contact-field-1" className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
                     Your Full Name *
                   </label>
-                  <input
+                  <input id="contact-field-1"
                     type="text"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
@@ -212,11 +214,14 @@ const Contact: React.FC = () => {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
+                  <label htmlFor="contact-field-2" className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
                     Phone / WhatsApp Number *
                   </label>
-                  <input
+                  <input id="contact-field-2"
                     type="tel"
+                    autoComplete="tel"
+                    pattern="[+]?[0-9][0-9 ]{5,18}[0-9]"
+                    title="Use digits, spaces and an optional + at the start"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     required
@@ -228,10 +233,10 @@ const Contact: React.FC = () => {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
+                  <label htmlFor="contact-field-3" className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
                     Email Address
                   </label>
-                  <input
+                  <input id="contact-field-3"
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
@@ -241,10 +246,10 @@ const Contact: React.FC = () => {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
+                  <label htmlFor="contact-field-4" className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
                     Inquiry Subject *
                   </label>
-                  <select
+                  <select id="contact-field-4"
                     value={subject}
                     onChange={(e) => setSubject(e.target.value)}
                     className="w-full px-4 py-3.5 bg-slate-50 border border-slate-200 rounded-2xl text-sm text-slate-800 focus:bg-white focus:border-purple-600 focus:outline-none transition-all"
@@ -264,10 +269,10 @@ const Contact: React.FC = () => {
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
+                <label htmlFor="contact-field-5" className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
                   Your Message or Question *
                 </label>
-                <textarea
+                <textarea id="contact-field-5"
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   required
@@ -282,18 +287,18 @@ const Contact: React.FC = () => {
                 className="w-full py-4 bg-purple-600 hover:bg-purple-700 text-white rounded-2xl font-bold text-sm transition-all shadow-lg shadow-purple-600/30 flex items-center justify-center gap-2"
               >
                 <Send className="w-4 h-4" />
-                Submit Inquiry
+                Review your message
               </button>
             </form>
           ) : (
-            <div className="text-center py-12 space-y-6 animate-fade-in">
+            <div ref={reviewRef} tabIndex={-1} className="text-center py-12 space-y-6 animate-fade-in">
               <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto shadow-inner">
                 <CheckCircle2 className="w-10 h-10" />
               </div>
               <div className="space-y-2">
-                <h3 className="text-2xl font-serif font-bold text-slate-900">Message Received!</h3>
+                <h3 className="text-2xl font-serif font-bold text-slate-900">Your message is ready.</h3>
                 <p className="text-slate-600 text-sm max-w-md mx-auto">
-                  Thank you, {name}. Your inquiry regarding "{subject}" has been recorded.
+                  Thank you, {name}. Your enquiry about "{subject}" has been prepared. Open WhatsApp, review it and press send to reach our desk. Nothing has been sent yet.
                 </p>
               </div>
 
@@ -304,14 +309,14 @@ const Contact: React.FC = () => {
                   className="w-full py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-2xl font-bold text-xs flex items-center justify-center gap-2 transition-all shadow-md"
                 >
                   <MessageSquare className="w-4 h-4" />
-                  Forward Directly to GMC Desk on WhatsApp
+                  Continue to WhatsApp
                 </button>
                 <button
                   type="button"
                   onClick={() => setIsSubmitted(false)}
                   className="w-full py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-2xl font-semibold text-xs transition-colors"
                 >
-                  Send Another Inquiry
+                  Edit your message
                 </button>
               </div>
             </div>
@@ -376,7 +381,7 @@ const Contact: React.FC = () => {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 };
 
