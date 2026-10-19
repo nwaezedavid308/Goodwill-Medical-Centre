@@ -6,7 +6,9 @@ Milk `#FFF9F2` remains the base. Purple `#7939C6` anchors key actions, sky `#BCE
 
 The layout pairs a large, left-aligned heading with an asymmetric three-part grid: a clear invitation, real hospital photography and two practical action cards. Medical plus signs are structural brand details. Mixed card sizes, small offset shadows on interaction and a lightly tilted insurance stack provide personality without mascots, neon or animation loops.
 
-Motion is deliberately limited to a short hero entrance, one reveal per major homepage section, and responsive controls. Reduced-motion preferences disable these effects. No video autoplays.
+Framer Motion adds scroll reveals across pages, staggered cards, hover/tap feedback and gentle scroll-linked parallax behind the hero video. The hero headline types and rotates through caring messages, with a pause control and a stable screen-reader heading. The facility video attempts autoplay with sound, falls back to muted playback when browser policy requires it, and offers explicit sound and playback controls. It pauses offscreen. Reduced-motion visitors see a static headline and a manually playable poster instead. The original GMC SVG supplies the header, footer and favicon mark.
+
+A sky-blue patient-support card immediately follows the hero, with matching support links in the desktop navigation, mobile menu and footer. Its button prepares a custom WhatsApp message asking how to support patients and GMC's vision. No donation amount, payment transaction or delivery confirmation is implied.
 
 Primary tasks are explicit: request a visit, explore services, find directions and call for urgent help. The former top information bar is removed entirely. Emergency contact stays available in the contact menu and footer.
 

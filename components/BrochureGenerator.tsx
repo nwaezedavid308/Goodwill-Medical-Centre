@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { CONTACT_EMAILS, WEBSITE_URL } from '../data/contact';
 import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
 
@@ -193,9 +194,9 @@ const BrochureGenerator: React.FC = () => {
             const footerY = pageHeight - 15;
             doc.setFontSize(9);
             doc.setTextColor(128);
-            doc.text("www.goodwillmedicalcentre.com", margin, footerY);
+            doc.text(new URL(WEBSITE_URL).hostname, margin, footerY);
             doc.text("WhatsApp: +234 703 258 5626", pageWidth - margin - 62, footerY - 4);
-            doc.text("goodwillhospital25@gmail.com", pageWidth - margin - 62, footerY);
+            doc.text(CONTACT_EMAILS, pageWidth - margin - 62, footerY);
 
             doc.save("GMC_Brochure.pdf");
 

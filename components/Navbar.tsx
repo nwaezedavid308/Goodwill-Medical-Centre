@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { Plus, ArrowUpRight, Menu, X, ChevronDown } from "lucide-react";
 import { useDialog } from "../hooks/useDialog";
+import { SUPPORT_URL } from "../data/support";
 interface Props {
   onOpenAppointment?: () => void;
   onOpenFreeTreatment?: () => void;
@@ -37,9 +38,13 @@ export default function Navbar({ onOpenAppointment }: Props) {
           className="brand"
           aria-label="Goodwill Medical Centre home"
         >
-          <span className="brand-mark" aria-hidden="true">
-            <Plus size={27} strokeWidth={1.6} />
-          </span>
+          <img
+            className="brand-logo"
+            src="/images/gmc-logo.svg"
+            width="48"
+            height="48"
+            alt=""
+          />
           <span>
             Goodwill<span className="brand-subtitle">Medical Centre</span>
           </span>
@@ -91,6 +96,14 @@ export default function Navbar({ onOpenAppointment }: Props) {
           </div>
         </nav>
         <div className="nav-actions">
+          <a
+            className="nav-support"
+            href={SUPPORT_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Support patients <ArrowUpRight size={14} />
+          </a>
           <button
             onClick={onOpenAppointment}
             className="gmc-button nav-appointment"
@@ -140,6 +153,14 @@ export default function Navbar({ onOpenAppointment }: Props) {
                 </NavLink>
               ))}
             </nav>
+            <a
+              className="mobile-support"
+              href={SUPPORT_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Support patients <ArrowUpRight size={17} />
+            </a>
             <a href="tel:08000057777" className="mobile-emergency">
               Emergency: 0800 005 7777
             </a>

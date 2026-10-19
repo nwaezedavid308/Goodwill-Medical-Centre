@@ -16,6 +16,24 @@ const { SERVICES_DATA, serviceId } = await loadData("data/care.ts");
 const { descriptions } = await loadData("data/metadata.ts");
 const { TEAMS } = await loadData("data/teams.ts");
 const { POSTS } = await loadData("data/posts.ts");
+const { SUPPORT_URL, SUPPORT_MESSAGE } = await loadData("data/support.ts");
+const { CONTACT_EMAILS, WEBSITE_URL } = await loadData("data/contact.ts");
+
+test("contact details preserve Gmail and distinguish the custom email from the website", () => {
+  assert.ok(CONTACT_EMAILS.includes("goodwillhospital25@gmail.com"));
+  assert.ok(CONTACT_EMAILS.includes("admin@goodwillmedicalcentre.org"));
+  for (const email of CONTACT_EMAILS)
+    assert.match(email, /^[^\s@]+@[^\s@]+\.[^\s@]+$/);
+  assert.equal(new URL(WEBSITE_URL).hostname, "goodwillmedicalcentre.org");
+});
+
+test("support links prepare the requested patient-support message for the GMC desk", () => {
+  const url = new URL(SUPPORT_URL);
+  assert.equal(url.origin, "https://wa.me");
+  assert.equal(url.pathname, "/2347032585626");
+  assert.equal(url.searchParams.get("text"), SUPPORT_MESSAGE);
+  assert.match(SUPPORT_MESSAGE, /support patients/);
+});
 
 test("every service CTA resolves to one bookable service", () => {
   assert.equal(

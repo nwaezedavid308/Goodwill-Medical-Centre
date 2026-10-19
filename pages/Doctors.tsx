@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
 import { ArrowUpRight, HeartHandshake, Plus } from "lucide-react";
 import { TEAMS } from "../data/teams";
+import { motion, useReducedMotion } from "framer-motion";
 
 export default function Doctors() {
+  const reduced = useReducedMotion();
   return (
     <div className="teams-page page-shell">
       <header className="teams-intro">
@@ -28,7 +30,12 @@ export default function Doctors() {
       </div>
       <div className="teams-grid">
         {TEAMS.map((team) => (
-          <article key={team.id} className={`team-card ${team.tone}`}>
+          <motion.article
+            key={team.id}
+            className={`team-card ${team.tone}`}
+            whileHover={reduced ? {} : { y: -5 }}
+            transition={{ type: "spring", stiffness: 280, damping: 24 }}
+          >
             <figure className="team-photo">
               <img
                 src={team.image}
@@ -43,7 +50,7 @@ export default function Doctors() {
               <h2>{team.name}</h2>
               <p>{team.description}</p>
             </div>
-          </article>
+          </motion.article>
         ))}
       </div>
       <section className="teams-closing">

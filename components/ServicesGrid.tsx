@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import { motion, useReducedMotion } from "framer-motion";
+const MotionLink = motion.create(Link);
 import {
   ArrowUpRight,
   Eye,
@@ -42,6 +44,7 @@ const services = [
   },
 ];
 export default function ServicesGrid() {
+  const reduced = useReducedMotion();
   return (
     <section id="services" className="services-section page-shell" data-reveal>
       <div className="section-heading">
@@ -66,7 +69,16 @@ export default function ServicesGrid() {
       </div>
       <div className="service-bento">
         {services.map(({ title, description, icon: Icon, tone, tag }) => (
-          <Link to="/services" key={title} className={`service-card ${tone}`}>
+          <MotionLink
+            to="/services"
+            key={title}
+            className={`service-card ${tone}`}
+            whileHover={
+              reduced ? {} : { y: -7, rotate: tone === "sky" ? 0.7 : -0.4 }
+            }
+            whileTap={reduced ? {} : { scale: 0.98 }}
+            transition={{ type: "spring", stiffness: 300, damping: 22 }}
+          >
             <div className="service-card-top">
               <Icon size={29} strokeWidth={1.5} />
               <span className="service-tag">{tag}</span>
@@ -76,7 +88,7 @@ export default function ServicesGrid() {
             <span className="round-arrow">
               <ArrowUpRight size={22} />
             </span>
-          </Link>
+          </MotionLink>
         ))}
       </div>
       <div className="service-note">

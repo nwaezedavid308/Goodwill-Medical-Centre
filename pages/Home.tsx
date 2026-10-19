@@ -4,6 +4,7 @@ import { ArrowUpRight, Play, Plus, HeartHandshake, Phone } from "lucide-react";
 import Hero from "../components/Hero";
 import ServicesGrid from "../components/ServicesGrid";
 import VideoModal from "../components/VideoModal";
+import SupportSection from "../components/SupportSection";
 interface Props {
   onOpenAppointment?: () => void;
 }
@@ -15,6 +16,7 @@ export default function Home({ onOpenAppointment }: Props) {
         onOpenAppointment={onOpenAppointment}
         onOpenVideoModal={() => setTourOpen(true)}
       />
+      <SupportSection />
       <ServicesGrid />
       <section className="community-section page-shell" data-reveal>
         <div className="community-image">

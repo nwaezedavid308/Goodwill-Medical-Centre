@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { CONTACT_EMAILS, WEBSITE_URL } from '../data/contact';
 import { MapPin, Phone, Mail, Clock, MessageSquare, Send, CheckCircle2, Shield, Navigation } from 'lucide-react';
 
 const Contact: React.FC = () => {
@@ -132,14 +133,10 @@ const Contact: React.FC = () => {
                 <p className="text-slate-500 text-xs">Administrative & Medical</p>
               </div>
             </div>
-            <p className="text-sm text-slate-600">
-              <a
-                href="mailto:goodwillhospital25@gmail.com"
-                className="font-bold text-purple-700 hover:underline"
-              >
-                goodwillhospital25@gmail.com
-              </a>
-            </p>
+            <div className="text-sm text-slate-600 space-y-2">
+              {CONTACT_EMAILS.map(email => <a key={email} href={`mailto:${email}`} className="block font-bold text-purple-700 hover:underline [overflow-wrap:anywhere]">{email}</a>)}
+              <a href={WEBSITE_URL} target="_blank" rel="noopener noreferrer" className="block pt-2 text-purple-700 hover:underline">Website: goodwillmedicalcentre.org</a>
+            </div>
           </div>
 
           {/* Operating Hours */}

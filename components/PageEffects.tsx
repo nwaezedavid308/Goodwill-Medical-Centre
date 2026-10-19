@@ -2,9 +2,11 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
 import { descriptions } from "../data/metadata";
+import { usePageMotion } from "../hooks/usePageMotion";
 
 export default function PageEffects() {
   const { pathname } = useLocation();
+  usePageMotion(pathname);
   useEffect(() => {
     const [title, description] =
       descriptions[pathname] ||
@@ -34,31 +36,6 @@ export default function PageEffects() {
     }
     if (pathname !== "/")
       document.getElementById("main-content")?.focus({ preventScroll: true });
-    if (
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
-      !("IntersectionObserver" in window)
-    )
-      return;
-    const elements = document.querySelectorAll<HTMLElement>("[data-reveal]");
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.08 },
-    );
-    elements.forEach((el) => {
-      el.classList.add("will-reveal");
-      observer.observe(el);
-    });
-    return () => {
-      observer.disconnect();
-      elements.forEach((el) => el.classList.remove("will-reveal"));
-    };
   }, [pathname]);
   return null;
 }

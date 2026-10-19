@@ -1929,3 +1929,324 @@ body > #root > div > header nav {
     transform: none;
   }
 }
+
+/* Motion and support build on GMC's existing card system. */
+.brand-logo {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+.footer-logo {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+.nav-support {
+  display: inline-flex;
+  gap: 7px;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 600;
+  min-height: 44px;
+  padding: 10px;
+  border-radius: 10px;
+  transition: background-color 0.2s;
+}
+.nav-support:hover {
+  background: var(--color-lavender);
+}
+.mobile-support {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+  border: 1px solid var(--line);
+  background: var(--color-sky);
+  border-radius: 12px;
+  font-size: 13px;
+  margin-top: 20px;
+}
+.headline-rotator {
+  width: 72%;
+  position: relative;
+  padding-bottom: 30px;
+}
+.hero-title-row h1.rotating-headline {
+  min-height: 1.98em;
+}
+.typewriter-text {
+  white-space: pre-line;
+}
+.typewriter-caret {
+  display: inline-block;
+  width: 3px;
+  height: 0.72em;
+  background: var(--color-primary);
+  margin-left: 7px;
+  animation: caret-blink 1s steps(1) infinite;
+}
+.headline-toggle {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 27px;
+  font-size: 10px;
+  color: var(--color-text-muted);
+  padding: 3px 7px;
+  border-radius: 20px;
+}
+.headline-toggle:hover {
+  background: var(--color-lavender);
+}
+[data-paused="true"] .typewriter-caret {
+  animation: none;
+  opacity: 0.4;
+}
+@keyframes caret-blink {
+  50% {
+    opacity: 0;
+  }
+}
+.hero-video-media {
+  position: absolute;
+  inset: -50px 0;
+}
+.hero-video-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.hero-video-toggle {
+  position: absolute;
+  bottom: 17px;
+  right: 17px;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--line);
+  width: 42px;
+  height: 42px;
+  background: var(--color-bg);
+  border-radius: 50%;
+}
+.hero-sound-toggle {
+  position: absolute;
+  left: 18px;
+  top: 74px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 38px;
+  padding: 8px 13px;
+  background: var(--color-bg);
+  border: 1px solid var(--line);
+  border-radius: 30px;
+  font-size: 11px;
+  font-weight: 600;
+}
+.hero-sound-toggle:hover {
+  background: var(--color-sky);
+}
+.hero-video-toggle:hover {
+  background: var(--color-sky);
+  transform: scale(1.06);
+}
+.hero-message,
+.hero-photo,
+.hero-side {
+  animation: none;
+}
+.service-card {
+  transition:
+    box-shadow 0.25s,
+    background-color 0.25s;
+}
+.team-card {
+  transition: box-shadow 0.25s;
+}
+.team-card:hover {
+  box-shadow: 4px 5px 0 var(--line);
+}
+.gmc-button:active {
+  transform: translateY(1px) scale(0.98);
+  box-shadow: none;
+}
+.gmc-button svg,
+.nav-appointment svg {
+  transition: transform 0.25s;
+}
+.gmc-button:hover svg {
+  transform: translate(2px, -2px);
+}
+button[aria-expanded="true"] .lucide-chevron-down {
+  transform: rotate(180deg);
+}
+.more-menu,
+.quick-contact-panel {
+  animation: panel-enter 0.22s ease-out;
+  transform-origin: top right;
+}
+@keyframes panel-enter {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.donation-section {
+  padding-top: 48px;
+  scroll-margin-top: 110px;
+}
+.donation-card {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 30px;
+  align-items: center;
+  padding: 38px;
+  background: var(--color-sky);
+  border: 1px solid var(--line);
+  border-radius: 25px;
+  box-shadow: 4px 4px 0 #30213d;
+}
+.donation-symbol {
+  width: 78px;
+  height: 78px;
+  border-radius: 22px;
+  display: grid;
+  place-items: center;
+  background: var(--color-bg);
+  border: 1px solid var(--line);
+}
+.donation-copy .eyebrow {
+  margin-bottom: 12px;
+}
+.donation-copy h2 {
+  font-size: clamp(30px, 3.2vw, 43px);
+  font-weight: 600;
+  letter-spacing: -0.055em;
+  line-height: 1.1;
+}
+.donation-copy > p {
+  font-size: 13px;
+  max-width: 47ch;
+  margin-top: 16px;
+}
+.support-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 15px;
+}
+.support-tags > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 10px;
+}
+.donation-action > p {
+  font-size: 10px;
+  line-height: 1.8;
+  margin-top: 15px;
+}
+@media (max-width: 1100px) {
+  .nav-support {
+    display: none;
+  }
+  .donation-card {
+    grid-template-columns: auto 1fr;
+  }
+  .donation-action {
+    grid-column: 2;
+  }
+}
+@media (max-width: 700px) {
+  .brand-logo {
+    width: 38px;
+    height: 40px;
+  }
+  .footer-logo {
+    width: 55px;
+    height: 55px;
+  }
+  .headline-rotator {
+    width: calc(100% - 42px);
+    padding-bottom: 30px;
+  }
+  .hero-intro-aside .care-symbol {
+    width: 35px;
+    height: 35px;
+  }
+  .hero-title-row {
+    align-items: center;
+    gap: 5px;
+  }
+  .hero-title-row h1.rotating-headline {
+    font-size: clamp(43px, 10vw, 68px);
+    min-height: 2em;
+  }
+  .typewriter-caret {
+    width: 2px;
+    margin-left: 3px;
+  }
+  .headline-toggle {
+    font-size: 9px;
+  }
+  .donation-section {
+    padding-top: 30px;
+  }
+  .donation-card {
+    padding: 25px 22px;
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+  .donation-symbol {
+    width: 54px;
+    height: 54px;
+    border-radius: 15px;
+  }
+  .donation-symbol svg {
+    width: 32px;
+  }
+  .donation-action {
+    grid-column: auto;
+  }
+  .donation-action .gmc-button {
+    width: 100%;
+    font-size: 12px;
+    padding-inline: 14px;
+    gap: 8px;
+  }
+  .donation-action > p {
+    font-size: 11px;
+  }
+  .donation-copy h2 {
+    font-size: 35px;
+  }
+  .hero-video-toggle {
+    width: 40px;
+    height: 40px;
+  }
+  .photo-caption {
+    font-size: 15px;
+    max-width: calc(100% - 90px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .typewriter-caret {
+    display: none;
+  }
+  .team-card:hover,
+  .service-card:hover,
+  .gmc-button:hover,
+  .gmc-button:active {
+    transform: none;
+  }
+}

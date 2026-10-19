@@ -38,6 +38,12 @@ Milk, purple, sky blue and lavender surfaces, outlined cards, strong sans-serif 
 
 The shared main landmark supports the skip link on every route. Dialogs isolate background content, trap keyboard focus, close with Escape and restore the triggering control where it remains on the page. The gallery supports left/right arrow keys. Reduced-motion preferences disable entrance, reveal and hover transitions.
 
+Framer Motion powers scroll reveals, staggered cards, hover/tap states and the hero video's scroll-linked parallax. The headline cycles through five short caring messages with a pause/resume control. It reserves space to avoid layout jumps and exposes one stable heading to screen readers. The hero facility video attempts autoplay with sound and inline playback, falling back to muted autoplay with a visible “Tap for sound” control if the browser blocks audio. It has a visible pause control; it pauses offscreen and when the tab is hidden. Reduced-motion visitors get a static headline and a video poster with manual playback.
+
+The supplied GMC SVG mark is used in the header, footer and favicon. `public/images/gmc-logo.svg` is a symbol-only viewBox crop of the provided original, preserving its vector artwork and colours. The supplied source files remain in `public/images/GMC LOGO`.
+
+A prominent patient-support section sits immediately below the hero, with additional links in the desktop header, mobile menu and footer. Its CTA opens WhatsApp with the custom support message in `data/support.ts`. It does not send a message or take a payment automatically.
+
 ## Content and assets
 
 - `data/care.ts`: service information and booking mappings.

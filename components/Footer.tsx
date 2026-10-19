@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import { Plus, ArrowUpRight, Phone, MapPin } from "lucide-react";
+import { SUPPORT_URL } from "../data/support";
+import { CONTACT_EMAILS, WEBSITE_URL } from "../data/contact";
 const links = [
   ["/services", "Our services"],
   ["/doctors", "Our team"],
@@ -19,7 +21,13 @@ export default function Footer() {
         <div className="footer-top">
           <Link to="/" className="footer-brand">
             Goodwill.
-            <Plus size={56} strokeWidth={1.2} />
+            <img
+              className="footer-logo"
+              src="/images/gmc-logo.svg"
+              width="80"
+              height="80"
+              alt="GMC logo"
+            />
           </Link>
           <p>
             A community hospital.
@@ -44,6 +52,14 @@ export default function Footer() {
               <br />
               <strong>TY Danjuma Foundation & PACIEH</strong>
             </p>
+            <a
+              className="footer-inline"
+              href={SUPPORT_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Support a patient <ArrowUpRight size={15} />
+            </a>
           </div>
           <div>
             <span className="footer-label">Find your way</span>
@@ -63,11 +79,19 @@ export default function Footer() {
             <a className="footer-secondary-phone" href="tel:08024094488">
               0802 409 4488
             </a>
+            {CONTACT_EMAILS.map((email) => (
+              <a key={email} className="footer-email" href={`mailto:${email}`}>
+                {email}
+              </a>
+            ))}
             <a
               className="footer-email"
-              href="mailto:goodwillhospital25@gmail.com"
+              href={WEBSITE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              goodwillhospital25@gmail.com
+              goodwillmedicalcentre.org{" "}
+              <ArrowUpRight size={12} className="inline" />
             </a>
             <a
               className="footer-inline"

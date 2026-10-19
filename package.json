@@ -11,6 +11,7 @@
     "test": "node --test tests/website.test.mjs"
   },
   "dependencies": {
+    "framer-motion": "^14.3.0",
     "jspdf": "^4.1.0",
     "jspdf-autotable": "^5.0.7",
     "lucide-react": "^1.55.0",
